@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<title>Saksham Admin Panel</title>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Poppins,sans-serif;
+background:#07111f;
+color:white;
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:30px 20px;
+}
+
+.login{
+max-width:420px;
+margin:100px auto;
+background:#ffffff08;
+border:1px solid #ffffff15;
+padding:30px;
+border-radius:20px;
+}
+
+h1,h2{
+margin-bottom:20px;
+}
+
+input,textarea{
+width:100%;
+padding:13px;
+margin:8px 0 15px;
+border-radius:10px;
+border:1px solid #ffffff20;
+background:#ffffff08;
+color:white;
+outline:none;
+}
+
+textarea{
+min-height:100px;
+resize:vertical;
+}
+
+button{
+padding:12px 20px;
+border:0;
+border-radius:10px;
+cursor:pointer;
+color:white;
+background:linear-gradient(90deg,#00c6ff,#0072ff);
+}
+
+.logout{
+float:right;
+background:#e63946;
+}
+
+.card{
+background:#ffffff08;
+border:1px solid #ffffff15;
+padding:25px;
+border-radius:18px;
+margin-bottom:20px;
+}
+
+.project{
+padding:15px;
+border:1px solid #ffffff15;
+border-radius:12px;
+margin:10px 0;
+}
+
+.project button{
+margin-right:5px;
+}
+
+.hidden{
+display:none;
+}
+
+.message{
+margin:10px 0;
+color:#00c6ff;
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- LOGIN -->
+
+<div id="loginPage" class="login">
+
+<h1>Admin Login</h1>
+
+<form id="loginForm">
+
+<label>Email</label>
+
+<input
+type="email"
+id="email"
+placeholder="Admin email"
+required
+>
+
+<label>Password</label>
+
+<input
+type="password"
+id="password"
+placeholder="Password"
+required
+>
+
+<button type="submit">
+Login
+</button>
+
+</form>
+
+<p id="loginMessage"></p>
+
+</div>
+
+
+
+<!-- ADMIN -->
+
+<div id="adminPage" class="container hidden">
+
+<button id="logoutBtn"
+class="logout">
+Logout
+</button>
+
+<h1>Admin Dashboard</h1>
+
+<p id="status" class="message"></p>
+
+
+<!-- PROFILE -->
+
+<div class="card">
+
+<h2>Profile</h2>
+
+<label>Name</label>
+
+<input id="name">
+
+<label>Short Bio</label>
+
+<textarea id="bio"></textarea>
+
+<label>About</label>
+
+<textarea id="about"></textarea>
+
+<button id="saveProfile">
+Save Profile
+</button>
+
+</div>
+
+
+<!-- SKILLS -->
+
+<div class="card">
+
+<h2>Skills</h2>
+
+<div id="skillsList"></div>
+
+<input
+id="newSkill"
+placeholder="Enter new skill"
+>
+
+<button id="addSkill">
+Add Skill
+</button>
+
+</div>
+
+
+<!-- PROJECTS -->
+
+<div class="card">
+
+<h2>Add Project</h2>
+
+<input
+id="projectTitle"
+placeholder="Project title"
+>
+
+<textarea
+id="projectDescription"
+placeholder="Project description"
+></textarea>
+
+<input
+id="projectImage"
+placeholder="Project image URL"
+>
+
+<input
+id="projectLink"
+placeholder="Project website URL"
+>
+
+<button id="addProject">
+Add Project
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h2>Projects</h2>
+
+<div id="projectsList"></div>
+
+</div>
+
+
+<!-- SOCIAL -->
+
+<div class="card">
+
+<h2>Social Links</h2>
+
+<input
+id="github"
+placeholder="GitHub URL"
+>
+
+<input
+id="facebook"
+placeholder="Facebook URL"
+>
+
+<input
+id="instagram"
+placeholder="Instagram URL"
+>
+
+<button id="saveSocial">
+Save Social Links
+</button>
+
+</div>
+
+</div>
+
+
+<script type="module">
+
+import {
+initializeApp
+}
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+
+
+import {
+getAuth,
+signInWithEmailAndPassword,
+onAuthStateChanged,
+signOut
+}
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
+
+import {
+getFirestore,
+doc,
+getDoc,
+setDoc
+}
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+
+/* =================================
+ FIREBASE CONFIG
+================================= */
+
+const firebaseConfig={
+
+apiKey:"YOUR_API_KEY",
+
+authDomain:"YOUR_PROJECT.firebaseapp.com",
+
+projectId:"YOUR_PROJECT_ID",
+
+storageBucket:"YOUR_PROJECT.firebasestorage.app",
+
+messagingSenderId:"YOUR_SENDER_ID",
+
+appId:"YOUR_APP_ID"
+
+};
+
+
+const app=initializeApp(firebaseConfig);
+
+const auth=getAuth(app);
+
+const db=getFirestore(app);
+
+
+/* =================================
+ ELEMENTS
+================================= */
+
+const loginPage=
+document.getElementById("loginPage");
+
+const adminPage=
+document.getElementById("adminPage");
+
+const loginMessage=
+document.getElementById("loginMessage");
+
+const status=
+document.getElementById("status");
+
+
+let portfolio={
+
+name:"Saksham Shrestha",
+
+bio:"BSc CSIT student and aspiring software developer.",
+
+about:"I am a dedicated BSc CSIT student passionate about technology, web development, mobile applications and software development.",
+
+skills:[
+
+"HTML",
+
+"CSS",
+
+"JavaScript",
+
+"Python",
+
+"C/C++",
+
+"Java",
+
+"Database",
+
+"Android Apps",
+
+"Web Development",
+
+"Real-time Apps"
+
+],
+
+projects:[],
+
+github:"https://github.com/Sakshamstha8",
+
+facebook:"https://www.facebook.com/sakycham.shrestha.7",
+
+instagram:"https://www.instagram.com/saksham_stha1122"
+
+};
+
+
+/* =================================
+ AUTH
+================================= */
+
+onAuthStateChanged(auth,async(user)=>{
+
+if(user){
+
+loginPage.classList.add("hidden");
+
+adminPage.classList.remove("hidden");
+
+await loadData();
+
+}else{
+
+loginPage.classList.remove("hidden");
+
+adminPage.classList.add("hidden");
+
+}
+
+});
+
+
+/* LOGIN */
+
+document
+.getElementById("loginForm")
+.addEventListener("submit",async(e)=>{
+
+e.preventDefault();
+
+const email=
+document.getElementById("email").value;
+
+const password=
+document.getElementById("password").value;
+
+try{
+
+await signInWithEmailAndPassword(
+auth,
+email,
+password
+);
+
+loginMessage.textContent="Login successful";
+
+}catch(error){
+
+loginMessage.textContent=
+"Login failed: "+error.message;
+
+}
+
+});
+
+
+/* LOGOUT */
+
+document
+.getElementById("logoutBtn")
+.addEventListener("click",async()=>{
+
+await signOut(auth);
+
+});
+
+
+/* =================================
+ FIRESTORE
+================================= */
+
+async function loadData(){
+
+try{
+
+const ref=
+doc(db,"portfolio","main");
+
+const snap=
+await getDoc(ref);
+
+if(snap.exists()){
+
+portfolio={
+...portfolio,
+...snap.data()
+};
+
+}else{
+
+await setDoc(ref,portfolio);
+
+}
+
+render();
+
+}catch(error){
+
+status.textContent=
+"Database error: "+error.message;
+
+}
+
+}
+
+
+/* =================================
+ SAVE EVERYTHING
+================================= */
+
+async function saveData(){
+
+try{
+
+await setDoc(
+doc(db,"portfolio","main"),
+portfolio
+);
+
+status.textContent=
+"Saved successfully.";
+
+}catch(error){
+
+status.textContent=
+"Save failed: "+error.message;
+
+}
+
+}
+
+
+/* =================================
+ PROFILE
+================================= */
+
+document
+.getElementById("saveProfile")
+.addEventListener("click",async()=>{
+
+portfolio.name=
+document.getElementById("name").value;
+
+portfolio.bio=
+document.getElementById("bio").value;
+
+portfolio.about=
+document.getElementById("about").value;
+
+await saveData();
+
+render();
+
+});
+
+
+/* =================================
+ SKILLS
+================================= */
+
+document
+.getElementById("addSkill")
+.addEventListener("click",async()=>{
+
+const input=
+document.getElementById("newSkill");
+
+const skill=
+input.value.trim();
+
+if(!skill)return;
+
+portfolio.skills.push(skill);
+
+input.value="";
+
+await saveData();
+
+render();
+
+});
+
+
+function deleteSkill(index){
+
+portfolio.skills.splice(index,1);
+
+saveData();
+
+render();
+
+}
+
+
+/* =================================
+ ADD PROJECT
+================================= */
+
+document
+.getElementById("addProject")
+.addEventListener("click",async()=>{
+
+const title=
+document.getElementById("projectTitle").value.trim();
+
+const description=
+document.getElementById("projectDescription").value.trim();
+
+const image=
+document.getElementById("projectImage").value.trim();
+
+const link=
+document.getElementById("projectLink").value.trim();
+
+if(!title){
+
+alert("Project title is required");
+
+return;
+
+}
+
+portfolio.projects.push({
+
+title,
+
+description,
+
+image,
+
+link
+
+});
+
+
+document.getElementById("projectTitle").value="";
+
+document.getElementById("projectDescription").value="";
+
+document.getElementById("projectImage").value="";
+
+document.getElementById("projectLink").value="";
+
+
+await saveData();
+
+render();
+
+});
+
+
+/* =================================
+ DELETE PROJECT
+================================= */
+
+async function deleteProject(index){
+
+if(!confirm("Delete this project?"))
+return;
+
+portfolio.projects.splice(index,1);
+
+await saveData();
+
+render();
+
+}
+
+
+/* =================================
+ EDIT PROJECT
+================================= */
+
+async function editProject(index){
+
+const project=
+portfolio.projects[index];
+
+const title=
+prompt(
+"Project title:",
+project.title
+);
+
+if(title===null)return;
+
+const description=
+prompt(
+"Description:",
+project.description
+);
+
+if(description===null)return;
+
+const image=
+prompt(
+"Image URL:",
+project.image || ""
+);
+
+if(image===null)return;
+
+const link=
+prompt(
+"Project URL:",
+project.link || ""
+);
+
+if(link===null)return;
+
+
+portfolio.projects[index]={
+
+title,
+
+description,
+
+image,
+
+link
+
+};
+
+await saveData();
+
+render();
+
+}
+
+
+/* =================================
+ SOCIAL
+================================= */
+
+document
+.getElementById("saveSocial")
+.addEventListener("click",async()=>{
+
+portfolio.github=
+document.getElementById("github").value;
+
+portfolio.facebook=
+document.getElementById("facebook").value;
+
+portfolio.instagram=
+document.getElementById("instagram").value;
+
+await saveData();
+
+});
+
+
+/* =================================
+ RENDER ADMIN
+================================= */
+
+function render(){
+
+document.getElementById("name").value=
+portfolio.name || "";
+
+document.getElementById("bio").value=
+portfolio.bio || "";
+
+document.getElementById("about").value=
+portfolio.about || "";
+
+
+/* SKILLS */
+
+const skillsList=
+document.getElementById("skillsList");
+
+skillsList.innerHTML="";
+
+portfolio.skills.forEach((skill,index)=>{
+
+const div=
+document.createElement("div");
+
+div.className="project";
+
+div.innerHTML=`
+
+<strong>${escapeHTML(skill)}</strong>
+
+<button onclick="deleteSkill(${index})">
+Delete
+</button>
+
+`;
+
+skillsList.appendChild(div);
+
+});
+
+
+/* PROJECTS */
+
+const projectsList=
+document.getElementById("projectsList");
+
+projectsList.innerHTML="";
+
+portfolio.projects.forEach((project,index)=>{
+
+const div=
+document.createElement("div");
+
+div.className="project";
+
+div.innerHTML=`
+
+<h3>${escapeHTML(project.title)}</h3>
+
+<p>${escapeHTML(project.description)}</p>
+
+<button onclick="editProject(${index})">
+Edit
+</button>
+
+<button onclick="deleteProject(${index})">
+Delete
+</button>
+
+`;
+
+projectsList.appendChild(div);
+
+});
+
+
+/* SOCIAL */
+
+document.getElementById("github").value=
+portfolio.github || "";
+
+document.getElementById("facebook").value=
+portfolio.facebook || "";
+
+document.getElementById("instagram").value=
+portfolio.instagram || "";
+
+}
+
+
+function escapeHTML(text=""){
+
+return text
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
+
+}
+
+
+/* Make functions available to buttons */
+
+window.deleteSkill=deleteSkill;
+
+window.deleteProject=deleteProject;
+
+window.editProject=editProject;
+
+</script>
+
+</body>
+</html>
