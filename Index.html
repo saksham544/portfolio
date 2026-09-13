@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -455,6 +456,63 @@
         height:220px;
       }
     }
+  
+    /* ===== ADMIN PANEL ===== */
+    .admin-overlay{
+      display:none; position:fixed; inset:0; z-index:3000;
+      background:rgba(2,6,23,.82); backdrop-filter:blur(10px);
+      padding:30px 15px; overflow:auto;
+    }
+    .admin-overlay.active{display:flex; align-items:flex-start; justify-content:center}
+    .admin-panel{
+      width:min(1100px,100%); margin:20px auto; background:#111c31;
+      border:1px solid rgba(255,255,255,.1); border-radius:22px;
+      box-shadow:0 25px 80px rgba(0,0,0,.45); overflow:hidden;
+    }
+    .admin-head{
+      padding:22px 25px; display:flex; justify-content:space-between;
+      align-items:center; gap:15px; border-bottom:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(135deg,rgba(0,198,255,.12),rgba(0,114,255,.08));
+    }
+    .admin-head h2{margin:0;color:#fff}
+    .admin-close{border:0;background:rgba(255,255,255,.08);color:#fff;
+      width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:20px}
+    .admin-body{padding:25px}
+    .admin-login{max-width:430px;margin:40px auto}
+    .admin-form{display:grid;gap:14px}
+    .admin-form label{font-size:.9rem;color:var(--muted)}
+    .admin-form input,.admin-form textarea,.admin-form select{
+      width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);
+      background:#0b1324;color:#fff;outline:none
+    }
+    .admin-form textarea{min-height:100px;resize:vertical}
+    .admin-form input:focus,.admin-form textarea:focus{border-color:var(--primary)}
+    .admin-error{color:#fb7185;min-height:20px;font-size:.9rem}
+    .admin-success{color:#4ade80;min-height:20px;font-size:.9rem}
+    .admin-toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:25px}
+    .admin-tab{border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);
+      color:#fff;padding:10px 15px;border-radius:10px;cursor:pointer}
+    .admin-tab.active,.admin-tab:hover{background:linear-gradient(45deg,var(--primary),var(--secondary))}
+    .admin-section{display:none}.admin-section.active{display:block}
+    .admin-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+    .admin-card{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;padding:18px}
+    .admin-card h3{margin-bottom:15px}
+    .admin-project-list{display:grid;gap:12px;margin-top:20px}
+    .admin-project-row{display:flex;gap:12px;align-items:center;padding:12px;
+      background:rgba(255,255,255,.035);border-radius:12px}
+    .admin-project-row img{width:70px;height:55px;object-fit:cover;border-radius:8px}
+    .admin-project-info{flex:1;min-width:0}.admin-project-info strong{display:block}
+    .admin-project-info small{color:var(--muted);word-break:break-all}
+    .admin-actions{display:flex;gap:7px;flex-wrap:wrap}
+    .mini-btn{border:0;padding:8px 11px;border-radius:9px;cursor:pointer;color:#fff}
+    .edit-btn{background:#2563eb}.delete-btn{background:#dc2626}
+    .admin-login-link{cursor:pointer}
+    @media(max-width:600px){
+      .admin-overlay{padding:10px}.admin-body{padding:16px}
+      .admin-head{padding:16px}.admin-project-row{align-items:flex-start;flex-wrap:wrap}
+    }
+
   </style>
 </head>
 
@@ -472,6 +530,8 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="#" class="admin-login-link" id="adminMenuLink"><i class="fas fa-user-shield"></i> <span id="adminMenuText">Admin Login</span></a></li>
+        <li id="headerLogoutItem" style="display:none"><a href="#" id="headerLogoutLink"><i class="fas fa-right-from-bracket"></i> Logout</a></li>
       </ul>
 
       <div class="menu-btn" id="menuBtn">
@@ -709,56 +769,413 @@ Thank you for visiting my profile. I look forward to connecting with professiona
   </div>
 </section>
 
+
+<!-- ===== ADMIN PANEL ===== -->
+<div class="admin-overlay" id="adminOverlay">
+  <div class="admin-panel">
+    <div class="admin-head">
+      <h2><i class="fas fa-user-shield"></i> Portfolio Admin Panel</h2>
+      <button class="admin-close" id="adminClose" aria-label="Close"><i class="fas fa-times"></i></button>
+    </div>
+
+    <div class="admin-body">
+      <div class="admin-login" id="adminLoginBox">
+        <div class="section-title">
+          <h2>Admin Login</h2>
+          <p>Manage your portfolio content</p>
+        </div>
+        <form class="admin-form" id="adminLoginForm">
+          <div>
+            <label>Username</label>
+            <input id="adminUsername" autocomplete="username" required>
+          </div>
+          <div>
+            <label>Password</label>
+            <input id="adminPassword" type="password" autocomplete="current-password" required>
+          </div>
+          <button class="btn btn-primary" type="submit"><i class="fas fa-right-to-bracket"></i> Login</button>
+          <div class="admin-error" id="loginError"></div>
+        </form>
+      </div>
+
+      <div id="adminDashboard" style="display:none">
+        <div class="admin-toolbar">
+          <button class="admin-tab active" data-tab="profile">Profile</button>
+          <button class="admin-tab" data-tab="projects">Projects</button>
+          <button class="admin-tab" data-tab="skills">Skills</button>
+          <button class="admin-tab" data-tab="contact">Contact</button>
+          <button class="admin-tab" data-tab="appearance">Appearance</button>
+          <button class="admin-tab" id="adminLogout">Logout</button>
+        </div>
+
+        <div class="admin-section active" id="tab-profile">
+          <div class="admin-card">
+            <h3>Edit Profile / About</h3>
+            <form class="admin-form" id="profileForm">
+              <div><label>Name</label><input id="pName" required></div>
+              <div><label>Hero subtitle</label><input id="pSubtitle"></div>
+              <div><label>Hero description</label><textarea id="pHero"></textarea></div>
+              <div><label>About text</label><textarea id="pAbout"></textarea></div>
+              <div><label>Profile image URL</label><input id="pImage"></div>
+              <button class="btn btn-primary">Save Profile</button>
+              <div class="admin-success" id="profileMsg"></div>
+            </form>
+          </div>
+        </div>
+
+        <div class="admin-section" id="tab-projects">
+          <div class="admin-grid">
+            <div class="admin-card">
+              <h3>Add / Edit Project</h3>
+              <form class="admin-form" id="projectForm">
+                <input id="projectId" type="hidden">
+                <div><label>Project name</label><input id="projectName" required></div>
+                <div><label>Description</label><textarea id="projectDescription" required></textarea></div>
+                <div><label>Project image URL</label><input id="projectImage" placeholder="https://..." required></div>
+                <div><label>Project URL</label><input id="projectUrl" placeholder="https://..." required></div>
+                <button class="btn btn-primary" id="projectSaveBtn">Add Project</button>
+                <button type="button" class="btn btn-outline" id="projectCancelBtn" style="display:none">Cancel Edit</button>
+                <div class="admin-success" id="projectMsg"></div>
+              </form>
+            </div>
+            <div class="admin-card">
+              <h3>Your Projects</h3>
+              <div class="admin-project-list" id="adminProjectList"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-section" id="tab-skills">
+          <div class="admin-card">
+            <h3>Manage Skills</h3>
+            <form class="admin-form" id="skillForm">
+              <div><label>Add skill name</label><input id="skillName" placeholder="Android Development" required></div>
+              <div><label>Font Awesome icon class</label><input id="skillIcon" placeholder="fas fa-mobile-screen-button"></div>
+              <button class="btn btn-primary">Add Skill</button>
+              <div class="admin-success" id="skillMsg"></div>
+            </form>
+            <div class="admin-project-list" id="adminSkillList"></div>
+          </div>
+        </div>
+
+        <div class="admin-section" id="tab-contact">
+          <div class="admin-card">
+            <h3>Edit Contact & Social Links</h3>
+            <form class="admin-form" id="contactForm">
+              <div><label>Email</label><input id="cEmail"></div>
+              <div><label>Phone</label><input id="cPhone"></div>
+              <div><label>Location</label><input id="cLocation"></div>
+              <div><label>GitHub URL</label><input id="cGithub"></div>
+              <div><label>LinkedIn URL</label><input id="cLinkedin"></div>
+              <div><label>Facebook URL</label><input id="cFacebook"></div>
+              <div><label>Instagram URL</label><input id="cInstagram"></div>
+              <div><label>X/Twitter URL</label><input id="cTwitter"></div>
+              <button class="btn btn-primary">Save Contact</button>
+              <div class="admin-success" id="contactMsg"></div>
+            </form>
+          </div>
+        </div>
+
+        <div class="admin-section" id="tab-appearance">
+          <div class="admin-card">
+            <h3>Appearance</h3>
+            <form class="admin-form" id="appearanceForm">
+              <div><label>Primary color</label><input id="aPrimary" type="color"></div>
+              <div><label>Secondary color</label><input id="aSecondary" type="color"></div>
+              <button class="btn btn-primary">Save Appearance</button>
+              <div class="admin-success" id="appearanceMsg"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <footer>
   <div class="container">
     <p>© 2026 Saksham Shrestha. All Rights Reserved.</p>
   </div>
 </footer>
 
-<script>
-  // Mobile Menu
 
+<script>
+  // ===== BASIC PORTFOLIO =====
   const menuBtn = document.getElementById('menuBtn');
   const navLinks = document.getElementById('navLinks');
 
-  menuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
-
+  menuBtn.addEventListener('click', () => navLinks.classList.toggle('active'));
   document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('active');
-    });
+    link.addEventListener('click', () => navLinks.classList.remove('active'));
   });
-
-  // Scroll Animation
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add('show');
-      }
+      if(entry.isIntersecting) entry.target.classList.add('show');
     });
-  }, {
-    threshold: 0.15
-  });
-
-  document.querySelectorAll('.hidden').forEach(el => {
-    observer.observe(el);
-  });
-
-  // Header Background on Scroll
+  }, {threshold:0.15});
+  document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
 
   window.addEventListener('scroll', () => {
     const header = document.querySelector('header');
-
-    if(window.scrollY > 50){
-      header.style.background = 'rgba(15,23,42,.96)';
-    } else {
-      header.style.background = 'rgba(15,23,42,.85)';
-    }
+    header.style.background = window.scrollY > 50
+      ? 'rgba(15,23,42,.96)' : 'rgba(15,23,42,.85)';
   });
+
+  // ===== ADMIN DATA =====
+  const ADMIN_USER = "9762304280";
+  const ADMIN_PASS = "Parbat@80";
+  const STORAGE_KEY = "sakshamPortfolioAdminData";
+
+  const defaultData = {
+    profile: {
+      name: "Saksham Shrestha",
+      subtitle: "Hello, I'm",
+      hero: "I'm Saksham Shrestha, a passionate BSc CSIT student and aspiring software developer. I enjoy creating responsive web applications and exploring new technologies to improve my skills. My career goal is to build impactful digital solutions and grow as a technology professional.",
+      about: "Hello, I'm Saksham Shrestha, a dedicated and enthusiastic BSc CSIT student at Aadim National College, with an expected graduation year of 2028. I am passionate about technology and enjoy creating modern, responsive, and user-friendly websites. My interests include web development, user interface design, and exploring emerging technologies that solve real-world problems.",
+      image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHGPcQIDSQC_yT2tmBOI0uoyJMKperPYEp0CCa3HdKO_YkJ0TginGP11KS3gKgxkGeIuE1VKp5WLuwpBYXHirZG_XX3mqLM_rIpQ6t3WM8zhRBp1VoQEIgfuVW5Uvjqom0by9xAMfKVSRRQNHabnzf5xJdI1P43OYaPmMmRcOk5HepX10b3X1m6RYFRIDz/w256-h256-p-k-no-nu/1000043591.jpg"
+    },
+    projects: [
+      {id:crypto.randomUUID(),name:"Personal CV",description:"My personal CV and professional profile.",image:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiyqPLkVpf36p5_ivWDXCRH9bEFCYPyEwmfjqnw408lTmwJjxFCw83DeE_uFuZOzyXsAuBwMxjYQIIO6OVIWlwM6g-1naUb3O7PnTwvfGi0qSvknqhBWqvqTtUwqvQjuzEHt_Lxl2KGmR59kWFv0A__qgB2KXvF5z9O_0tmcVJg-qNoaa6JS2dQADahNifN/s320/1000072684.jpg",url:"https://sites.google.com/view/saksham-shrestha-80/home"},
+      {id:crypto.randomUUID(),name:"E-Commerce Website",description:"An e-commerce website for online ordering and tracking.",image:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiofB9op1F7F6599jppv8GjOcN-lHmDX91Glk3VpVDB9KHWGP0mwRsHuRN2zbWrIdcZow1Gt29SA8w4Vh92BVIqXO1OpdLHsjE3iI4gZnIJuodiSP7EIdrESu4fNwOyyIOmfjwC-LBSjW5LfroIPkBON6Cc77EI7IQlA7SQvH8W3o3Fx3ngp9zDYRURs2-E/w1684-h1069-p-k-no-nu/1000072697.jpg",url:"https://pragmatic-order-flow-track.base44.app"},
+      {id:crypto.randomUUID(),name:"Nearby Social",description:"Find people around 5 km and share posts or images.",image:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZfbli3Zd-Va7_60U9PyA7tRe8mPUEdDidAKWpYRL9ml5rPeC5qYycVHSHEVuPoxaPObAA46Rre1qr0TK7DQBo3zFP9KKloSjFmC1wW9NBgvJljAQvobs8TQCq6-z9DudTLVWxDf4ouBEB77FRR1Pp48TocUl-bBuzmGNIYVGhTOdflAs74LUR06RHtIP7/s320/1000070797.png",url:"https://heart-echo-copy-29935bc5.base44.app"},
+      {id:crypto.randomUUID(),name:"Biplov Electric Shop",description:"A modern electric shop product and ordering application.",image:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiepYJSHz-tjYWFOXpj9r_9RyN1ARi__hLYmlBFfko1WPaantILnark9sc-Ukckvuh2v4Y-HGSfmRGHUPll43icptTaqqZlJCGx_GQl7X3ZkMqFlftkRTAwX6gWzxGAAKwzEVhl65q2jkq_L2cbeb7y6GHXnQzztojQSP8qk73KY720NJzi5MQafE07fMQQ/w1684-h1069-p-k-no-nu/1000072703.jpg",url:"https://biplov-electric.base44.app"}
+    ],
+    skills: [
+      {id:crypto.randomUUID(),name:"HTML5",icon:"fab fa-html5"},
+      {id:crypto.randomUUID(),name:"CSS3",icon:"fab fa-css3-alt"},
+      {id:crypto.randomUUID(),name:"JavaScript",icon:"fab fa-js"},
+      {id:crypto.randomUUID(),name:"Python",icon:"fab fa-python"},
+      {id:crypto.randomUUID(),name:"C Programming",icon:"fas fa-code"},
+      {id:crypto.randomUUID(),name:"Web Development",icon:"fas fa-laptop-code"}
+    ],
+    contact:{
+      email:"shresthasaksham712@gmail.com",phone:"+977 9762304280",location:"Kathmandu, Nepal",
+      github:"https://github.com/saksham544",linkedin:"#",
+      facebook:"https://www.facebook.com/sakycham.shrestha.7",
+      instagram:"https://www.instagram.com/saksham_stha1122?igsh=MTJubHBhMTBicmkxNQ==",twitter:"#"
+    },
+    appearance:{primary:"#00c6ff",secondary:"#0072ff"}
+  };
+
+  function clone(obj){ return JSON.parse(JSON.stringify(obj)); }
+  let data;
+  try {
+    data = JSON.parse(localStorage.getItem(STORAGE_KEY)) || clone(defaultData);
+  } catch(e){ data = clone(defaultData); }
+
+  // ===== RENDER =====
+  function saveData(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }
+
+  function renderProjects(){
+    const grid = document.querySelector('.projects-grid');
+    grid.innerHTML = data.projects.map(p => `
+      <div class="project-card hidden show">
+        <div class="project-image"><img src="${escapeAttr(p.image)}" alt="${escapeAttr(p.name)}"></div>
+        <div class="project-content">
+          <h3>${escapeHtml(p.name)}</h3>
+          <p>${escapeHtml(p.description)}</p>
+          <a href="${escapeAttr(p.url)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View Project</a>
+        </div>
+      </div>`).join('');
+  }
+
+  function renderSkills(){
+    document.querySelector('.skills-grid').innerHTML = data.skills.map(s => `
+      <div class="skill-card hidden show"><i class="${escapeAttr(s.icon || 'fas fa-code')}"></i><h3>${escapeHtml(s.name)}</h3></div>
+    `).join('');
+  }
+
+  function renderProfile(){
+    document.querySelector('.logo').textContent = data.profile.name;
+    document.querySelector('.hero-text h1 span').textContent = data.profile.name;
+    document.querySelector('.hero-text h3').textContent = data.profile.subtitle;
+    document.querySelector('.hero-text p').textContent = data.profile.hero;
+    document.querySelector('.about-box p').textContent = data.profile.about;
+    document.querySelector('.hero-image img').src = data.profile.image;
+  }
+
+  function renderContact(){
+    const items = document.querySelectorAll('.contact-item p');
+    items[0].textContent=data.contact.email;
+    items[1].textContent=data.contact.phone;
+    items[2].textContent=data.contact.location;
+    const links=document.querySelectorAll('.social-links a');
+    [data.contact.github,data.contact.linkedin,data.contact.facebook,data.contact.instagram,data.contact.twitter]
+      .forEach((url,i)=>links[i].href=url || "#");
+  }
+
+  function renderAppearance(){
+    document.documentElement.style.setProperty('--primary',data.appearance.primary);
+    document.documentElement.style.setProperty('--secondary',data.appearance.secondary);
+  }
+
+  function renderAll(){
+    renderProfile(); renderProjects(); renderSkills(); renderContact(); renderAppearance();
+  }
+
+  function escapeHtml(v){return String(v).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));}
+  function escapeAttr(v){return escapeHtml(v);}
+
+  // ===== ADMIN UI =====
+  const overlay=document.getElementById('adminOverlay');
+  const loginBox=document.getElementById('adminLoginBox');
+  const dashboard=document.getElementById('adminDashboard');
+
+  function openAdmin(){
+    overlay.classList.add('active');
+    document.getElementById('adminUsername').focus();
+  }
+  function closeAdmin(){overlay.classList.remove('active');}
+  function loggedIn(){return sessionStorage.getItem('sakshamAdminLoggedIn')==='true';}
+
+  function updateHeaderAdminState(){
+    const logoutItem=document.getElementById('headerLogoutItem');
+    const menuText=document.getElementById('adminMenuText');
+    if(loggedIn()){
+      logoutItem.style.display='list-item';
+      menuText.textContent='Admin Panel';
+    }else{
+      logoutItem.style.display='none';
+      menuText.textContent='Admin Login';
+    }
+  }
+
+  function showDashboard(){
+    loginBox.style.display='none'; dashboard.style.display='block'; loadAdminForms(); renderAdminProjects(); renderAdminSkills();
+  }
+  function showLogin(){
+    loginBox.style.display='block'; dashboard.style.display='none';
+  }
+
+  document.getElementById('adminMenuLink').addEventListener('click',e=>{
+    e.preventDefault(); openAdmin(); loggedIn()?showDashboard():showLogin();
+  });
+  document.getElementById('adminClose').addEventListener('click',closeAdmin);
+  overlay.addEventListener('click',e=>{if(e.target===overlay)closeAdmin();});
+
+  document.getElementById('adminLoginForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    const u=document.getElementById('adminUsername').value;
+    const p=document.getElementById('adminPassword').value;
+    if(u===ADMIN_USER && p===ADMIN_PASS){
+      sessionStorage.setItem('sakshamAdminLoggedIn','true');
+      document.getElementById('loginError').textContent='';
+      updateHeaderAdminState();
+      showDashboard();
+    }else document.getElementById('loginError').textContent='Invalid username or password.';
+  });
+
+  document.querySelectorAll('.admin-tab[data-tab]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.admin-tab[data-tab]').forEach(x=>x.classList.remove('active'));
+      document.querySelectorAll('.admin-section').forEach(x=>x.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  document.getElementById('adminLogout').addEventListener('click',()=>{
+    sessionStorage.removeItem('sakshamAdminLoggedIn');
+    updateHeaderAdminState();
+    showLogin();
+  });
+
+  document.getElementById('headerLogoutLink').addEventListener('click',e=>{
+    e.preventDefault();
+    sessionStorage.removeItem('sakshamAdminLoggedIn');
+    updateHeaderAdminState();
+    closeAdmin();
+  });
+
+  function loadAdminForms(){
+    const p=data.profile;
+    pName.value=p.name;pSubtitle.value=p.subtitle;pHero.value=p.hero;pAbout.value=p.about;pImage.value=p.image;
+    cEmail.value=data.contact.email;cPhone.value=data.contact.phone;cLocation.value=data.contact.location;
+    cGithub.value=data.contact.github;cLinkedin.value=data.contact.linkedin;cFacebook.value=data.contact.facebook;
+    cInstagram.value=data.contact.instagram;cTwitter.value=data.contact.twitter;
+    aPrimary.value=data.appearance.primary;aSecondary.value=data.appearance.secondary;
+  }
+
+  document.getElementById('profileForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    data.profile={name:pName.value,subtitle:pSubtitle.value,hero:pHero.value,about:pAbout.value,image:pImage.value};
+    saveData();renderAll();profileMsg.textContent='Profile saved successfully.';
+  });
+
+  function resetProjectForm(){
+    projectId.value='';projectName.value='';projectDescription.value='';projectImage.value='';projectUrl.value='';
+    projectSaveBtn.textContent='Add Project';projectCancelBtn.style.display='none';
+  }
+
+  document.getElementById('projectForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    const id=projectId.value;
+    const obj={id:id||crypto.randomUUID(),name:projectName.value,description:projectDescription.value,image:projectImage.value,url:projectUrl.value};
+    if(id) data.projects=data.projects.map(p=>p.id===id?obj:p);
+    else data.projects.push(obj);
+    saveData();renderProjects();renderAdminProjects();resetProjectForm();
+    projectMsg.textContent=id?'Project updated successfully.':'Project added successfully.';
+  });
+  projectCancelBtn.addEventListener('click',resetProjectForm);
+
+  function renderAdminProjects(){
+    adminProjectList.innerHTML=data.projects.length?data.projects.map(p=>`
+      <div class="admin-project-row">
+        <img src="${escapeAttr(p.image)}" alt="">
+        <div class="admin-project-info"><strong>${escapeHtml(p.name)}</strong><small>${escapeHtml(p.url)}</small></div>
+        <div class="admin-actions">
+          <button class="mini-btn edit-btn" onclick="editProject('${p.id}')"><i class="fas fa-edit"></i></button>
+          <button class="mini-btn delete-btn" onclick="deleteProject('${p.id}')"><i class="fas fa-trash"></i></button>
+        </div>
+      </div>`).join(''):'<p style="color:var(--muted)">No projects yet.</p>';
+  }
+
+  window.editProject=function(id){
+    const p=data.projects.find(x=>x.id===id); if(!p)return;
+    projectId.value=p.id;projectName.value=p.name;projectDescription.value=p.description;projectImage.value=p.image;projectUrl.value=p.url;
+    projectSaveBtn.textContent='Update Project';projectCancelBtn.style.display='inline-block';
+    document.querySelector('[data-tab="projects"]').click();
+    document.getElementById('projectName').focus();
+  };
+  window.deleteProject=function(id){
+    if(!confirm('Delete this project?'))return;
+    data.projects=data.projects.filter(p=>p.id!==id);saveData();renderProjects();renderAdminProjects();
+  };
+
+  document.getElementById('skillForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    data.skills.push({id:crypto.randomUUID(),name:skillName.value,icon:skillIcon.value||'fas fa-code'});
+    saveData();renderSkills();renderAdminSkills();skillName.value='';skillIcon.value='';skillMsg.textContent='Skill added.';
+  });
+  function renderAdminSkills(){
+    adminSkillList.innerHTML=data.skills.map(s=>`
+      <div class="admin-project-row">
+        <i class="${escapeAttr(s.icon)}" style="font-size:1.5rem;color:var(--primary)"></i>
+        <div class="admin-project-info"><strong>${escapeHtml(s.name)}</strong><small>${escapeHtml(s.icon)}</small></div>
+        <button class="mini-btn delete-btn" onclick="deleteSkill('${s.id}')"><i class="fas fa-trash"></i></button>
+      </div>`).join('');
+  }
+  window.deleteSkill=function(id){
+    if(!confirm('Delete this skill?'))return;
+    data.skills=data.skills.filter(s=>s.id!==id);saveData();renderSkills();renderAdminSkills();
+  };
+
+  document.getElementById('contactForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    data.contact={email:cEmail.value,phone:cPhone.value,location:cLocation.value,github:cGithub.value,linkedin:cLinkedin.value,facebook:cFacebook.value,instagram:cInstagram.value,twitter:cTwitter.value};
+    saveData();renderContact();contactMsg.textContent='Contact details saved.';
+  });
+
+  document.getElementById('appearanceForm').addEventListener('submit',e=>{
+    e.preventDefault();data.appearance={primary:aPrimary.value,secondary:aSecondary.value};
+    saveData();renderAppearance();appearanceMsg.textContent='Appearance saved.';
+  });
+
+  renderAll();
+  updateHeaderAdminState();
 </script>
+
 
 </body>
 </html>
