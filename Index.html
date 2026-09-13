@@ -7,3534 +7,2936 @@
 <title>Saksham Shrestha | Portfolio</title>
 
 <meta name="description"
-      content="Saksham Shrestha - BSc CSIT student and aspiring software developer.">
+content="Saksham Shrestha - BSc CSIT Student and Aspiring Software Developer">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet">
+rel="stylesheet">
 
 <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 <style>
-:root {
-    --primary: #00c6ff;
-    --secondary: #0072ff;
-    --bg: #050816;
-    --bg2: #071225;
-    --card: rgba(255,255,255,.06);
-    --border: rgba(255,255,255,.12);
-    --text: #ffffff;
-    --muted: #aab7cf;
-    --danger: #ff4d6d;
-    --success: #00d084;
-    --shadow: 0 20px 60px rgba(0,0,0,.35);
+:root{
+  --primary:#00c6ff;
+  --secondary:#0072ff;
+  --bg:#030914;
+  --bg2:#081426;
+  --card:rgba(255,255,255,.06);
+  --border:rgba(255,255,255,.12);
+  --text:#fff;
+  --muted:#b7c3d8;
+  --danger:#ff4d67;
+  --success:#27d980;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
 }
 
-html {
-    scroll-behavior: smooth;
+body{
+  font-family:Poppins,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 10% 10%,rgba(0,198,255,.12),transparent 30%),
+    radial-gradient(circle at 90% 90%,rgba(0,114,255,.15),transparent 30%),
+    linear-gradient(135deg,var(--bg),var(--bg2));
+  min-height:100vh;
+  overflow-x:hidden;
 }
 
-body {
-    font-family: "Poppins", sans-serif;
-    background:
-        radial-gradient(circle at 10% 10%, rgba(0,198,255,.10), transparent 25%),
-        radial-gradient(circle at 90% 20%, rgba(0,114,255,.10), transparent 25%),
-        var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-    overflow-x: hidden;
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+  opacity:.35;
+  background:
+    linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+  background-size:50px 50px;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
+a{
+  text-decoration:none;
+  color:inherit;
 }
 
-img {
-    max-width: 100%;
-    display: block;
+button,input,textarea{
+  font-family:inherit;
 }
 
-button,
-input,
-textarea {
-    font-family: inherit;
+button{
+  cursor:pointer;
 }
 
-button {
-    cursor: pointer;
+.container{
+  width:min(1150px,92%);
+  margin:auto;
 }
 
-/* =========================
-   HEADER
-========================= */
+/* NAV */
 
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background: rgba(5,8,22,.78);
-    backdrop-filter: blur(18px);
-    border-bottom: 1px solid var(--border);
+header{
+  position:fixed;
+  left:0;
+  top:0;
+  width:100%;
+  z-index:1000;
+  background:rgba(3,9,20,.8);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
 }
 
-.navbar {
-    width: min(1180px, 92%);
-    margin: auto;
-    height: 76px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.nav{
+  min-height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
 }
 
-.logo {
-    font-size: 22px;
-    font-weight: 800;
-    background: linear-gradient(90deg,var(--primary),var(--secondary));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+.logo{
+  font-size:1.35rem;
+  font-weight:800;
+  background:linear-gradient(90deg,var(--primary),var(--secondary));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 28px;
+.nav-links{
+  display:flex;
+  gap:25px;
 }
 
-.nav-links a {
-    color: #dbe7ff;
-    font-size: 14px;
-    font-weight: 500;
-    transition: .25s;
+.nav-links a{
+  color:#dbe8ff;
+  font-size:.92rem;
+  transition:.3s;
 }
 
-.nav-links a:hover {
-    color: var(--primary);
+.nav-links a:hover{
+  color:var(--primary);
 }
 
-.menu-btn {
-    display: none;
-    background: transparent;
-    border: 0;
-    color: white;
-    font-size: 25px;
-}
-
-/* =========================
-   GENERAL
-========================= */
+/* HERO */
 
-section {
-    width: min(1180px, 92%);
-    margin: auto;
-    padding: 100px 0;
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding:120px 0 70px;
 }
 
-.section-title {
-    text-align: center;
-    margin-bottom: 50px;
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:60px;
+  align-items:center;
 }
 
-.section-title h2 {
-    font-size: 35px;
-    margin-bottom: 10px;
+.hero-text small{
+  color:var(--primary);
+  letter-spacing:3px;
+  font-weight:600;
 }
 
-.section-title span {
-    color: var(--primary);
+.hero-text h1{
+  font-size:clamp(2.6rem,7vw,5rem);
+  line-height:1.05;
+  margin:15px 0;
 }
 
-.section-title p {
-    color: var(--muted);
+.gradient{
+  background:linear-gradient(90deg,var(--primary),var(--secondary));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
-/* =========================
-   HERO
-========================= */
-
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding-top: 100px;
+.hero-text h2{
+  min-height:40px;
+  font-size:clamp(1.2rem,3vw,1.8rem);
+  margin-bottom:18px;
 }
 
-.hero-container {
-    width: min(1180px, 92%);
-    margin: auto;
-    display: grid;
-    grid-template-columns: 1.15fr .85fr;
-    gap: 60px;
-    align-items: center;
+.hero-text p{
+  color:var(--muted);
+  line-height:1.8;
+  max-width:680px;
 }
 
-.hero-small {
-    color: var(--primary);
-    font-weight: 600;
-    margin-bottom: 10px;
+.buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:28px;
 }
 
-.hero h1 {
-    font-size: clamp(40px, 6vw, 72px);
-    line-height: 1.1;
-    margin-bottom: 15px;
+.btn{
+  border:0;
+  padding:13px 21px;
+  border-radius:12px;
+  color:white;
+  font-weight:600;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  transition:.3s;
 }
 
-.hero h1 span {
-    background: linear-gradient(90deg,var(--primary),var(--secondary));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+.btn:hover{
+  transform:translateY(-3px);
 }
 
-.typing {
-    min-height: 35px;
-    color: #dbe7ff;
-    font-size: 20px;
-    font-weight: 500;
+.primary-btn{
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  box-shadow:0 10px 30px rgba(0,114,255,.25);
 }
 
-.hero-bio {
-    color: var(--muted);
-    margin: 20px 0;
-    max-width: 650px;
+.secondary-btn{
+  background:rgba(255,255,255,.06);
+  border:1px solid var(--border);
 }
 
-.hero-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-top: 25px;
+.hero-image-wrap{
+  display:flex;
+  justify-content:center;
 }
 
-.btn {
-    border: 0;
-    padding: 13px 22px;
-    border-radius: 12px;
-    font-weight: 600;
-    display: inline-flex;
-    gap: 9px;
-    align-items: center;
-    justify-content: center;
-    transition: .25s;
+.image-ring{
+  width:min(360px,80vw);
+  height:min(360px,80vw);
+  padding:8px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--primary),var(--secondary),transparent);
+  box-shadow:0 0 70px rgba(0,198,255,.18);
+  animation:float 5s ease-in-out infinite;
 }
 
-.btn-primary {
-    background: linear-gradient(90deg,var(--primary),var(--secondary));
-    color: white;
-    box-shadow: 0 10px 30px rgba(0,114,255,.25);
+.profile-image{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:50%;
+  border:7px solid #081426;
+  background:#111827;
 }
 
-.btn-secondary {
-    background: rgba(255,255,255,.06);
-    border: 1px solid var(--border);
-    color: white;
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
 }
 
-.btn:hover {
-    transform: translateY(-3px);
-}
+/* SECTIONS */
 
-.hero-image-wrap {
-    display: flex;
-    justify-content: center;
+section{
+  padding:90px 0;
 }
 
-.hero-image {
-    width: 330px;
-    height: 330px;
-    border-radius: 50%;
-    padding: 7px;
-    background: linear-gradient(135deg,var(--primary),var(--secondary));
-    box-shadow:
-        0 0 45px rgba(0,198,255,.20),
-        0 0 100px rgba(0,114,255,.15);
+.section-title{
+  text-align:center;
+  margin-bottom:50px;
 }
 
-.hero-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 5px solid var(--bg);
+.section-title span{
+  color:var(--primary);
+  font-size:.8rem;
+  letter-spacing:3px;
+  font-weight:600;
 }
 
-/* =========================
-   ABOUT
-========================= */
-
-.about-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 25px;
-    padding: 35px;
-    box-shadow: var(--shadow);
+.section-title h2{
+  font-size:clamp(2rem,5vw,3rem);
+  margin-top:7px;
 }
 
-.about-card p {
-    color: var(--muted);
-    margin-bottom: 18px;
+.section-title p{
+  color:var(--muted);
+  max-width:650px;
+  margin:12px auto;
+  line-height:1.7;
 }
 
-.objective {
-    padding: 20px;
-    border-left: 3px solid var(--primary);
-    background: rgba(0,198,255,.05);
-    border-radius: 10px;
-}
+/* GLASS */
 
-.objective strong {
-    display: block;
-    margin-bottom: 5px;
-    color: var(--primary);
+.glass{
+  background:var(--card);
+  border:1px solid var(--border);
+  backdrop-filter:blur(15px);
+  border-radius:22px;
 }
 
-/* =========================
-   SKILLS
-========================= */
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(5,1fr);
-    gap: 18px;
-}
+/* ABOUT */
 
-.skill-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 25px 15px;
-    text-align: center;
-    transition: .25s;
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
 }
 
-.skill-card:hover {
-    transform: translateY(-7px);
-    border-color: var(--primary);
+.about-card{
+  padding:30px;
 }
 
-.skill-card i {
-    font-size: 35px;
-    color: var(--primary);
-    margin-bottom: 12px;
+.about-card h3{
+  color:var(--primary);
+  margin-bottom:15px;
 }
 
-.skill-card h3 {
-    font-size: 15px;
+.about-card p{
+  color:var(--muted);
+  line-height:1.85;
+  white-space:pre-line;
 }
 
-/* =========================
-   PROJECTS
-========================= */
+/* SKILLS */
 
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 25px;
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:18px;
 }
 
-.project-card {
-    overflow: hidden;
-    border-radius: 20px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    transition: .25s;
+.skill-card{
+  padding:25px 15px;
+  text-align:center;
+  transition:.3s;
 }
 
-.project-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--primary);
+.skill-card:hover{
+  transform:translateY(-7px);
+  border-color:var(--primary);
 }
 
-.project-image {
-    height: 240px;
-    background: #0a1020;
-    overflow: hidden;
+.skill-card i{
+  color:var(--primary);
+  font-size:2.3rem;
+  margin-bottom:14px;
 }
 
-.project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: .4s;
+.skill-card h3{
+  font-size:1rem;
 }
 
-.project-card:hover .project-image img {
-    transform: scale(1.05);
-}
+/* PROJECTS */
 
-.project-content {
-    padding: 22px;
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+  gap:25px;
 }
 
-.project-content h3 {
-    margin-bottom: 15px;
+.project-card{
+  overflow:hidden;
+  transition:.3s;
 }
 
-.project-content a {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--primary);
-    font-weight: 600;
+.project-card:hover{
+  transform:translateY(-7px);
 }
-
-/* =========================
-   CONTACT
-========================= */
 
-.contact-grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 20px;
+.project-image{
+  width:100%;
+  height:210px;
+  object-fit:cover;
+  background:#111827;
 }
 
-.contact-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 25px;
-    text-align: center;
+.project-body{
+  padding:22px;
 }
 
-.contact-card i {
-    color: var(--primary);
-    font-size: 30px;
-    margin-bottom: 10px;
+.project-body h3{
+  margin-bottom:10px;
 }
 
-.contact-card p {
-    color: var(--muted);
-    word-break: break-word;
+.project-body a{
+  color:var(--primary);
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  margin-top:10px;
+  font-weight:600;
 }
 
-/* =========================
-   SOCIAL
-========================= */
+/* CONTACT */
 
-.social {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-top: 30px;
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
 }
 
-.social a {
-    width: 46px;
-    height: 46px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid var(--border);
-    border-radius: 50%;
-    background: var(--card);
-    color: white;
-    transition: .25s;
+.contact-card{
+  padding:25px;
+  text-align:center;
 }
 
-.social a:hover {
-    background: linear-gradient(135deg,var(--primary),var(--secondary));
-    transform: translateY(-4px);
+.contact-card i{
+  color:var(--primary);
+  font-size:1.8rem;
+  margin-bottom:12px;
 }
 
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    border-top: 1px solid var(--border);
-    padding: 30px 20px;
-    text-align: center;
-    color: var(--muted);
+.contact-card h3{
+  font-size:1rem;
+  margin-bottom:6px;
 }
-
-/* =========================
-   ADMIN BUTTON
-========================= */
 
-.admin-trigger {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,.2);
-    background: linear-gradient(135deg,var(--primary),var(--secondary));
-    color: white;
-    z-index: 1500;
-    font-size: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,.4);
+.contact-card p,
+.contact-card a{
+  color:var(--muted);
+  word-break:break-word;
 }
 
-/* =========================
-   MODAL
-========================= */
-
-.modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.78);
-    backdrop-filter: blur(10px);
-    z-index: 3000;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+.socials{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:35px;
 }
 
-.modal.active {
-    display: flex;
+.social{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.05);
+  transition:.3s;
 }
 
-.modal-box {
-    width: min(450px,100%);
-    background: #0b1327;
-    border: 1px solid var(--border);
-    border-radius: 22px;
-    padding: 30px;
-    box-shadow: var(--shadow);
+.social:hover{
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  transform:translateY(-4px);
 }
 
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-}
+/* FOOTER */
 
-.modal-header h2 {
-    font-size: 23px;
+footer{
+  border-top:1px solid var(--border);
+  padding:30px 0;
+  text-align:center;
+  color:var(--muted);
 }
 
-.close-btn {
-    background: transparent;
-    color: white;
-    border: 0;
-    font-size: 25px;
-}
+/* ADMIN BUTTON */
 
-.form-group {
-    margin-bottom: 15px;
+.admin-trigger{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  width:53px;
+  height:53px;
+  border:0;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:#fff;
+  z-index:3000;
+  box-shadow:0 10px 30px rgba(0,114,255,.4);
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 7px;
-    color: #dbe7ff;
-    font-size: 14px;
-}
+/* MODAL */
 
-.form-control {
-    width: 100%;
-    background: rgba(255,255,255,.06);
-    color: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 12px 14px;
-    outline: none;
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:5000;
+  padding:15px;
+  background:rgba(0,0,0,.78);
+  backdrop-filter:blur(8px);
+  overflow-y:auto;
 }
 
-.form-control:focus {
-    border-color: var(--primary);
+.modal.show{
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-textarea.form-control {
-    min-height: 120px;
-    resize: vertical;
+.modal-box{
+  width:min(500px,100%);
+  background:#091426;
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:28px;
+  position:relative;
 }
 
-select.form-control {
-    background: #101a32;
+.modal-box.large{
+  width:min(1100px,100%);
+  max-height:94vh;
+  overflow-y:auto;
 }
 
-.error-box,
-.success-box {
-    display: none;
-    padding: 12px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    font-size: 14px;
+.close{
+  position:absolute;
+  right:18px;
+  top:12px;
+  border:0;
+  background:transparent;
+  color:#fff;
+  font-size:1.7rem;
 }
 
-.error-box {
-    background: rgba(255,77,109,.1);
-    border: 1px solid rgba(255,77,109,.3);
-    color: #ff9aad;
-}
+/* FORMS */
 
-.success-box {
-    background: rgba(0,208,132,.1);
-    border: 1px solid rgba(0,208,132,.3);
-    color: #71efbd;
+.form-group{
+  margin-bottom:16px;
 }
 
-/* =========================
-   ADMIN PANEL
-========================= */
-
-.admin-panel {
-    position: fixed;
-    inset: 0;
-    z-index: 2500;
-    background: #040814;
-    overflow-y: auto;
-    display: none;
+.form-group label{
+  display:block;
+  margin-bottom:7px;
+  color:#dce8ff;
+  font-size:.87rem;
 }
 
-.admin-inner {
-    width: min(1200px,94%);
-    margin: auto;
-    padding: 30px 0 80px;
+.form-control{
+  width:100%;
+  padding:12px 14px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  outline:none;
+  color:#fff;
+  background:rgba(255,255,255,.05);
 }
 
-.admin-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 25px;
+.form-control:focus{
+  border-color:var(--primary);
 }
 
-.admin-top h1 {
-    font-size: 27px;
+textarea.form-control{
+  resize:vertical;
+  min-height:110px;
 }
 
-.admin-top p {
-    color: var(--muted);
-    font-size: 13px;
+input[type=color]{
+  height:45px;
+  padding:3px;
 }
 
-.admin-actions {
-    display: flex;
-    gap: 10px;
-}
+/* ADMIN */
 
-.admin-tabs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    padding: 10px;
-    background: rgba(255,255,255,.04);
-    border: 1px solid var(--border);
-    border-radius: 15px;
-    margin-bottom: 20px;
+.admin-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-bottom:25px;
 }
 
-.tab-btn {
-    background: transparent;
-    border: 1px solid transparent;
-    color: #c9d5ea;
-    padding: 10px 15px;
-    border-radius: 9px;
+.admin-user{
+  color:var(--muted);
+  font-size:.82rem;
+  margin-top:4px;
 }
 
-.tab-btn.active,
-.tab-btn:hover {
-    background: linear-gradient(90deg,var(--primary),var(--secondary));
-    color: white;
+.admin-tabs{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  padding-bottom:15px;
+  margin-bottom:25px;
+  border-bottom:1px solid var(--border);
 }
 
-.admin-card {
-    display: none;
-    background: rgba(255,255,255,.045);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 25px;
+.tab{
+  border:1px solid var(--border);
+  border-radius:9px;
+  padding:10px 14px;
+  background:rgba(255,255,255,.05);
+  color:#fff;
 }
 
-.admin-card.active {
-    display: block;
+.tab.active{
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
 }
 
-.admin-card h2 {
-    margin-bottom: 20px;
+.admin-section{
+  display:none;
 }
 
-.admin-grid {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 18px;
+.admin-section.active{
+  display:block;
 }
 
-.full {
-    grid-column: 1 / -1;
+.two{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
 }
 
-.admin-list {
-    display: grid;
-    gap: 12px;
-    margin-top: 20px;
+.admin-list{
+  display:grid;
+  gap:12px;
+  margin-top:15px;
 }
 
-.list-item {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 12px;
-    align-items: center;
-    background: rgba(255,255,255,.04);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 14px;
+.admin-item{
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  border:1px solid var(--border);
+  border-radius:13px;
+  background:rgba(255,255,255,.035);
 }
 
-.list-item-info {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+.admin-info{
+  min-width:0;
 }
 
-.list-item img {
-    width: 70px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 8px;
+.admin-info strong{
+  display:block;
 }
 
-.delete-btn {
-    background: rgba(255,77,109,.12);
-    border: 1px solid rgba(255,77,109,.3);
-    color: #ff7e96;
-    padding: 9px 12px;
-    border-radius: 8px;
+.admin-info small{
+  display:block;
+  color:var(--muted);
+  margin-top:4px;
+  word-break:break-word;
 }
 
-.add-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr auto;
-    gap: 10px;
-    margin-top: 20px;
+.delete-btn{
+  border:0;
+  border-radius:8px;
+  padding:8px 11px;
+  background:rgba(255,77,103,.15);
+  color:#ff8295;
 }
 
-.color-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
+.add-box{
+  padding:20px;
+  margin-top:20px;
 }
 
-.color-input {
-    width: 100%;
-    height: 50px;
-    padding: 3px;
-    border-radius: 8px;
-    background: transparent;
-    border: 1px solid var(--border);
+.save-area{
+  position:sticky;
+  bottom:0;
+  margin-top:30px;
+  padding-top:18px;
+  background:#091426;
+  border-top:1px solid var(--border);
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  z-index:10;
 }
 
-.profile-preview {
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--primary);
-    margin-bottom: 15px;
+.status{
+  display:none;
+  padding:12px 15px;
+  border-radius:10px;
+  margin-bottom:15px;
+  font-size:.9rem;
 }
 
-.save-bar {
-    margin-top: 25px;
-    display: flex;
-    justify-content: flex-end;
+.status.show{
+  display:block;
 }
 
-/* =========================
-   TOAST
-========================= */
-
-.toast {
-    position: fixed;
-    left: 50%;
-    bottom: 25px;
-    transform: translate(-50%, 100px);
-    background: #101b33;
-    border: 1px solid var(--border);
-    color: white;
-    padding: 13px 20px;
-    border-radius: 12px;
-    z-index: 5000;
-    opacity: 0;
-    transition: .3s;
+.status.success{
+  color:#70f0a1;
+  background:rgba(39,217,128,.1);
+  border:1px solid rgba(39,217,128,.25);
 }
 
-.toast.show {
-    opacity: 1;
-    transform: translate(-50%,0);
+.status.error{
+  color:#ff8c9c;
+  background:rgba(255,77,103,.1);
+  border:1px solid rgba(255,77,103,.25);
 }
 
-.toast.success {
-    border-color: rgba(0,208,132,.5);
-}
+/* TOAST */
 
-.toast.error {
-    border-color: rgba(255,77,109,.5);
+#toast{
+  position:fixed;
+  left:50%;
+  bottom:25px;
+  transform:translate(-50%,100px);
+  opacity:0;
+  background:#101d34;
+  color:white;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:13px 20px;
+  z-index:10000;
+  transition:.3s;
+  text-align:center;
+  max-width:90%;
 }
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media(max-width:900px) {
-
-    .hero-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .hero-bio {
-        margin-left: auto;
-        margin-right: auto;
-    }
 
-    .hero-buttons {
-        justify-content: center;
-    }
-
-    .skills-grid {
-        grid-template-columns: repeat(3,1fr);
-    }
-
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
+#toast.show{
+  transform:translate(-50%,0);
+  opacity:1;
 }
-
-@media(max-width:700px) {
-
-    .nav-links {
-        position: fixed;
-        top: 76px;
-        left: 0;
-        right: 0;
-        background: #071022;
-        display: none;
-        flex-direction: column;
-        padding: 25px;
-        border-bottom: 1px solid var(--border);
-    }
 
-    .nav-links.active {
-        display: flex;
-    }
+/* RESPONSIVE */
 
-    .menu-btn {
-        display: block;
-    }
+@media(max-width:800px){
 
-    .skills-grid {
-        grid-template-columns: repeat(2,1fr);
-    }
+  .hero-grid,
+  .about-grid,
+  .two{
+    grid-template-columns:1fr;
+  }
 
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
+  .hero-text{
+    text-align:center;
+  }
 
-    .admin-grid {
-        grid-template-columns: 1fr;
-    }
+  .hero-text p{
+    margin:auto;
+  }
 
-    .full {
-        grid-column: auto;
-    }
+  .buttons{
+    justify-content:center;
+  }
 
-    .add-row {
-        grid-template-columns: 1fr;
-    }
+  .hero-image-wrap{
+    order:-1;
+  }
 
-    .color-row {
-        grid-template-columns: 1fr;
-    }
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
 
-    .admin-top {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .admin-actions {
-        width: 100%;
-    }
-
-    .admin-actions .btn {
-        flex: 1;
-    }
-
-    section {
-        padding: 80px 0;
-    }
+}
 
-    .hero-image {
-        width: 250px;
-        height: 250px;
-    }
+@media(max-width:600px){
 
-    .section-title h2 {
-        font-size: 28px;
-    }
-}
+  header{
+    position:relative;
+  }
 
-@media(max-width:450px) {
+  .nav{
+    flex-direction:column;
+    padding:12px 0;
+  }
 
-    .skills-grid {
-        grid-template-columns: 1fr 1fr;
-    }
+  .nav-links{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+  }
 
-    .hero h1 {
-        font-size: 40px;
-    }
+  .hero{
+    padding-top:60px;
+  }
 
-    .hero-buttons .btn {
-        width: 100%;
-    }
+  .image-ring{
+    width:250px;
+    height:250px;
+  }
 
-    .admin-tabs {
-        overflow-x: auto;
-        flex-wrap: nowrap;
-    }
+  section{
+    padding:65px 0;
+  }
 
-    .tab-btn {
-        white-space: nowrap;
-    }
+  .admin-item{
+    flex-direction:column;
+    align-items:flex-start;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- =========================
-     HEADER
-========================= -->
+<!-- ================= HEADER ================= -->
 
 <header>
-    <nav class="navbar">
+<div class="container nav">
 
-        <a href="#home" class="logo" id="navLogo">
-            Saksham Shrestha
-        </a>
+<a href="#home" class="logo" id="navName">
+Saksham Shrestha
+</a>
 
-        <button class="menu-btn" id="menuBtn" aria-label="Open menu">
-            <i class="fas fa-bars"></i>
-        </button>
+<nav class="nav-links">
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
 
-        <div class="nav-links" id="navLinks">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </div>
-
-    </nav>
+</div>
 </header>
 
 
-<!-- =========================
-     HERO
-========================= -->
-
-<main>
+<!-- ================= HERO ================= -->
 
 <section class="hero" id="home">
 
-    <div class="hero-container">
+<div class="container hero-grid">
 
-        <div>
+<div class="hero-text">
 
-            <div class="hero-small">
-                Welcome to my portfolio
-            </div>
+<small>HELLO, I'M</small>
 
-            <h1>
-                Hi, I'm <span id="heroName">Saksham Shrestha</span>
-            </h1>
+<h1>
+<span class="gradient" id="heroName">
+Saksham Shrestha
+</span>
+</h1>
 
-            <div class="typing" id="typingText"></div>
+<h2>
+I'm
+<span class="gradient" id="typing">
+Software Developer
+</span>
+</h2>
 
-            <p class="hero-bio" id="heroBio">
-                I'm Saksham Shrestha, a passionate BSc CSIT student and
-                aspiring software developer.
-            </p>
+<p id="heroBio"></p>
 
-            <div class="hero-buttons">
+<div class="buttons">
 
-                <a href="#projects" class="btn btn-primary">
-                    <i class="fas fa-code"></i>
-                    View Projects
-                </a>
+<a href="#projects" class="btn primary-btn">
+<i class="fas fa-code"></i>
+View Projects
+</a>
 
-                <a href="#contact" class="btn btn-secondary">
-                    <i class="fas fa-envelope"></i>
-                    Contact Me
-                </a>
+<a href="#contact" class="btn secondary-btn">
+<i class="fas fa-envelope"></i>
+Contact Me
+</a>
 
-            </div>
+</div>
 
-        </div>
+</div>
 
 
-        <div class="hero-image-wrap">
+<div class="hero-image-wrap">
 
-            <div class="hero-image">
+<div class="image-ring">
 
-                <img
-                    id="profileImage"
-                    src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHGPcQIDSQC_yT2tmBOI0uoyJMKperPYEp0CCa3HdKO_YkJ0TginGP11KS3gKgxkGeIuE1VKp5WLuwpBYXHirZG_XX3mqLM_rIpQ6t3WM8zhRBp1VoQEIgfuVW5Uvjqom0by9xAMfKVSRRQNHabnzf5xJdI1P43OYaPmMmRcOk5HepX10b3X1m6RYFRIDz/w256-h256-p-k-no-nu/1000043591.jpg"
-                    alt="Saksham Shrestha"
-                >
+<img
+id="profileImage"
+class="profile-image"
+alt="Saksham Shrestha"
+src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHGPcQIDSQC_yT2tmBOI0uoyJMKperPYEp0CCa3HdKO_YkJ0TginGP11KS3gKgxkGeIuE1VKp5WLuwpBYXHirZG_XX3mqLM_rIpQ6t3WM8zhRBp1VoQEIgfuVW5Uvjqom0by9xAMfKVSRRQNHabnzf5xJdI1P43OYaPmMmRcOk5HepX10b3X1m6RYFRIDz/w256-h256-p-k-no-nu/1000043591.jpg"
+>
 
-            </div>
+</div>
 
-        </div>
+</div>
 
-    </div>
-
+</div>
 </section>
 
 
-<!-- =========================
-     ABOUT
-========================= -->
+<!-- ================= ABOUT ================= -->
 
 <section id="about">
 
-    <div class="section-title">
-        <h2>About <span>Me</span></h2>
-        <p>Learn more about me and my goals</p>
-    </div>
+<div class="container">
 
-    <div class="about-card">
+<div class="section-title">
+<span>ABOUT ME</span>
+<h2>Who I Am</h2>
+</div>
 
-        <p id="aboutText"></p>
+<div class="about-grid">
 
-        <div class="objective">
-            <strong>Career Objective</strong>
-            <span id="objectiveText"></span>
-        </div>
+<div class="about-card glass">
 
-    </div>
+<h3>
+<i class="fas fa-user"></i>
+About Me
+</h3>
 
+<p id="aboutText"></p>
+
+</div>
+
+<div class="about-card glass">
+
+<h3>
+<i class="fas fa-bullseye"></i>
+Career Objective
+</h3>
+
+<p id="objectiveText"></p>
+
+</div>
+
+</div>
+
+</div>
 </section>
 
 
-<!-- =========================
-     SKILLS
-========================= -->
+<!-- ================= SKILLS ================= -->
 
 <section id="skills">
 
-    <div class="section-title">
-        <h2>My <span>Skills</span></h2>
-        <p>Technologies and areas I work with</p>
-    </div>
+<div class="container">
 
-    <div class="skills-grid" id="skillsGrid"></div>
+<div class="section-title">
 
+<span>MY SKILLS</span>
+
+<h2>Technical Skills</h2>
+
+<p>
+Technologies and tools I use to build
+websites, applications and digital projects.
+</p>
+
+</div>
+
+<div class="skills-grid" id="skillsContainer"></div>
+
+</div>
 </section>
 
 
-<!-- =========================
-     PROJECTS
-========================= -->
+<!-- ================= PROJECTS ================= -->
 
 <section id="projects">
 
-    <div class="section-title">
-        <h2>My <span>Projects</span></h2>
-        <p>Some of my recent work</p>
-    </div>
+<div class="container">
 
-    <div class="projects-grid" id="projectsGrid"></div>
+<div class="section-title">
 
+<span>MY WORK</span>
+
+<h2>Featured Projects</h2>
+
+</div>
+
+<div class="projects-grid" id="projectsContainer"></div>
+
+</div>
 </section>
 
 
-<!-- =========================
-     CONTACT
-========================= -->
+<!-- ================= CONTACT ================= -->
 
 <section id="contact">
 
-    <div class="section-title">
-        <h2>Contact <span>Me</span></h2>
-        <p>Let's connect and build something great</p>
-    </div>
+<div class="container">
 
-    <div class="contact-grid">
+<div class="section-title">
 
-        <div class="contact-card">
-            <i class="fas fa-envelope"></i>
-            <h3>Email</h3>
-            <p id="contactEmail"></p>
-        </div>
+<span>CONTACT</span>
 
-        <div class="contact-card">
-            <i class="fas fa-phone"></i>
-            <h3>Phone</h3>
-            <p id="contactPhone"></p>
-        </div>
+<h2>Let's Connect</h2>
 
-        <div class="contact-card">
-            <i class="fas fa-location-dot"></i>
-            <h3>Location</h3>
-            <p id="contactLocation"></p>
-        </div>
+<p>
+Have a project, opportunity or idea?
+Feel free to contact me.
+</p>
 
-    </div>
+</div>
 
 
-    <div class="social" id="socialLinks"></div>
+<div class="contact-grid">
 
+<div class="contact-card glass">
+
+<i class="fas fa-envelope"></i>
+
+<h3>Email</h3>
+
+<a id="emailLink"></a>
+
+</div>
+
+
+<div class="contact-card glass">
+
+<i class="fas fa-phone"></i>
+
+<h3>Phone</h3>
+
+<a id="phoneLink"></a>
+
+</div>
+
+
+<div class="contact-card glass">
+
+<i class="fas fa-location-dot"></i>
+
+<h3>Location</h3>
+
+<p id="locationText"></p>
+
+</div>
+
+</div>
+
+
+<div class="socials" id="socialContainer"></div>
+
+</div>
 </section>
 
-</main>
 
-
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
-    <p>
-        © <span id="year"></span>
-        <span id="footerName">Saksham Shrestha</span>.
-        All Rights Reserved.
-    </p>
+<p>
+© <span id="year"></span>
+<span id="footerName">Saksham Shrestha</span>.
+All Rights Reserved.
+</p>
 
 </footer>
 
 
-<!-- =========================
-     ADMIN BUTTON
-========================= -->
+<!-- ================= ADMIN BUTTON ================= -->
 
 <button
-    class="admin-trigger"
-    id="adminTrigger"
-    title="Admin Login"
-    aria-label="Admin Login">
-
-    <i class="fas fa-shield-halved"></i>
-
+class="admin-trigger"
+id="adminButton"
+title="Admin Panel"
+>
+<i class="fas fa-shield-halved"></i>
 </button>
 
 
-<!-- =========================
-     LOGIN MODAL
-========================= -->
+<!-- ================= LOGIN MODAL ================= -->
 
 <div class="modal" id="loginModal">
 
-    <div class="modal-box">
+<div class="modal-box">
 
-        <div class="modal-header">
+<button class="close" id="closeLogin">
+×
+</button>
 
-            <h2>
-                <i class="fas fa-lock"></i>
-                Admin Login
-            </h2>
+<h2 style="margin-bottom:20px">
+<i class="fas fa-lock"></i>
+Admin Login
+</h2>
 
-            <button class="close-btn" id="closeLogin">
-                &times;
-            </button>
+<div id="loginStatus" class="status"></div>
 
-        </div>
+<form id="loginForm">
 
-        <div class="error-box" id="loginError"></div>
+<div class="form-group">
 
-        <form id="loginForm">
+<label>Email</label>
 
-            <div class="form-group">
+<input
+class="form-control"
+id="loginEmail"
+type="email"
+value="hdbsksndksjs@gmail.com"
+required
+>
 
-                <label>Email</label>
+</div>
 
-                <input
-                    class="form-control"
-                    type="email"
-                    id="loginEmail"
-                    autocomplete="username"
-                    placeholder="Admin email"
-                    required
-                >
+<div class="form-group">
 
-            </div>
+<label>Password</label>
+
+<input
+class="form-control"
+id="loginPassword"
+type="password"
+placeholder="Enter Firebase password"
+required
+>
+
+</div>
+
+<button
+class="btn primary-btn"
+id="loginButton"
+type="submit"
+style="width:100%"
+>
+<i class="fas fa-right-to-bracket"></i>
+Login
+</button>
+
+</form>
+
+</div>
+</div>
 
 
-            <div class="form-group">
+<!-- ================= ADMIN MODAL ================= -->
 
-                <label>Password</label>
+<div class="modal" id="adminModal">
 
-                <input
-                    class="form-control"
-                    type="password"
-                    id="loginPassword"
-                    autocomplete="current-password"
-                    placeholder="Password"
-                    required
-                >
+<div class="modal-box large">
 
-            </div>
+<div class="admin-header">
 
+<div>
 
-            <button
-                class="btn btn-primary"
-                type="submit"
-                id="loginButton"
-                style="width:100%;">
+<h2>
+<i class="fas fa-sliders"></i>
+Portfolio Admin Panel
+</h2>
 
-                <i class="fas fa-right-to-bracket"></i>
-                Login
+<div class="admin-user" id="adminUser"></div>
 
-            </button>
+</div>
 
-        </form>
-
-    </div>
+<button
+class="btn secondary-btn"
+id="logoutButton"
+>
+<i class="fas fa-right-from-bracket"></i>
+Logout
+</button>
 
 </div>
 
 
-<!-- =========================
-     ADMIN PANEL
-========================= -->
+<div id="adminStatus" class="status"></div>
 
-<div class="admin-panel" id="adminPanel">
 
-    <div class="admin-inner">
+<!-- TABS -->
 
-        <div class="admin-top">
+<div class="admin-tabs">
 
-            <div>
+<button class="tab active" data-tab="profileSection">
+<i class="fas fa-user"></i>
+Profile
+</button>
 
-                <h1>
-                    <i class="fas fa-screwdriver-wrench"></i>
-                    Portfolio Admin
-                </h1>
+<button class="tab" data-tab="appearanceSection">
+<i class="fas fa-palette"></i>
+Appearance
+</button>
 
-                <p id="adminUserText">
-                    Logged in
-                </p>
+<button class="tab" data-tab="skillsSection">
+<i class="fas fa-code"></i>
+Skills
+</button>
 
-            </div>
+<button class="tab" data-tab="projectsSection">
+<i class="fas fa-folder"></i>
+Projects
+</button>
 
-            <div class="admin-actions">
-
-                <button class="btn btn-secondary" id="closeAdmin">
-                    <i class="fas fa-eye"></i>
-                    View Site
-                </button>
-
-                <button class="btn btn-primary" id="logoutButton">
-                    <i class="fas fa-right-from-bracket"></i>
-                    Logout
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="success-box" id="adminMessage"></div>
-
-
-        <!-- TABS -->
-
-        <div class="admin-tabs">
-
-            <button class="tab-btn active" data-tab="profileTab">
-                <i class="fas fa-user"></i>
-                Profile
-            </button>
-
-            <button class="tab-btn" data-tab="appearanceTab">
-                <i class="fas fa-palette"></i>
-                Appearance
-            </button>
-
-            <button class="tab-btn" data-tab="skillsTab">
-                <i class="fas fa-code"></i>
-                Skills
-            </button>
-
-            <button class="tab-btn" data-tab="projectsTab">
-                <i class="fas fa-folder"></i>
-                Projects
-            </button>
-
-            <button class="tab-btn" data-tab="socialTab">
-                <i class="fas fa-share-nodes"></i>
-                Social
-            </button>
-
-        </div>
-
-
-        <!-- =====================
-             PROFILE TAB
-        ====================== -->
-
-        <div class="admin-card active" id="profileTab">
-
-            <h2>Profile Information</h2>
-
-            <div class="admin-grid">
-
-                <div class="form-group">
-
-                    <label>Name</label>
-
-                    <input
-                        class="form-control"
-                        id="adminName"
-                        type="text"
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>Profile Image URL</label>
-
-                    <input
-                        class="form-control"
-                        id="adminProfileImage"
-                        type="url"
-                    >
-
-                </div>
-
-
-                <div class="form-group full">
-
-                    <img
-                        id="adminImagePreview"
-                        class="profile-preview"
-                        alt="Profile preview"
-                    >
-
-                </div>
-
-
-                <div class="form-group full">
-
-                    <label>Short Bio</label>
-
-                    <textarea
-                        class="form-control"
-                        id="adminBio"
-                    ></textarea>
-
-                </div>
-
-
-                <div class="form-group full">
-
-                    <label>About Me</label>
-
-                    <textarea
-                        class="form-control"
-                        id="adminAbout"
-                    ></textarea>
-
-                </div>
-
-
-                <div class="form-group full">
-
-                    <label>Career Objective</label>
-
-                    <textarea
-                        class="form-control"
-                        id="adminObjective"
-                    ></textarea>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>Email</label>
-
-                    <input
-                        class="form-control"
-                        id="adminEmail"
-                        type="email"
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>Phone</label>
-
-                    <input
-                        class="form-control"
-                        id="adminPhone"
-                        type="text"
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>Location</label>
-
-                    <input
-                        class="form-control"
-                        id="adminLocation"
-                        type="text"
-                    >
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- =====================
-             APPEARANCE TAB
-        ====================== -->
-
-        <div class="admin-card" id="appearanceTab">
-
-            <h2>Appearance</h2>
-
-            <div class="color-row">
-
-                <div class="form-group">
-
-                    <label>Primary Color</label>
-
-                    <input
-                        type="color"
-                        class="color-input"
-                        id="primaryColor"
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>Secondary Color</label>
-
-                    <input
-                        type="color"
-                        class="color-input"
-                        id="secondaryColor"
-                    >
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- =====================
-             SKILLS TAB
-        ====================== -->
-
-        <div class="admin-card" id="skillsTab">
-
-            <h2>Skills</h2>
-
-            <div class="add-row">
-
-                <input
-                    class="form-control"
-                    id="newSkillName"
-                    placeholder="Skill name"
-                >
-
-                <input
-                    class="form-control"
-                    id="newSkillIcon"
-                    placeholder="Icon e.g. fab fa-js"
-                >
-
-                <button
-                    class="btn btn-primary"
-                    id="addSkillButton">
-
-                    <i class="fas fa-plus"></i>
-                    Add
-
-                </button>
-
-            </div>
-
-
-            <div
-                class="admin-list"
-                id="adminSkillsList">
-            </div>
-
-        </div>
-
-
-        <!-- =====================
-             PROJECTS TAB
-        ====================== -->
-
-        <div class="admin-card" id="projectsTab">
-
-            <h2>Projects</h2>
-
-            <div class="admin-grid">
-
-                <div class="form-group">
-
-                    <label>Project Title</label>
-
-                    <input
-                        class="form-control"
-                        id="newProjectTitle"
-                        placeholder="Project title"
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>Project Image URL</label>
-
-                    <input
-                        class="form-control"
-                        id="newProjectImage"
-                        placeholder="https://..."
-                    >
-
-                </div>
-
-
-                <div class="form-group full">
-
-                    <label>Project Link</label>
-
-                    <input
-                        class="form-control"
-                        id="newProjectLink"
-                        placeholder="https://..."
-                    >
-
-                </div>
-
-            </div>
-
-
-            <button
-                class="btn btn-primary"
-                id="addProjectButton">
-
-                <i class="fas fa-plus"></i>
-                Add Project
-
-            </button>
-
-
-            <div
-                class="admin-list"
-                id="adminProjectsList">
-            </div>
-
-        </div>
-
-
-        <!-- =====================
-             SOCIAL TAB
-        ====================== -->
-
-        <div class="admin-card" id="socialTab">
-
-            <h2>Social Links</h2>
-
-            <div class="admin-grid">
-
-                <div class="form-group">
-
-                    <label>GitHub</label>
-
-                    <input
-                        class="form-control"
-                        id="socialGithub"
-                        type="url"
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>Facebook</label>
-
-                    <input
-                        class="form-control"
-                        id="socialFacebook"
-                        type="url"
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>Instagram</label>
-
-                    <input
-                        class="form-control"
-                        id="socialInstagram"
-                        type="url"
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>LinkedIn</label>
-
-                    <input
-                        class="form-control"
-                        id="socialLinkedin"
-                        type="url"
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>Twitter / X</label>
-
-                    <input
-                        class="form-control"
-                        id="socialTwitter"
-                        type="url"
-                    >
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- SAVE -->
-
-        <div class="save-bar">
-
-            <button
-                class="btn btn-primary"
-                id="saveButton">
-
-                <i class="fas fa-cloud-arrow-up"></i>
-                Save Changes Online
-
-            </button>
-
-        </div>
-
-    </div>
+<button class="tab" data-tab="socialSection">
+<i class="fas fa-share-nodes"></i>
+Social
+</button>
 
 </div>
 
 
-<!-- =========================
-     TOAST
-========================= -->
+<!-- PROFILE -->
 
-<div class="toast" id="toast"></div>
+<div class="admin-section active" id="profileSection">
+
+<div class="two">
+
+<div class="form-group">
+<label>Name</label>
+<input class="form-control" id="editName">
+</div>
+
+<div class="form-group">
+<label>Profile Image URL</label>
+<input class="form-control" id="editImage">
+</div>
+
+</div>
 
 
-<!-- =========================
-     FIREBASE
-========================= -->
+<div class="form-group">
+
+<label>Bio</label>
+
+<textarea
+class="form-control"
+id="editBio"
+></textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label>About</label>
+
+<textarea
+class="form-control"
+id="editAbout"
+style="min-height:180px"
+></textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Career Objective</label>
+
+<textarea
+class="form-control"
+id="editObjective"
+></textarea>
+
+</div>
+
+
+<div class="two">
+
+<div class="form-group">
+<label>Email</label>
+<input class="form-control" id="editEmail" type="email">
+</div>
+
+<div class="form-group">
+<label>Phone</label>
+<input class="form-control" id="editPhone">
+</div>
+
+</div>
+
+
+<div class="form-group">
+<label>Location</label>
+<input class="form-control" id="editLocation">
+</div>
+
+</div>
+
+
+<!-- APPEARANCE -->
+
+<div class="admin-section" id="appearanceSection">
+
+<div class="two">
+
+<div class="form-group">
+
+<label>Primary Color</label>
+
+<input
+class="form-control"
+id="editPrimary"
+type="color"
+>
+
+</div>
+
+<div class="form-group">
+
+<label>Secondary Color</label>
+
+<input
+class="form-control"
+id="editSecondary"
+type="color"
+>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SKILLS -->
+
+<div class="admin-section" id="skillsSection">
+
+<h3>Skills</h3>
+
+<div
+class="admin-list"
+id="adminSkills"
+></div>
+
+
+<div class="add-box glass">
+
+<h3>Add Skill</h3>
+
+<br>
+
+<div class="two">
+
+<div class="form-group">
+
+<label>Name</label>
+
+<input
+class="form-control"
+id="skillName"
+placeholder="React"
+>
+
+</div>
+
+<div class="form-group">
+
+<label>Font Awesome Icon</label>
+
+<input
+class="form-control"
+id="skillIcon"
+placeholder="fab fa-react"
+>
+
+</div>
+
+</div>
+
+<button
+class="btn primary-btn"
+id="addSkill"
+>
+<i class="fas fa-plus"></i>
+Add Skill
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PROJECTS -->
+
+<div class="admin-section" id="projectsSection">
+
+<h3>Projects</h3>
+
+<div
+class="admin-list"
+id="adminProjects"
+></div>
+
+
+<div class="add-box glass">
+
+<h3>Add Project</h3>
+
+<br>
+
+<div class="form-group">
+
+<label>Project Name</label>
+
+<input
+class="form-control"
+id="projectName"
+placeholder="My Project"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Project Image URL</label>
+
+<input
+class="form-control"
+id="projectImage"
+placeholder="https://..."
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Project URL</label>
+
+<input
+class="form-control"
+id="projectLink"
+placeholder="https://..."
+>
+
+</div>
+
+
+<button
+class="btn primary-btn"
+id="addProject"
+>
+<i class="fas fa-plus"></i>
+Add Project
+</button>
+
+</div>
+
+</div>
+
+
+<!-- SOCIAL -->
+
+<div class="admin-section" id="socialSection">
+
+<div class="two">
+
+<div class="form-group">
+
+<label>GitHub</label>
+
+<input
+class="form-control"
+id="socialGithub"
+type="url"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Facebook</label>
+
+<input
+class="form-control"
+id="socialFacebook"
+type="url"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Instagram</label>
+
+<input
+class="form-control"
+id="socialInstagram"
+type="url"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>LinkedIn</label>
+
+<input
+class="form-control"
+id="socialLinkedin"
+type="url"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Twitter / X</label>
+
+<input
+class="form-control"
+id="socialTwitter"
+type="url"
+>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SAVE -->
+
+<div class="save-area">
+
+<button
+class="btn secondary-btn"
+id="closeAdmin"
+>
+Close
+</button>
+
+<button
+class="btn primary-btn"
+id="saveButton"
+>
+<i class="fas fa-cloud-arrow-up"></i>
+Save Online
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<div id="toast"></div>
+
+
+<!-- ================= FIREBASE ================= -->
 
 <script type="module">
 
-import { initializeApp } from
-"https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
-
-import { getAnalytics } from
-"https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 
 import {
-    getAuth,
-    signInWithEmailAndPassword,
-    onAuthStateChanged,
-    signOut
-} from
-"https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+  getAnalytics
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
 
 import {
-    getFirestore,
-    doc,
-    getDoc,
-    setDoc
-} from
-"https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+  getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
 
-/* =========================================
+/* ==========================================
    FIREBASE CONFIG
-========================================= */
+========================================== */
 
 const firebaseConfig = {
 
-    apiKey: "AIzaSyC1dzL-aI82fwpEltb_gszzXaq-zqbk0zE",
+  apiKey:
+    "AIzaSyC1dzL-aI82fwpEltb_gszzXaq-zqbk0z",
 
-    authDomain:
-        "saksham-portfolio-ba79a.firebaseapp.com",
+  authDomain:
+    "saksham-portfolio-ba79a.firebaseapp.com",
 
-    projectId:
-        "saksham-portfolio-ba79a",
+  projectId:
+    "saksham-portfolio-ba79a",
 
-    storageBucket:
-        "saksham-portfolio-ba79a.firebasestorage.app",
+  storageBucket:
+    "saksham-portfolio-ba79a.firebasestorage.app",
 
-    messagingSenderId:
-        "54373290430",
+  messagingSenderId:
+    "54373290430",
 
-    appId:
-        "1:54373290430:web:419c03ef3819b05bcfa9ef",
+  appId:
+    "1:54373290430:web:419c03ef3819b05bcfa9ef",
 
-    measurementId:
-        "G-LM7MVN1379"
-
+  measurementId:
+    "G-LM7MVN1379"
 };
 
 
-/* =========================================
+/* ==========================================
    FIREBASE INITIALIZATION
-========================================= */
+========================================== */
 
-const app = initializeApp(firebaseConfig);
+const app =
+  initializeApp(firebaseConfig);
 
-let analytics = null;
+const analytics =
+  getAnalytics(app);
 
-try {
-    analytics = getAnalytics(app);
-} catch (error) {
-    console.warn(
-        "Firebase Analytics unavailable:",
-        error
-    );
-}
+const auth =
+  getAuth(app);
 
-const auth = getAuth(app);
-
-const db = getFirestore(app);
+const db =
+  getFirestore(app);
 
 
-/* =========================================
-   ADMIN CONFIG
-========================================= */
+/* ==========================================
+   ADMIN
+========================================== */
 
 const ADMIN_EMAIL =
-    "shresthasakham712@gmail.com";
+  "hdbsksndksjs@gmail.com";
 
-const PORTFOLIO_DOC =
-    "portfolio/main";
+const portfolioRef =
+  doc(db,"portfolio","main");
 
 
-/* =========================================
-   DEFAULT PORTFOLIO DATA
-========================================= */
+/* ==========================================
+   DEFAULT DATA
+========================================== */
 
-const DEFAULT_DATA = {
+const defaultData = {
 
-    name:
-        "Saksham Shrestha",
+profile:{
 
-    bio:
-        "I'm Saksham Shrestha, a passionate BSc CSIT student and aspiring software developer. I enjoy creating responsive web applications and exploring new technologies to improve my skills. My career goal is to build impactful digital solutions and grow as a technology professional.",
+name:"Saksham Shrestha",
 
-    about:
-        "Hello, I'm Saksham Shrestha, a dedicated and enthusiastic BSc CSIT student at Aadim National College, with an expected graduation year of 2028. I am passionate about technology and enjoy creating modern, responsive, and user-friendly websites. My interests include web development, user interface design, mobile applications, real-time applications, and exploring emerging technologies that solve real-world problems. I have experience working with front-end technologies such as HTML, CSS, and JavaScript, and I continuously improve my skills by building personal projects and experimenting with new design ideas. As a lifelong learner, I am always exploring new tools and technologies to expand my knowledge and strengthen my problem-solving abilities. My career goal is to become a skilled software developer who builds efficient, accessible, and meaningful applications that make a positive difference.",
+bio:
+"I'm Saksham Shrestha, a passionate BSc CSIT student and aspiring software developer. I enjoy creating responsive web applications and exploring new technologies to improve my skills. My career goal is to build impactful digital solutions and grow as a technology professional.",
 
-    objective:
-        "To obtain a responsible position in the IT field where I can apply my technical knowledge, improve my skills, contribute to the growth of an organization, and gain practical industry experience.",
+about:
+"Hello, I'm Saksham Shrestha, a dedicated and enthusiastic BSc CSIT student at Aadim National College, with an expected graduation year of 2028. I am passionate about technology and enjoy creating modern, responsive, and user-friendly websites. My interests include web development, user interface design, mobile applications, real-time applications, and exploring emerging technologies that solve real-world problems. I have experience working with front-end technologies such as HTML, CSS, and JavaScript, and I continuously improve my skills by building personal projects and experimenting with new design ideas. As a lifelong learner, I am always exploring new tools and technologies to expand my knowledge and strengthen my problem-solving abilities. My career goal is to become a skilled software developer who builds efficient, accessible, and meaningful applications that make a positive difference.",
 
-    profileImage:
-        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHGPcQIDSQC_yT2tmBOI0uoyJMKperPYEp0CCa3HdKO_YkJ0TginGP11KS3gKgxkGeIuE1VKp5WLuwpBYXHirZG_XX3mqLM_rIpQ6t3WM8zhRBp1VoQEIgfuVW5Uvjqom0by9xAMfKVSRRQNHabnzf5xJdI1P43OYaPmMmRcOk5HepX10b3X1m6RYFRIDz/w256-h256-p-k-no-nu/1000043591.jpg",
+objective:
+"To obtain a responsible position in the IT field where I can apply my technical knowledge, improve my skills, contribute to the growth of an organization, and gain practical industry experience.",
 
-    email:
-        "shresthasakham712@gmail.com",
+image:
+"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHGPcQIDSQC_yT2tmBOI0uoyJMKperPYEp0CCa3HdKO_YkJ0TginGP11KS3gKgxkGeIuE1VKp5WLuwpBYXHirZG_XX3mqLM_rIpQ6t3WM8zhRBp1VoQEIgfuVW5Uvjqom0by9xAMfKVSRRQNHabnzf5xJdI1P43OYaPmMmRcOk5HepX10b3X1m6RYFRIDz/w256-h256-p-k-no-nu/1000043591.jpg",
 
-    phone:
-        "+977 9762304280",
+email:
+"shresthasakham712@gmail.com",
 
-    location:
-        "Kathmandu, Nepal",
+phone:
+"+977 9762304280",
 
-    primary:
-        "#00c6ff",
+location:
+"Kathmandu, Nepal"
 
-    secondary:
-        "#0072ff",
+},
 
-    skills: [
+appearance:{
 
-        {
-            name: "HTML5",
-            icon: "fab fa-html5"
-        },
+primary:"#00c6ff",
 
-        {
-            name: "CSS3",
-            icon: "fab fa-css3-alt"
-        },
+secondary:"#0072ff"
 
-        {
-            name: "JavaScript",
-            icon: "fab fa-js"
-        },
+},
 
-        {
-            name: "Python",
-            icon: "fab fa-python"
-        },
+skills:[
 
-        {
-            name: "C/C++",
-            icon: "fas fa-code"
-        },
+{name:"HTML5",icon:"fab fa-html5"},
 
-        {
-            name: "Java",
-            icon: "fab fa-java"
-        },
+{name:"CSS3",icon:"fab fa-css3-alt"},
 
-        {
-            name: "Database",
-            icon: "fas fa-database"
-        },
+{name:"JavaScript",icon:"fab fa-js"},
 
-        {
-            name: "Android Apps",
-            icon: "fab fa-android"
-        },
+{name:"Python",icon:"fab fa-python"},
 
-        {
-            name: "Web Development",
-            icon: "fas fa-globe"
-        },
+{name:"C/C++",icon:"fas fa-code"},
 
-        {
-            name: "Real-time Apps",
-            icon: "fas fa-bolt"
-        }
+{name:"Java",icon:"fab fa-java"},
 
-    ],
+{name:"Database",icon:"fas fa-database"},
 
-    projects: [
+{name:"Android Apps",icon:"fab fa-android"},
 
-        {
-            title: "Personal CV",
+{name:"Web Development",icon:"fas fa-globe"},
 
-            image:
-                "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiyqPLkVpf36p5_ivWDXCRH9bEFCYPyEwmfjqnw408lTmwJjxFCw83DeE_uFuZOzyXsAuBwMxjYQIIO6OVIWlwM6g-1naUb3O7PnTwvfGi0qSvknqhBWqvqTtUwqvQjuzEHt_Lxl2KGmR59kWFv0A__qgB2KXvF5z9O_0tmcVJg-qNoaa6JS2dQADahNifN/s320/1000072684.jpg",
+{name:"Real-time Apps",icon:"fas fa-bolt"}
 
-            link:
-                "https://sites.google.com/view/saksham-shrestha-80/home"
-        },
+],
 
-        {
-            title: "E-commerce Website",
+projects:[
 
-            image:
-                "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiofB9op1F7F6599jppv8GjOcN-lHmDX91Glk3VpVDB9KHWGP0mwRsHuRN2zbWrIdcZow1Gt29SA8w4Vh92BVIqXO1OpdLHsjE3iI4gZnIJuodiSP7EIdrESu4fNwOyyIOmfjwC-LBSjW5LfroIPkBON6Cc77EI7IQlA7SQvH8W3o3Fx3ngp9zDYRURs2-E/w1684-h1069-p-k-no-nu/1000072697.jpg",
+{
+name:"Personal CV",
+image:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiyqPLkVpf36p5_ivWDXCRH9bEFCYPyEwmfjqnw408lTmwJjxFCw83DeE_uFuZOzyXsAuBwMxjYQIIO6OVIWlwM6g-1naUb3O7PnTwvfGi0qSvknqhBWqvqTtUwqvQjuzEHt_Lxl2KGmR59kWFv0A__qgB2KXvF5z9O_0tmcVJg-qNoaa6JS2dQADahNifN/s320/1000072684.jpg",
+link:"https://sites.google.com/view/saksham-shrestha-80/home"
+},
 
-            link:
-                "https://pragmatic-order-flow-track.base44.app"
-        },
+{
+name:"E-commerce Website",
+image:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiofB9op1F7F6599jppv8GjOcN-lHmDX91Glk3VpVDB9KHWGP0mwRsHuRN2zbWrIdcZow1Gt29SA8w4Vh92BVIqXO1OpdLHsjE3iI4gZnIJuodiSP7EIdrESu4fNwOyyIOmfjwC-LBSjW5LfroIPkBON6Cc77EI7IQlA7SQvH8W3o3Fx3ngp9zDYRURs2-E/w1684-h1069-p-k-no-nu/1000072697.jpg",
+link:"https://pragmatic-order-flow-track.base44.app"
+},
 
-        {
-            title: "Nearby Social",
+{
+name:"Nearby Social",
+image:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZfbli3Zd-Va7_60U9PyA7tRe8mPUEdDidAKWpYRL9ml5rPeC5qYycVHSHEVuPoxaPObAA46Rre1qr0TK7DQBo3zFP9KKloSjFmC1wW9NBgvJljAQvobs8TQCq6-z9DudTLVWxDf4ouBEB77FRR1Pp48TocUl-bBuzmGNIYVGhTOdflAs74LUR06RHtIP7/s320/1000070797.png",
+link:"https://heart-echo-copy-29935bc5.base44.app"
+},
 
-            image:
-                "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZfbli3Zd-Va7_60U9PyA7tRe8mPUEdDidAKWpYRL9ml5rPeC5qYycVHSHEVuPoxaPObAA46Rre1qr0TK7DQBo3zFP9KKloSjFmC1wW9NBgvJljAQvobs8TQCq6-z9DudTLVWxDf4ouBEB77FRR1Pp48TocUl-bBuzmGNIYVGhTOdflAs74LUR06RHtIP7/s320/1000070797.png",
+{
+name:"Biplov Electric Shop",
+image:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiepYJSHzT-jYWFOXpj9r_9RyN1ARi__hLYmlBFfko1WPaantILnark9sc-Ukckvuh2v4Y-HGSfmRGHUPll43icptTaqqZlJCGx_GQl7X3ZkMqFlftkRTAwX6gWzxGAAKwzEVhl65q2jkq_L2cbeb7y6GHXnQzztojQSP8qk73KY720NJzi5MQafE07fMQQ/w1684-h1069-p-k-no-nu/1000072703.jpg",
+link:"https://biplov-electric.base44.app"
+}
 
-            link:
-                "https://heart-echo-copy-29935bc5.base44.app"
-        },
+],
 
-        {
-            title: "Biplov Electric Shop",
+social:{
 
-            image:
-                "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiepYJSHzT-jYWFOXpj9r_9RyN1ARi__hLYmlBFfko1WPaantILnark9sc-Ukckvuh2v4Y-HGSfmRGHUPll43icptTaqqZlJCGx_GQl7X3ZkMqFlftkRTAwX6gWzxGAAKwzEVhl65q2jkq_L2cbeb7y6GHXnQzztojQSP8qk73KY720NJzi5MQafE07fMQQ/w1684-h1069-p-k-no-nu/1000072703.jpg",
+github:"https://github.com/Sakshamstha8",
 
-            link:
-                "https://biplov-electric.base44.app"
-        }
+facebook:"https://www.facebook.com/sakycham.shrestha.7",
 
-    ],
+instagram:"https://www.instagram.com/saksham_stha1122",
 
-    social: {
+linkedin:"",
 
-        github:
-            "https://github.com/Sakshamstha8",
+twitter:""
 
-        facebook:
-            "https://www.facebook.com/sakycham.shrestha.7",
-
-        instagram:
-            "https://www.instagram.com/saksham_stha1122",
-
-        linkedin:
-            "",
-
-        twitter:
-            ""
-
-    }
+}
 
 };
 
 
-/* =========================================
-   CURRENT DATA
-========================================= */
-
-let portfolioData =
-    JSON.parse(
-        JSON.stringify(DEFAULT_DATA)
-    );
-
-
-/* =========================================
-   HELPER
-========================================= */
-
-const $ = id =>
-    document.getElementById(id);
-
-
-function escapeHTML(value) {
-
-    if (value === null || value === undefined) {
-        return "";
-    }
-
-    return String(value)
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
-}
-
-
-function safeURL(value) {
-
-    if (!value) {
-        return "";
-    }
-
-    try {
-
-        const url =
-            new URL(value);
-
-        if (
-            url.protocol === "http:" ||
-            url.protocol === "https:"
-        ) {
-            return url.href;
-        }
-
-    } catch (error) {}
-
-    return "#";
-}
-
-
-function showToast(message, type = "success") {
-
-    const toast =
-        $("toast");
-
-    toast.textContent =
-        message;
-
-    toast.className =
-        `toast show ${type}`;
-
-    clearTimeout(
-        window.toastTimer
-    );
-
-    window.toastTimer =
-        setTimeout(() => {
-
-            toast.className =
-                "toast";
-
-        }, 3500);
-}
-
-
-function showAdminMessage(message, type = "success") {
-
-    const box =
-        $("adminMessage");
-
-    box.textContent =
-        message;
-
-    box.className =
-        type === "error"
-            ? "error-box"
-            : "success-box";
-
-    box.style.display =
-        "block";
-
-}
-
-
-/* =========================================
-   APPLY THEME
-========================================= */
-
-function applyTheme() {
-
-    document.documentElement.style
-        .setProperty(
-            "--primary",
-            portfolioData.primary ||
-            "#00c6ff"
-        );
-
-    document.documentElement.style
-        .setProperty(
-            "--secondary",
-            portfolioData.secondary ||
-            "#0072ff"
-        );
-
-}
-
-
-/* =========================================
-   RENDER PORTFOLIO
-========================================= */
-
-function renderPortfolio() {
-
-    applyTheme();
-
-
-    $("navLogo").textContent =
-        portfolioData.name;
-
-    $("heroName").textContent =
-        portfolioData.name;
-
-    $("footerName").textContent =
-        portfolioData.name;
-
-
-    $("heroBio").textContent =
-        portfolioData.bio;
-
-
-    $("aboutText").textContent =
-        portfolioData.about;
-
-
-    $("objectiveText").textContent =
-        portfolioData.objective;
-
-
-    $("profileImage").src =
-        portfolioData.profileImage;
-
-
-    $("profileImage").alt =
-        portfolioData.name;
-
-
-    $("contactEmail").textContent =
-        portfolioData.email;
-
-
-    $("contactPhone").textContent =
-        portfolioData.phone;
-
-
-    $("contactLocation").textContent =
-        portfolioData.location;
-
-
-    renderSkills();
-
-    renderProjects();
-
-    renderSocial();
-
-}
-
-
-/* =========================================
-   RENDER SKILLS
-========================================= */
-
-function renderSkills() {
-
-    const grid =
-        $("skillsGrid");
-
-    grid.innerHTML = "";
-
-    portfolioData.skills.forEach(
-        skill => {
-
-            const card =
-                document.createElement("div");
-
-            card.className =
-                "skill-card";
-
-            card.innerHTML = `
-                <i class="${escapeHTML(skill.icon)}"></i>
-                <h3>${escapeHTML(skill.name)}</h3>
-            `;
-
-            grid.appendChild(card);
-
-        }
-    );
-
-}
-
-
-/* =========================================
-   RENDER PROJECTS
-========================================= */
-
-function renderProjects() {
-
-    const grid =
-        $("projectsGrid");
-
-    grid.innerHTML = "";
-
-    portfolioData.projects.forEach(
-        project => {
-
-            const card =
-                document.createElement("div");
-
-            card.className =
-                "project-card";
-
-            const image =
-                safeURL(project.image);
-
-            const link =
-                safeURL(project.link);
-
-            card.innerHTML = `
-
-                <div class="project-image">
-
-                    <img
-                        src="${escapeHTML(image)}"
-                        alt="${escapeHTML(project.title)}"
-                        loading="lazy"
-                        onerror="this.src='https://via.placeholder.com/800x500/071225/ffffff?text=Project+Image'"
-                    >
-
-                </div>
-
-                <div class="project-content">
-
-                    <h3>
-                        ${escapeHTML(project.title)}
-                    </h3>
-
-                    <a
-                        href="${escapeHTML(link)}"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-
-                        View Project
-                        <i class="fas fa-arrow-up-right-from-square"></i>
-
-                    </a>
-
-                </div>
-
-            `;
-
-            grid.appendChild(card);
-
-        }
-    );
-
-}
-
-
-/* =========================================
-   RENDER SOCIAL
-========================================= */
-
-function renderSocial() {
-
-    const container =
-        $("socialLinks");
-
-    container.innerHTML = "";
-
-
-    const socialItems = [
-
-        {
-            key: "github",
-            icon: "fab fa-github",
-            title: "GitHub"
-        },
-
-        {
-            key: "facebook",
-            icon: "fab fa-facebook",
-            title: "Facebook"
-        },
-
-        {
-            key: "instagram",
-            icon: "fab fa-instagram",
-            title: "Instagram"
-        },
-
-        {
-            key: "linkedin",
-            icon: "fab fa-linkedin",
-            title: "LinkedIn"
-        },
-
-        {
-            key: "twitter",
-            icon: "fab fa-x-twitter",
-            title: "Twitter / X"
-        }
-
-    ];
-
-
-    socialItems.forEach(item => {
-
-        const url =
-            portfolioData.social?.[item.key];
-
-        if (!url) {
-            return;
-        }
-
-        const safe =
-            safeURL(url);
-
-        if (safe === "#") {
-            return;
-        }
-
-        const a =
-            document.createElement("a");
-
-        a.href =
-            safe;
-
-        a.target =
-            "_blank";
-
-        a.rel =
-            "noopener noreferrer";
-
-        a.title =
-            item.title;
-
-        a.innerHTML =
-            `<i class="${item.icon}"></i>`;
-
-        container.appendChild(a);
-
-    });
-
-}
-
-
-/* =========================================
-   LOAD FIRESTORE
-========================================= */
-
-async function loadPortfolio() {
-
-    try {
-
-        const ref =
-            doc(
-                db,
-                "portfolio",
-                "main"
-            );
-
-        const snapshot =
-            await getDoc(ref);
-
-        if (snapshot.exists()) {
-
-            const cloudData =
-                snapshot.data();
-
-            portfolioData = {
-
-                ...DEFAULT_DATA,
-
-                ...cloudData,
-
-                skills:
-                    Array.isArray(cloudData.skills)
-                        ? cloudData.skills
-                        : DEFAULT_DATA.skills,
-
-                projects:
-                    Array.isArray(cloudData.projects)
-                        ? cloudData.projects
-                        : DEFAULT_DATA.projects,
-
-                social:
-                    {
-                        ...DEFAULT_DATA.social,
-                        ...(cloudData.social || {})
-                    }
-
-            };
-
-        }
-
-        renderPortfolio();
-
-    } catch (error) {
-
-        console.error(
-            "Firestore load error:",
-            error
-        );
-
-        renderPortfolio();
-
-        showToast(
-            "Using local default portfolio data.",
-            "error"
-        );
-
-    }
-
-}
-
-
-/* =========================================
-   SAVE FIRESTORE
-========================================= */
-
-async function savePortfolio() {
-
-    const button =
-        $("saveButton");
-
-    button.disabled =
-        true;
-
-    button.innerHTML =
-        `<i class="fas fa-spinner fa-spin"></i> Saving...`;
-
-
-    try {
-
-        const ref =
-            doc(
-                db,
-                "portfolio",
-                "main"
-            );
-
-        await setDoc(
-            ref,
-            portfolioData,
-            {
-                merge: true
-            }
-        );
-
-        renderPortfolio();
-
-        showAdminMessage(
-            "All portfolio changes have been saved online."
-        );
-
-        showToast(
-            "Saved successfully!"
-        );
-
-    } catch (error) {
-
-        console.error(
-            "Firestore save error:",
-            error
-        );
-
-        showAdminMessage(
-            getFirestoreError(error),
-            "error"
-        );
-
-        showToast(
-            getFirestoreError(error),
-            "error"
-        );
-
-    } finally {
-
-        button.disabled =
-            false;
-
-        button.innerHTML =
-            `<i class="fas fa-cloud-arrow-up"></i>
-             Save Changes Online`;
-
-    }
-
-}
-
-
-/* =========================================
-   FIRESTORE ERROR
-========================================= */
-
-function getFirestoreError(error) {
-
-    if (!error) {
-        return "Unknown Firebase error.";
-    }
-
-    if (
-        error.code ===
-        "permission-denied"
-    ) {
-
-        return "Firestore permission denied. Check your Firestore rules and admin UID.";
-
-    }
-
-    if (
-        error.code ===
-        "unavailable"
-    ) {
-
-        return "Firebase is temporarily unavailable. Check your internet connection.";
-
-    }
-
-    return error.message ||
-        "Unable to save portfolio.";
-
-}
-
-
-/* =========================================
-   FIREBASE LOGIN ERROR
-========================================= */
-
-function firebaseLoginError(error) {
-
-    const code =
-        error?.code || "";
-
-    switch (code) {
-
-        case "auth/invalid-credential":
-            return "Invalid email or password.";
-
-        case "auth/invalid-login-credentials":
-            return "Invalid email or password.";
-
-        case "auth/user-not-found":
-            return "No Firebase account exists with this email.";
-
-        case "auth/wrong-password":
-            return "Incorrect password.";
-
-        case "auth/invalid-email":
-            return "Please enter a valid email address.";
-
-        case "auth/too-many-requests":
-            return "Too many login attempts. Please wait and try again.";
-
-        case "auth/network-request-failed":
-            return "Network error. Check your internet connection.";
-
-        case "auth/user-disabled":
-            return "This Firebase user account has been disabled.";
-
-        default:
-            return error?.message ||
-                "Login failed.";
-
-    }
-
-}
-
-
-/* =========================================
-   LOGIN
-========================================= */
-
-$("loginForm")
-    .addEventListener(
-        "submit",
-        async event => {
-
-            event.preventDefault();
-
-
-            const email =
-                $("loginEmail")
-                    .value
-                    .trim()
-                    .toLowerCase();
-
-
-            const password =
-                $("loginPassword")
-                    .value;
-
-
-            const errorBox =
-                $("loginError");
-
-
-            const loginButton =
-                $("loginButton");
-
-
-            errorBox.style.display =
-                "none";
-
-
-            if (!email || !password) {
-
-                errorBox.textContent =
-                    "Please enter email and password.";
-
-                errorBox.style.display =
-                    "block";
-
-                return;
-
-            }
-
-
-            loginButton.disabled =
-                true;
-
-            loginButton.innerHTML =
-                `<i class="fas fa-spinner fa-spin"></i>
-                 Logging in...`;
-
-
-            try {
-
-                const credential =
-                    await signInWithEmailAndPassword(
-                        auth,
-                        email,
-                        password
-                    );
-
-
-                /*
-                 * SECURITY:
-                 * Only your configured admin email
-                 * can access the admin panel.
-                 */
-
-                if (
-                    credential.user.email
-                        ?.toLowerCase() !==
-                    ADMIN_EMAIL.toLowerCase()
-                ) {
-
-                    await signOut(auth);
-
-                    throw {
-                        code: "admin/not-authorized",
-                        message:
-                            "This Firebase account is not authorized as portfolio admin."
-                    };
-
-                }
-
-
-                $("loginModal")
-                    .classList
-                    .remove("active");
-
-
-                $("loginPassword")
-                    .value = "";
-
-
-                $("adminPanel")
-                    .style.display =
-                    "block";
-
-
-                $("adminUserText")
-                    .textContent =
-                    `Logged in as ${credential.user.email}`;
-
-
-                loadAdminForm();
-
-                showToast(
-                    "Admin login successful!"
-                );
-
-
-            } catch (error) {
-
-                console.error(
-                    "Login error:",
-                    error
-                );
-
-
-                errorBox.textContent =
-                    error.code ===
-                    "admin/not-authorized"
-                        ? error.message
-                        : firebaseLoginError(error);
-
-
-                errorBox.style.display =
-                    "block";
-
-            } finally {
-
-                loginButton.disabled =
-                    false;
-
-                loginButton.innerHTML =
-                    `<i class="fas fa-right-to-bracket"></i>
-                     Login`;
-
-            }
-
-        }
-    );
-
-
-/* =========================================
-   AUTH STATE
-========================================= */
-
-onAuthStateChanged(
-    auth,
-    user => {
-
-        if (!user) {
-
-            $("adminPanel")
-                .style.display =
-                "none";
-
-            return;
-        }
-
-
-        /*
-         * Do not show admin panel to
-         * an unauthorized authenticated user.
-         */
-
-        if (
-            user.email?.toLowerCase() !==
-            ADMIN_EMAIL.toLowerCase()
-        ) {
-
-            signOut(auth);
-
-            return;
-
-        }
-
-
-        $("adminUserText")
-            .textContent =
-            `Logged in as ${user.email}`;
-
-    }
+/* ==========================================
+   STATE
+========================================== */
+
+let data = JSON.parse(
+  JSON.stringify(defaultData)
 );
 
 
-/* =========================================
-   LOAD ADMIN FORM
-========================================= */
+/* ==========================================
+   HELPERS
+========================================== */
 
-function loadAdminForm() {
-
-    $("adminName").value =
-        portfolioData.name || "";
+const $ = id =>
+  document.getElementById(id);
 
 
-    $("adminBio").value =
-        portfolioData.bio || "";
+function escapeHTML(value){
 
-
-    $("adminAbout").value =
-        portfolioData.about || "";
-
-
-    $("adminObjective").value =
-        portfolioData.objective || "";
-
-
-    $("adminProfileImage").value =
-        portfolioData.profileImage || "";
-
-
-    $("adminEmail").value =
-        portfolioData.email || "";
-
-
-    $("adminPhone").value =
-        portfolioData.phone || "";
-
-
-    $("adminLocation").value =
-        portfolioData.location || "";
-
-
-    $("primaryColor").value =
-        validColor(
-            portfolioData.primary
-        )
-            ? portfolioData.primary
-            : "#00c6ff";
-
-
-    $("secondaryColor").value =
-        validColor(
-            portfolioData.secondary
-        )
-            ? portfolioData.secondary
-            : "#0072ff";
-
-
-    $("socialGithub").value =
-        portfolioData.social?.github || "";
-
-
-    $("socialFacebook").value =
-        portfolioData.social?.facebook || "";
-
-
-    $("socialInstagram").value =
-        portfolioData.social?.instagram || "";
-
-
-    $("socialLinkedin").value =
-        portfolioData.social?.linkedin || "";
-
-
-    $("socialTwitter").value =
-        portfolioData.social?.twitter || "";
-
-
-    updateAdminImagePreview();
-
-    renderAdminSkills();
-
-    renderAdminProjects();
+return String(value ?? "")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
 
 }
 
 
-/* =========================================
-   COLOR VALIDATION
-========================================= */
+function safeURL(value){
 
-function validColor(value) {
+if(!value) return "#";
 
-    return /^#[0-9A-Fa-f]{6}$/.test(
-        value || ""
-    );
+try{
+
+const u = new URL(value);
+
+if(
+u.protocol === "http:" ||
+u.protocol === "https:"
+){
+
+return u.href;
+
+}
+
+}catch(e){}
+
+return "#";
 
 }
 
 
-/* =========================================
-   ADMIN PROFILE IMAGE PREVIEW
-========================================= */
+function toast(message){
 
-$("adminProfileImage")
-    .addEventListener(
-        "input",
-        updateAdminImagePreview
-    );
+const el = $("toast");
 
+el.textContent = message;
 
-function updateAdminImagePreview() {
+el.classList.add("show");
 
-    const image =
-        $("adminProfileImage").value.trim();
-
-
-    $("adminImagePreview").src =
-        image ||
-        portfolioData.profileImage;
+setTimeout(()=>{
+el.classList.remove("show");
+},3000);
 
 }
 
 
-/* =========================================
-   UPDATE PROFILE DATA
-========================================= */
+function status(el,message,type){
 
-function updateProfileData() {
+el.textContent = message;
 
-    portfolioData.name =
-        $("adminName").value.trim() ||
-        DEFAULT_DATA.name;
-
-
-    portfolioData.bio =
-        $("adminBio").value.trim();
-
-
-    portfolioData.about =
-        $("adminAbout").value.trim();
-
-
-    portfolioData.objective =
-        $("adminObjective").value.trim();
-
-
-    portfolioData.profileImage =
-        $("adminProfileImage").value.trim();
-
-
-    portfolioData.email =
-        $("adminEmail").value.trim();
-
-
-    portfolioData.phone =
-        $("adminPhone").value.trim();
-
-
-    portfolioData.location =
-        $("adminLocation").value.trim();
+el.className =
+"status show " + type;
 
 }
 
 
-/* =========================================
-   ADD SKILL
-========================================= */
+/* ==========================================
+   COLORS
+========================================== */
 
-$("addSkillButton")
-    .addEventListener(
-        "click",
-        () => {
+function applyColors(){
 
-            const name =
-                $("newSkillName")
-                    .value
-                    .trim();
+document.documentElement
+.style
+.setProperty(
+"--primary",
+data.appearance.primary
+);
 
-
-            const icon =
-                $("newSkillIcon")
-                    .value
-                    .trim() ||
-                "fas fa-code";
-
-
-            if (!name) {
-
-                showToast(
-                    "Enter a skill name.",
-                    "error"
-                );
-
-                return;
-
-            }
-
-
-            portfolioData.skills.push({
-
-                name,
-                icon
-
-            });
-
-
-            $("newSkillName")
-                .value = "";
-
-
-            $("newSkillIcon")
-                .value = "";
-
-
-            renderAdminSkills();
-
-            renderSkills();
-
-        }
-    );
-
-
-/* =========================================
-   RENDER ADMIN SKILLS
-========================================= */
-
-function renderAdminSkills() {
-
-    const list =
-        $("adminSkillsList");
-
-    list.innerHTML = "";
-
-
-    portfolioData.skills
-        .forEach(
-            (skill, index) => {
-
-                const item =
-                    document.createElement("div");
-
-                item.className =
-                    "list-item";
-
-
-                item.innerHTML = `
-
-                    <div class="list-item-info">
-
-                        <i
-                            class="${escapeHTML(skill.icon)}"
-                            style="color:var(--primary);font-size:22px;"
-                        ></i>
-
-                        <div>
-                            <strong>
-                                ${escapeHTML(skill.name)}
-                            </strong>
-
-                            <small
-                                style="display:block;color:var(--muted);"
-                            >
-                                ${escapeHTML(skill.icon)}
-                            </small>
-                        </div>
-
-                    </div>
-
-                    <button
-                        class="delete-btn"
-                        data-index="${index}"
-                    >
-
-                        <i class="fas fa-trash"></i>
-
-                    </button>
-
-                `;
-
-
-                item
-                    .querySelector(".delete-btn")
-                    .addEventListener(
-                        "click",
-                        () => {
-
-                            portfolioData
-                                .skills
-                                .splice(index, 1);
-
-                            renderAdminSkills();
-
-                            renderSkills();
-
-                        }
-                    );
-
-
-                list.appendChild(item);
-
-            }
-        );
+document.documentElement
+.style
+.setProperty(
+"--secondary",
+data.appearance.secondary
+);
 
 }
 
 
-/* =========================================
-   ADD PROJECT
-========================================= */
+/* ==========================================
+   RENDER
+========================================== */
 
-$("addProjectButton")
-    .addEventListener(
-        "click",
-        () => {
+function render(){
 
-            const title =
-                $("newProjectTitle")
-                    .value
-                    .trim();
+const p = data.profile;
 
 
-            const image =
-                $("newProjectImage")
-                    .value
-                    .trim();
+/* PROFILE */
 
+$("navName").textContent =
+p.name;
 
-            const link =
-                $("newProjectLink")
-                    .value
-                    .trim();
+$("heroName").textContent =
+p.name;
 
+$("footerName").textContent =
+p.name;
 
-            if (!title) {
+$("heroBio").textContent =
+p.bio;
 
-                showToast(
-                    "Enter project title.",
-                    "error"
-                );
+$("aboutText").textContent =
+p.about;
 
-                return;
+$("objectiveText").textContent =
+p.objective;
 
-            }
+$("profileImage").src =
+p.image;
 
+$("profileImage").alt =
+p.name;
 
-            portfolioData.projects.push({
+$("emailLink").textContent =
+p.email;
 
-                title,
+$("emailLink").href =
+p.email ? `mailto:${p.email}` : "#";
 
-                image:
-                    image ||
-                    "https://via.placeholder.com/800x500/071225/ffffff?text=Project",
+$("phoneLink").textContent =
+p.phone;
 
-                link:
-                    link || "#"
+$("phoneLink").href =
+p.phone ? `tel:${p.phone.replace(/\s/g,"")}` : "#";
 
-            });
+$("locationText").textContent =
+p.location;
 
 
-            $("newProjectTitle")
-                .value = "";
+/* SKILLS */
 
+const skills =
+$("skillsContainer");
 
-            $("newProjectImage")
-                .value = "";
+skills.innerHTML = "";
 
+data.skills.forEach(skill=>{
 
-            $("newProjectLink")
-                .value = "";
+const card =
+document.createElement("div");
 
+card.className =
+"skill-card glass";
 
-            renderAdminProjects();
+card.innerHTML = `
+<i class="${escapeHTML(skill.icon)}"></i>
+<h3>${escapeHTML(skill.name)}</h3>
+`;
 
-            renderProjects();
+skills.appendChild(card);
 
-        }
-    );
+});
 
 
-/* =========================================
-   RENDER ADMIN PROJECTS
-========================================= */
+/* PROJECTS */
 
-function renderAdminProjects() {
+const projects =
+$("projectsContainer");
 
-    const list =
-        $("adminProjectsList");
+projects.innerHTML = "";
 
-    list.innerHTML = "";
+data.projects.forEach(project=>{
 
+const card =
+document.createElement("article");
 
-    portfolioData.projects
-        .forEach(
-            (project, index) => {
+card.className =
+"project-card glass";
 
-                const item =
-                    document.createElement("div");
+card.innerHTML = `
 
-                item.className =
-                    "list-item";
+<img
+class="project-image"
+src="${safeURL(project.image)}"
+alt="${escapeHTML(project.name)}"
+onerror="this.src='https://via.placeholder.com/800x500?text=Project'"
+>
 
-
-                item.innerHTML = `
-
-                    <div class="list-item-info">
-
-                        <img
-                            src="${escapeHTML(
-                                safeURL(project.image)
-                            )}"
-                            alt=""
-                            onerror="this.src='https://via.placeholder.com/150x100/071225/ffffff?text=Project'"
-                        >
-
-                        <div>
-
-                            <strong>
-                                ${escapeHTML(project.title)}
-                            </strong>
-
-                            <small
-                                style="
-                                display:block;
-                                color:var(--muted);
-                                word-break:break-all;
-                                "
-                            >
-                                ${escapeHTML(project.link)}
-                            </small>
-
-                        </div>
-
-                    </div>
-
-                    <button
-                        class="delete-btn"
-                        data-index="${index}"
-                    >
-
-                        <i class="fas fa-trash"></i>
-
-                    </button>
-
-                `;
-
-
-                item
-                    .querySelector(".delete-btn")
-                    .addEventListener(
-                        "click",
-                        () => {
-
-                            portfolioData
-                                .projects
-                                .splice(index, 1);
-
-                            renderAdminProjects();
-
-                            renderProjects();
-
-                        }
-                    );
-
-
-                list.appendChild(item);
-
-            }
-        );
-
-}
-
-
-/* =========================================
-   SAVE BUTTON
-========================================= */
-
-$("saveButton")
-    .addEventListener(
-        "click",
-        async () => {
-
-            updateProfileData();
-
-
-            portfolioData.primary =
-                $("primaryColor").value;
-
-
-            portfolioData.secondary =
-                $("secondaryColor").value;
-
-
-            portfolioData.social = {
-
-                github:
-                    $("socialGithub")
-                        .value
-                        .trim(),
-
-                facebook:
-                    $("socialFacebook")
-                        .value
-                        .trim(),
-
-                instagram:
-                    $("socialInstagram")
-                        .value
-                        .trim(),
-
-                linkedin:
-                    $("socialLinkedin")
-                        .value
-                        .trim(),
-
-                twitter:
-                    $("socialTwitter")
-                        .value
-                        .trim()
-
-            };
-
-
-            await savePortfolio();
-
-        }
-    );
-
-
-/* =========================================
-   ADMIN TABS
-========================================= */
-
-document
-    .querySelectorAll(".tab-btn")
-    .forEach(button => {
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                document
-                    .querySelectorAll(".tab-btn")
-                    .forEach(
-                        btn =>
-                            btn.classList.remove(
-                                "active"
-                            )
-                    );
-
-
-                document
-                    .querySelectorAll(".admin-card")
-                    .forEach(
-                        card =>
-                            card.classList.remove(
-                                "active"
-                            )
-                    );
-
-
-                button.classList.add(
-                    "active"
-                );
-
-
-                const tab =
-                    button.dataset.tab;
-
-
-                $(tab)
-                    .classList
-                    .add("active");
-
-            }
-        );
-
-    });
-
-
-/* =========================================
-   OPEN ADMIN LOGIN
-========================================= */
-
-$("adminTrigger")
-    .addEventListener(
-        "click",
-        () => {
-
-            $("loginModal")
-                .classList
-                .add("active");
-
-
-            $("loginEmail")
-                .focus();
-
-        }
-    );
-
-
-/* =========================================
-   CLOSE LOGIN
-========================================= */
-
-$("closeLogin")
-    .addEventListener(
-        "click",
-        () => {
-
-            $("loginModal")
-                .classList
-                .remove("active");
-
-        }
-    );
-
-
-$("loginModal")
-    .addEventListener(
-        "click",
-        event => {
-
-            if (
-                event.target ===
-                $("loginModal")
-            ) {
-
-                $("loginModal")
-                    .classList
-                    .remove("active");
-
-            }
-
-        }
-    );
-
-
-/* =========================================
-   CLOSE ADMIN
-========================================= */
-
-$("closeAdmin")
-    .addEventListener(
-        "click",
-        () => {
-
-            $("adminPanel")
-                .style
-                .display = "none";
-
-        }
-    );
-
-
-/* =========================================
-   LOGOUT
-========================================= */
-
-$("logoutButton")
-    .addEventListener(
-        "click",
-        async () => {
-
-            try {
-
-                await signOut(auth);
-
-                $("adminPanel")
-                    .style
-                    .display = "none";
-
-                showToast(
-                    "Logged out successfully."
-                );
-
-            } catch (error) {
-
-                console.error(
-                    "Logout error:",
-                    error
-                );
-
-                showToast(
-                    "Logout failed.",
-                    "error"
-                );
-
-            }
-
-        }
-    );
-
-
-/* =========================================
-   MOBILE NAV
-========================================= */
-
-$("menuBtn")
-    .addEventListener(
-        "click",
-        () => {
-
-            $("navLinks")
-                .classList
-                .toggle("active");
-
-        }
-    );
-
-
-document
-    .querySelectorAll(".nav-links a")
-    .forEach(link => {
-
-        link.addEventListener(
-            "click",
-            () => {
-
-                $("navLinks")
-                    .classList
-                    .remove("active");
-
-            }
-        );
-
-    });
-
-
-/* =========================================
-   TYPING ANIMATION
-========================================= */
-
-const typingWords = [
-
-    "BSc CSIT Student",
-
-    "Aspiring Software Developer",
-
-    "Web Developer",
-
-    "Mobile App Developer",
-
-    "UI Designer",
-
-    "Technology Enthusiast"
+<div class="project-body">
+
+<h3>
+${escapeHTML(project.name)}
+</h3>
+
+<a
+href="${safeURL(project.link)}"
+target="_blank"
+rel="noopener noreferrer"
+>
+View Project
+<i class="fas fa-arrow-up-right-from-square"></i>
+</a>
+
+</div>
+`;
+
+projects.appendChild(card);
+
+});
+
+
+/* SOCIAL */
+
+const socials =
+$("socialContainer");
+
+socials.innerHTML = "";
+
+const socialData = [
+
+[
+data.social.github,
+"fab fa-github",
+"GitHub"
+],
+
+[
+data.social.facebook,
+"fab fa-facebook",
+"Facebook"
+],
+
+[
+data.social.instagram,
+"fab fa-instagram",
+"Instagram"
+],
+
+[
+data.social.linkedin,
+"fab fa-linkedin",
+"LinkedIn"
+],
+
+[
+data.social.twitter,
+"fab fa-x-twitter",
+"X"
+]
 
 ];
 
+socialData.forEach(item=>{
 
-let typingIndex = 0;
+if(!item[0]) return;
 
-let characterIndex = 0;
+const a =
+document.createElement("a");
+
+a.className =
+"social";
+
+a.href =
+safeURL(item[0]);
+
+a.target =
+"_blank";
+
+a.rel =
+"noopener noreferrer";
+
+a.title =
+item[2];
+
+a.innerHTML =
+`<i class="${item[1]}"></i>`;
+
+socials.appendChild(a);
+
+});
+
+
+applyColors();
+
+}
+
+
+/* ==========================================
+   LOAD FIRESTORE
+========================================== */
+
+async function loadOnline(){
+
+try{
+
+const snapshot =
+await getDoc(portfolioRef);
+
+if(snapshot.exists()){
+
+const cloud =
+snapshot.data();
+
+data = {
+
+...defaultData,
+
+...cloud,
+
+profile:{
+...defaultData.profile,
+...(cloud.profile || {})
+},
+
+appearance:{
+...defaultData.appearance,
+...(cloud.appearance || {})
+},
+
+skills:
+Array.isArray(cloud.skills)
+? cloud.skills
+: defaultData.skills,
+
+projects:
+Array.isArray(cloud.projects)
+? cloud.projects
+: defaultData.projects,
+
+social:{
+...defaultData.social,
+...(cloud.social || {})
+}
+
+};
+
+}
+
+render();
+
+}catch(error){
+
+console.error(
+"Firestore load error:",
+error
+);
+
+render();
+
+toast(
+"Firebase data could not be loaded. Showing default data."
+);
+
+}
+
+}
+
+
+/* ==========================================
+   FORM LOAD
+========================================== */
+
+function loadForm(){
+
+const p =
+data.profile;
+
+$("editName").value =
+p.name || "";
+
+$("editImage").value =
+p.image || "";
+
+$("editBio").value =
+p.bio || "";
+
+$("editAbout").value =
+p.about || "";
+
+$("editObjective").value =
+p.objective || "";
+
+$("editEmail").value =
+p.email || "";
+
+$("editPhone").value =
+p.phone || "";
+
+$("editLocation").value =
+p.location || "";
+
+
+$("editPrimary").value =
+data.appearance.primary;
+
+$("editSecondary").value =
+data.appearance.secondary;
+
+
+$("socialGithub").value =
+data.social.github || "";
+
+$("socialFacebook").value =
+data.social.facebook || "";
+
+$("socialInstagram").value =
+data.social.instagram || "";
+
+$("socialLinkedin").value =
+data.social.linkedin || "";
+
+$("socialTwitter").value =
+data.social.twitter || "";
+
+
+renderAdminSkills();
+
+renderAdminProjects();
+
+}
+
+
+/* ==========================================
+   READ FORM
+========================================== */
+
+function readForm(){
+
+data.profile.name =
+$("editName").value.trim();
+
+data.profile.image =
+$("editImage").value.trim();
+
+data.profile.bio =
+$("editBio").value.trim();
+
+data.profile.about =
+$("editAbout").value.trim();
+
+data.profile.objective =
+$("editObjective").value.trim();
+
+data.profile.email =
+$("editEmail").value.trim();
+
+data.profile.phone =
+$("editPhone").value.trim();
+
+data.profile.location =
+$("editLocation").value.trim();
+
+
+data.appearance.primary =
+$("editPrimary").value;
+
+data.appearance.secondary =
+$("editSecondary").value;
+
+
+data.social.github =
+$("socialGithub").value.trim();
+
+data.social.facebook =
+$("socialFacebook").value.trim();
+
+data.social.instagram =
+$("socialInstagram").value.trim();
+
+data.social.linkedin =
+$("socialLinkedin").value.trim();
+
+data.social.twitter =
+$("socialTwitter").value.trim();
+
+}
+
+
+/* ==========================================
+   ADMIN SKILLS
+========================================== */
+
+function renderAdminSkills(){
+
+const list =
+$("adminSkills");
+
+list.innerHTML = "";
+
+data.skills.forEach((skill,index)=>{
+
+const item =
+document.createElement("div");
+
+item.className =
+"admin-item";
+
+item.innerHTML = `
+
+<div class="admin-info">
+
+<strong>
+<i class="${escapeHTML(skill.icon)}"></i>
+${escapeHTML(skill.name)}
+</strong>
+
+<small>
+${escapeHTML(skill.icon)}
+</small>
+
+</div>
+
+<button
+class="delete-btn"
+data-skill="${index}"
+>
+<i class="fas fa-trash"></i>
+Delete
+</button>
+`;
+
+list.appendChild(item);
+
+});
+
+}
+
+
+$("adminSkills")
+.addEventListener("click",e=>{
+
+const btn =
+e.target.closest("[data-skill]");
+
+if(!btn) return;
+
+const index =
+Number(btn.dataset.skill);
+
+data.skills.splice(index,1);
+
+renderAdminSkills();
+
+toast(
+"Skill deleted. Click Save Online."
+);
+
+});
+
+
+$("addSkill")
+.addEventListener("click",()=>{
+
+const name =
+$("skillName").value.trim();
+
+const icon =
+$("skillIcon").value.trim();
+
+
+if(!name){
+
+toast("Enter skill name.");
+
+return;
+
+}
+
+
+data.skills.push({
+
+name:name,
+
+icon:
+icon || "fas fa-code"
+
+});
+
+
+$("skillName").value = "";
+
+$("skillIcon").value = "";
+
+renderAdminSkills();
+
+toast(
+"Skill added. Save Online to publish."
+);
+
+});
+
+
+/* ==========================================
+   ADMIN PROJECTS
+========================================== */
+
+function renderAdminProjects(){
+
+const list =
+$("adminProjects");
+
+list.innerHTML = "";
+
+data.projects.forEach((project,index)=>{
+
+const item =
+document.createElement("div");
+
+item.className =
+"admin-item";
+
+item.innerHTML = `
+
+<div class="admin-info">
+
+<strong>
+${escapeHTML(project.name)}
+</strong>
+
+<small>
+${escapeHTML(project.link)}
+</small>
+
+</div>
+
+<button
+class="delete-btn"
+data-project="${index}"
+>
+<i class="fas fa-trash"></i>
+Delete
+</button>
+
+`;
+
+list.appendChild(item);
+
+});
+
+}
+
+
+$("adminProjects")
+.addEventListener("click",e=>{
+
+const btn =
+e.target.closest("[data-project]");
+
+if(!btn) return;
+
+const index =
+Number(btn.dataset.project);
+
+data.projects.splice(index,1);
+
+renderAdminProjects();
+
+toast(
+"Project deleted. Click Save Online."
+);
+
+});
+
+
+$("addProject")
+.addEventListener("click",()=>{
+
+const name =
+$("projectName").value.trim();
+
+const image =
+$("projectImage").value.trim();
+
+const link =
+$("projectLink").value.trim();
+
+
+if(!name){
+
+toast("Enter project name.");
+
+return;
+
+}
+
+
+data.projects.push({
+
+name:name,
+
+image:image,
+
+link:link
+
+});
+
+
+$("projectName").value = "";
+
+$("projectImage").value = "";
+
+$("projectLink").value = "";
+
+renderAdminProjects();
+
+toast(
+"Project added. Save Online to publish."
+);
+
+});
+
+
+/* ==========================================
+   SAVE FIRESTORE
+========================================== */
+
+$("saveButton")
+.addEventListener("click",async()=>{
+
+const user =
+auth.currentUser;
+
+if(!user){
+
+toast("Please login first.");
+
+return;
+
+}
+
+
+if(
+!user.email ||
+user.email.toLowerCase() !==
+ADMIN_EMAIL.toLowerCase()
+){
+
+toast("Unauthorized account.");
+
+return;
+
+}
+
+
+readForm();
+
+
+const button =
+$("saveButton");
+
+const oldHTML =
+button.innerHTML;
+
+try{
+
+button.disabled = true;
+
+button.innerHTML =
+`<i class="fas fa-spinner fa-spin"></i> Saving...`;
+
+
+await setDoc(
+portfolioRef,
+data
+);
+
+
+render();
+
+status(
+$("adminStatus"),
+"Portfolio saved successfully to Firebase Firestore.",
+"success"
+);
+
+toast(
+"Portfolio saved online!"
+);
+
+}catch(error){
+
+console.error(error);
+
+status(
+$("adminStatus"),
+"Save failed: " +
+(error.message || "Unknown error"),
+"error"
+);
+
+}finally{
+
+button.disabled = false;
+
+button.innerHTML =
+oldHTML;
+
+}
+
+});
+
+
+/* ==========================================
+   LOGIN
+========================================== */
+
+$("loginForm")
+.addEventListener("submit",async e=>{
+
+e.preventDefault();
+
+const email =
+$("loginEmail").value.trim();
+
+const password =
+$("loginPassword").value;
+
+const statusBox =
+$("loginStatus");
+
+try{
+
+statusBox.className =
+"status";
+
+$("loginButton").disabled =
+true;
+
+$("loginButton").innerHTML =
+`<i class="fas fa-spinner fa-spin"></i> Logging in...`;
+
+
+const credential =
+await signInWithEmailAndPassword(
+auth,
+email,
+password
+);
+
+
+if(
+!credential.user.email ||
+credential.user.email.toLowerCase() !==
+ADMIN_EMAIL.toLowerCase()
+){
+
+await signOut(auth);
+
+throw new Error(
+"This account is not authorized as admin."
+);
+
+}
+
+
+$("loginPassword").value = "";
+
+
+}catch(error){
+
+console.error(
+"Authentication error:",
+error
+);
+
+let message =
+"Login failed.";
+
+
+if(
+error.code ===
+"auth/invalid-credential"
+){
+
+message =
+"Incorrect email or password.";
+
+}
+
+else if(
+error.code ===
+"auth/invalid-email"
+){
+
+message =
+"Invalid email address.";
+
+}
+
+else if(
+error.code ===
+"auth/too-many-requests"
+){
+
+message =
+"Too many attempts. Try again later.";
+
+}
+
+else if(
+error.code ===
+"auth/user-not-found"
+){
+
+message =
+"Admin account does not exist.";
+
+}
+
+else if(
+error.message.includes(
+"not authorized"
+)
+){
+
+message =
+"This Firebase account is not authorized.";
+
+}
+
+
+status(
+statusBox,
+message,
+"error"
+);
+
+}finally{
+
+$("loginButton").disabled =
+false;
+
+$("loginButton").innerHTML =
+`<i class="fas fa-right-to-bracket"></i> Login`;
+
+}
+
+});
+
+
+/* ==========================================
+   AUTH STATE
+========================================== */
+
+onAuthStateChanged(
+auth,
+user=>{
+
+if(
+user &&
+user.email &&
+user.email.toLowerCase() ===
+ADMIN_EMAIL.toLowerCase()
+){
+
+$("loginModal")
+.classList.remove("show");
+
+$("adminModal")
+.classList.add("show");
+
+$("adminUser").textContent =
+"Logged in as " + user.email;
+
+loadForm();
+
+}else{
+
+$("adminModal")
+.classList.remove("show");
+
+}
+
+});
+
+
+/* ==========================================
+   OPEN ADMIN
+========================================== */
+
+$("adminButton")
+.addEventListener("click",()=>{
+
+const user =
+auth.currentUser;
+
+
+if(
+user &&
+user.email &&
+user.email.toLowerCase() ===
+ADMIN_EMAIL.toLowerCase()
+){
+
+loadForm();
+
+$("adminModal")
+.classList.add("show");
+
+}else{
+
+$("loginModal")
+.classList.add("show");
+
+}
+
+});
+
+
+/* ==========================================
+   CLOSE LOGIN
+========================================== */
+
+$("closeLogin")
+.addEventListener("click",()=>{
+
+$("loginModal")
+.classList.remove("show");
+
+});
+
+
+/* ==========================================
+   CLOSE ADMIN
+========================================== */
+
+$("closeAdmin")
+.addEventListener("click",()=>{
+
+readForm();
+
+render();
+
+$("adminModal")
+.classList.remove("show");
+
+});
+
+
+/* ==========================================
+   LOGOUT
+========================================== */
+
+$("logoutButton")
+.addEventListener("click",async()=>{
+
+try{
+
+await signOut(auth);
+
+$("adminModal")
+.classList.remove("show");
+
+toast(
+"Logged out successfully."
+);
+
+}catch(error){
+
+console.error(error);
+
+}
+
+});
+
+
+/* ==========================================
+   TABS
+========================================== */
+
+document
+.querySelectorAll(".tab")
+.forEach(button=>{
+
+button.addEventListener("click",()=>{
+
+document
+.querySelectorAll(".tab")
+.forEach(x=>
+x.classList.remove("active")
+);
+
+document
+.querySelectorAll(".admin-section")
+.forEach(x=>
+x.classList.remove("active")
+);
+
+button.classList.add("active");
+
+const target =
+$(button.dataset.tab);
+
+if(target){
+
+target.classList.add("active");
+
+}
+
+});
+
+});
+
+
+/* ==========================================
+   CLOSE MODAL ON BACKDROP
+========================================== */
+
+$("loginModal")
+.addEventListener("click",e=>{
+
+if(
+e.target ===
+$("loginModal")
+){
+
+$("loginModal")
+.classList.remove("show");
+
+}
+
+});
+
+
+$("adminModal")
+.addEventListener("click",e=>{
+
+if(
+e.target ===
+$("adminModal")
+){
+
+$("adminModal")
+.classList.remove("show");
+
+}
+
+});
+
+
+/* ==========================================
+   TYPING
+========================================== */
+
+const words = [
+
+"Software Developer",
+"Web Developer",
+"BSc CSIT Student",
+"UI Designer",
+"App Developer"
+
+];
+
+let wordIndex = 0;
+
+let charIndex = 0;
 
 let deleting = false;
 
 
-function typingAnimation() {
+function typing(){
 
-    const element =
-        $("typingText");
+const el =
+$("typing");
 
-
-    const word =
-        typingWords[typingIndex];
-
-
-    if (!deleting) {
-
-        element.textContent =
-            word.substring(
-                0,
-                characterIndex + 1
-            );
-
-        characterIndex++;
+const word =
+words[wordIndex];
 
 
-        if (
-            characterIndex ===
-            word.length
-        ) {
+if(!deleting){
 
-            deleting = true;
+el.textContent =
+word.substring(
+0,
+charIndex + 1
+);
 
-            setTimeout(
-                typingAnimation,
-                1400
-            );
-
-            return;
-
-        }
-
-    } else {
-
-        element.textContent =
-            word.substring(
-                0,
-                characterIndex - 1
-            );
-
-        characterIndex--;
+charIndex++;
 
 
-        if (characterIndex === 0) {
+if(
+charIndex >= word.length
+){
 
-            deleting = false;
+deleting = true;
 
-            typingIndex =
-                (typingIndex + 1) %
-                typingWords.length;
+setTimeout(
+typing,
+1400
+);
 
-        }
+return;
 
-    }
+}
+
+}else{
+
+el.textContent =
+word.substring(
+0,
+charIndex - 1
+);
+
+charIndex--;
 
 
-    setTimeout(
-        typingAnimation,
-        deleting ? 45 : 80
-    );
+if(charIndex <= 0){
+
+deleting = false;
+
+wordIndex =
+(wordIndex + 1) %
+words.length;
+
+}
 
 }
 
 
-/* =========================================
-   YEAR
-========================================= */
+setTimeout(
+typing,
+deleting ? 50 : 85
+);
+
+}
+
+
+/* ==========================================
+   START
+========================================== */
 
 $("year").textContent =
-    new Date().getFullYear();
+new Date().getFullYear();
 
+render();
 
-/* =========================================
-   START
-========================================= */
+loadOnline();
 
-renderPortfolio();
+typing();
 
-typingAnimation();
-
-loadPortfolio();
+console.log(
+"Saksham Portfolio Firebase app started."
+);
 
 </script>
 
