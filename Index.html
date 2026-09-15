@@ -1,54 +1,48 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>Saksham Shrestha | Portfolio</title>
 
-<meta name="description"
-content="Saksham Shrestha - BSc CSIT student and aspiring software developer">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
-
 :root{
     --primary:#00c6ff;
     --secondary:#0072ff;
-    --bg:#050816;
-    --bg2:#081126;
+    --bg:#050b18;
     --card:rgba(255,255,255,.07);
     --border:rgba(255,255,255,.12);
-    --text:#ffffff;
-    --muted:#b9c3d6;
-    --danger:#ff4d6d;
-    --success:#22c55e;
+    --text:#fff;
+    --muted:#aab5ca;
+    --danger:#ff416c;
+    --success:#00e676;
 }
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+}
+
+html{
     scroll-behavior:smooth;
 }
 
 body{
     font-family:Poppins,sans-serif;
-    color:var(--text);
-
     background:
-    radial-gradient(circle at 10% 10%,rgba(0,198,255,.15),transparent 30%),
-    radial-gradient(circle at 90% 20%,rgba(0,114,255,.16),transparent 30%),
-    linear-gradient(135deg,var(--bg),var(--bg2));
-
+        radial-gradient(circle at top left,#092c55 0,transparent 35%),
+        radial-gradient(circle at bottom right,#071c43 0,transparent 35%),
+        var(--bg);
+    color:var(--text);
     min-height:100vh;
 }
 
@@ -72,7 +66,7 @@ button{
     margin:auto;
 }
 
-/* NAV */
+/* NAVBAR */
 
 nav{
     position:fixed;
@@ -80,24 +74,22 @@ nav{
     left:0;
     width:100%;
     z-index:1000;
-
-    background:rgba(5,8,22,.8);
-    backdrop-filter:blur(18px);
-
+    background:rgba(5,11,24,.75);
+    backdrop-filter:blur(15px);
     border-bottom:1px solid var(--border);
 }
 
 .nav-inner{
     min-height:70px;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
 }
 
 .logo{
-    font-size:24px;
+    font-size:22px;
     font-weight:800;
+    color:white;
 }
 
 .logo span{
@@ -107,11 +99,10 @@ nav{
 .nav-links{
     display:flex;
     gap:25px;
-    list-style:none;
 }
 
 .nav-links a{
-    color:#dce5f5;
+    color:#dce6f7;
     font-size:14px;
     transition:.3s;
 }
@@ -120,388 +111,280 @@ nav{
     color:var(--primary);
 }
 
+.admin-nav{
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.06);
+    padding:9px 15px;
+    border-radius:30px;
+    color:white!important;
+}
+
 /* HERO */
 
 .hero{
     min-height:100vh;
-
     display:flex;
     align-items:center;
-
     padding-top:90px;
 }
 
 .hero-grid{
     display:grid;
-    grid-template-columns:1.1fr .9fr;
-
+    grid-template-columns:1.3fr .7fr;
     gap:50px;
-
     align-items:center;
 }
 
 .badge{
-    display:inline-flex;
-
+    display:inline-block;
     padding:8px 15px;
-
     border-radius:30px;
-
     background:rgba(0,198,255,.1);
-
     border:1px solid rgba(0,198,255,.3);
-
     color:var(--primary);
-
-    font-size:13px;
-
-    margin-bottom:20px;
-}
-
-.hero h1{
-    font-size:clamp(42px,7vw,78px);
-
-    line-height:1.05;
-
     margin-bottom:18px;
 }
 
-.gradient{
-    background:linear-gradient(
-        90deg,
-        var(--primary),
-        var(--secondary)
-    );
+.hero h1{
+    font-size:clamp(40px,7vw,75px);
+    line-height:1.05;
+}
 
+.hero h1 span{
+    background:linear-gradient(90deg,var(--primary),var(--secondary));
     -webkit-background-clip:text;
-
     color:transparent;
 }
 
 .hero h2{
-    font-size:clamp(20px,3vw,32px);
-
-    color:#d9e2f0;
-
-    margin-bottom:20px;
+    margin-top:15px;
+    font-size:25px;
+    color:#dce6f7;
 }
 
 .hero p{
-    max-width:650px;
-
+    margin-top:20px;
     color:var(--muted);
-
-    line-height:1.8;
+    line-height:1.9;
+    max-width:700px;
 }
 
 .buttons{
     display:flex;
-
-    gap:14px;
-
+    gap:12px;
     flex-wrap:wrap;
-
-    margin-top:30px;
+    margin-top:28px;
 }
 
 .btn{
-    border:none;
-
-    padding:13px 22px;
-
+    border:0;
+    padding:12px 20px;
     border-radius:12px;
-
     font-weight:600;
-
-    transition:.3s;
-
     display:inline-flex;
-
     align-items:center;
-
-    justify-content:center;
-
-    gap:9px;
+    gap:8px;
+    transition:.3s;
 }
 
 .btn-primary{
-    color:#fff;
-
-    background:
-    linear-gradient(
-        135deg,
-        var(--primary),
-        var(--secondary)
-    );
-
-    box-shadow:
-    0 10px 30px rgba(0,114,255,.25);
+    color:white;
+    background:linear-gradient(90deg,var(--primary),var(--secondary));
 }
 
 .btn-secondary{
-    color:#fff;
-
-    background:rgba(255,255,255,.06);
-
+    background:rgba(255,255,255,.07);
     border:1px solid var(--border);
+    color:white;
 }
 
 .btn-danger{
-    color:#ff8da3;
-
-    background:rgba(255,77,109,.1);
-
-    border:1px solid rgba(255,77,109,.2);
+    background:rgba(255,65,108,.12);
+    color:#ff6688;
+    border:1px solid rgba(255,65,108,.3);
 }
 
 .btn:hover{
-    transform:translateY(-3px);
+    transform:translateY(-2px);
 }
 
-/* PROFILE */
-
-.profile-wrap{
-    display:flex;
-    justify-content:center;
-}
-
-.profile{
-    width:330px;
-    height:330px;
-
+.hero-img{
+    width:300px;
+    height:300px;
+    margin:auto;
     border-radius:50%;
-
     padding:7px;
-
-    background:
-    linear-gradient(
-        135deg,
-        var(--primary),
-        var(--secondary)
-    );
-
-    box-shadow:
-    0 0 50px rgba(0,198,255,.2),
-    0 0 100px rgba(0,114,255,.12);
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    box-shadow:0 0 60px rgba(0,198,255,.25);
 }
 
-.profile img{
+.hero-img img{
     width:100%;
     height:100%;
-
-    border-radius:50%;
-
     object-fit:cover;
-
-    background:#111827;
+    border-radius:50%;
+    background:#111;
 }
 
 /* SECTIONS */
 
 section{
-    padding:90px 0;
+    padding:100px 0;
 }
 
 .section-title{
     text-align:center;
-
     margin-bottom:50px;
 }
 
 .section-title h2{
-    font-size:38px;
+    font-size:35px;
+}
+
+.section-title span{
+    color:var(--primary);
 }
 
 .section-title p{
     color:var(--muted);
-
     margin-top:8px;
-}
-
-/* GLASS */
-
-.glass{
-    background:var(--card);
-
-    border:1px solid var(--border);
-
-    border-radius:20px;
-
-    backdrop-filter:blur(15px);
 }
 
 /* ABOUT */
 
-.about-grid{
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:25px;
+.about-box{
+    padding:35px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:25px;
+    backdrop-filter:blur(15px);
 }
 
-.about-card{
-    padding:30px;
-}
-
-.about-card h3{
-    color:var(--primary);
-
-    margin-bottom:15px;
-}
-
-.about-card p{
+.about-box p{
     color:var(--muted);
-
-    line-height:1.8;
+    line-height:1.9;
+    margin-bottom:20px;
 }
 
 /* SKILLS */
 
 .skills-grid{
     display:grid;
-
-    grid-template-columns:
-    repeat(5,1fr);
-
-    gap:16px;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:18px;
 }
 
 .skill{
     padding:25px 15px;
-
     text-align:center;
-
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
     transition:.3s;
 }
 
 .skill:hover{
-    transform:translateY(-6px);
-
+    transform:translateY(-5px);
     border-color:var(--primary);
 }
 
 .skill i{
-    font-size:34px;
-
+    font-size:35px;
     color:var(--primary);
-
     margin-bottom:12px;
-}
-
-.skill h4{
-    font-size:14px;
 }
 
 /* PROJECTS */
 
 .projects-grid{
     display:grid;
-
-    grid-template-columns:
-    repeat(2,1fr);
-
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
     gap:25px;
 }
 
-.project{
+.project-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:22px;
     overflow:hidden;
-
-    display:flex;
-
-    flex-direction:column;
+    backdrop-filter:blur(15px);
+    transition:.3s;
 }
 
-.project-img{
+.project-card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(0,198,255,.5);
+}
+
+.project-image{
     width:100%;
-
-    height:240px;
-
+    height:190px;
     object-fit:cover;
-
-    display:block;
+    background:#091222;
 }
 
-.project-body{
-    padding:25px;
-
-    flex:1;
+.project-content{
+    padding:22px;
 }
 
-.project-body h3{
+.project-content h3{
+    font-size:21px;
     margin-bottom:10px;
 }
 
-.project-body p{
+.project-content p{
     color:var(--muted);
-
     line-height:1.7;
-
-    margin-bottom:18px;
+    font-size:14px;
+    min-height:50px;
 }
 
-.project-actions{
+.project-buttons{
     display:flex;
-
-    gap:10px;
-
+    gap:8px;
     flex-wrap:wrap;
+    margin-top:18px;
 }
 
-.project-link{
-    color:var(--primary);
-
-    font-weight:600;
+.project-buttons .btn{
+    font-size:13px;
+    padding:9px 13px;
 }
 
-.apk-badge{
-    display:inline-flex;
-
+.apk-info{
+    display:flex;
+    gap:8px;
     align-items:center;
-
-    gap:6px;
-
-    padding:6px 10px;
-
-    border-radius:20px;
-
-    font-size:11px;
-
-    color:#86efac;
-
-    background:rgba(34,197,94,.1);
-
-    margin-bottom:12px;
+    margin-top:12px;
+    font-size:12px;
+    color:#9be7ff;
 }
 
 /* CONTACT */
 
-.contact-grid{
+.contact-box{
     display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
     gap:20px;
 }
 
-.contact-card{
+.contact-item{
+    background:var(--card);
+    border:1px solid var(--border);
     padding:25px;
-
+    border-radius:20px;
     text-align:center;
 }
 
-.contact-card i{
-    color:var(--primary);
-
+.contact-item i{
     font-size:28px;
-
+    color:var(--primary);
     margin-bottom:12px;
 }
 
-.contact-card p{
+.contact-item p{
     color:var(--muted);
-
+    margin-top:5px;
     word-break:break-word;
 }
 
@@ -509,101 +392,48 @@ section{
 
 .social{
     display:flex;
-
     justify-content:center;
-
     gap:15px;
-
-    margin-top:25px;
+    margin-top:30px;
 }
 
 .social a{
     width:45px;
     height:45px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,.06);
-
     border:1px solid var(--border);
-
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    color:var(--primary);
     transition:.3s;
 }
 
 .social a:hover{
-    color:var(--primary);
-
-    transform:translateY(-4px);
+    background:var(--primary);
+    color:#00101d;
 }
 
 /* FOOTER */
 
 footer{
-    padding:30px 0;
-
-    text-align:center;
-
     border-top:1px solid var(--border);
-
+    padding:30px 0;
+    text-align:center;
     color:var(--muted);
-}
-
-/* ADMIN BUTTON */
-
-.admin-button{
-    position:fixed;
-
-    right:20px;
-    bottom:20px;
-
-    width:52px;
-    height:52px;
-
-    border:none;
-
-    border-radius:50%;
-
-    color:#fff;
-
-    background:
-    linear-gradient(
-        135deg,
-        var(--primary),
-        var(--secondary)
-    );
-
-    box-shadow:
-    0 10px 30px rgba(0,0,0,.4);
-
-    z-index:900;
 }
 
 /* MODAL */
 
 .modal{
     position:fixed;
-
     inset:0;
-
-    z-index:2000;
-
     background:rgba(0,0,0,.75);
-
     backdrop-filter:blur(10px);
-
     display:none;
-
     align-items:center;
-
     justify-content:center;
-
-    padding:20px;
+    padding:15px;
+    z-index:3000;
 }
 
 .modal.active{
@@ -612,73 +442,45 @@ footer{
 
 .modal-box{
     width:min(1050px,100%);
-
     max-height:92vh;
-
     overflow:auto;
-
-    background:#091126;
-
+    background:#071121;
     border:1px solid var(--border);
-
-    border-radius:20px;
-
-    box-shadow:
-    0 30px 100px rgba(0,0,0,.5);
+    border-radius:25px;
+    box-shadow:0 30px 100px rgba(0,0,0,.5);
 }
 
 .modal-header{
     padding:20px 25px;
-
     border-bottom:1px solid var(--border);
-
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
     position:sticky;
-
     top:0;
-
-    background:#091126;
-
-    z-index:3;
+    background:#071121;
+    z-index:5;
 }
 
 .close{
-    width:38px;
-    height:38px;
-
-    border:none;
-
-    border-radius:10px;
-
-    color:#fff;
-
-    background:rgba(255,255,255,.08);
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.06);
+    color:white;
+    font-size:20px;
 }
+
+.modal-body{
+    padding:25px;
+}
+
+/* LOGIN */
 
 .login-box{
-    width:min(420px,100%);
-
-    padding:30px;
+    width:min(430px,100%);
 }
-
-.login-box h2{
-    margin-bottom:8px;
-}
-
-.login-box p{
-    color:var(--muted);
-
-    font-size:14px;
-
-    margin-bottom:25px;
-}
-
-/* FORMS */
 
 .form-group{
     margin-bottom:17px;
@@ -686,77 +488,78 @@ footer{
 
 .form-group label{
     display:block;
-
-    font-size:13px;
-
     margin-bottom:7px;
-
-    color:#d9e2f0;
+    color:#dce6f7;
+    font-size:14px;
 }
 
-.form-group input,
-.form-group textarea{
+input,
+textarea,
+select{
     width:100%;
-
-    padding:12px 14px;
-
-    border-radius:10px;
-
-    outline:none;
-
     border:1px solid var(--border);
-
     background:rgba(255,255,255,.05);
-
-    color:#fff;
+    color:white;
+    border-radius:12px;
+    padding:12px 14px;
+    outline:none;
 }
 
-.form-group textarea{
-    min-height:110px;
-
-    resize:vertical;
-}
-
-.form-group input:focus,
-.form-group textarea:focus{
+input:focus,
+textarea:focus{
     border-color:var(--primary);
 }
 
-.admin-content{
-    padding:25px;
+textarea{
+    min-height:120px;
+    resize:vertical;
 }
+
+input[type="file"]{
+    padding:10px;
+}
+
+input[type="file"]::file-selector-button{
+    background:linear-gradient(90deg,var(--primary),var(--secondary));
+    border:0;
+    color:white;
+    padding:9px 12px;
+    border-radius:8px;
+    margin-right:10px;
+    cursor:pointer;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.full{
+    grid-column:1/-1;
+}
+
+/* ADMIN */
 
 .admin-tabs{
     display:flex;
-
     gap:8px;
-
-    overflow-x:auto;
-
-    padding-bottom:15px;
+    overflow:auto;
+    margin-bottom:25px;
+    padding-bottom:5px;
 }
 
-.admin-tabs button{
-    border:none;
-
-    padding:10px 15px;
-
+.tab-btn{
     white-space:nowrap;
-
-    border-radius:9px;
-
-    color:#fff;
-
-    background:rgba(255,255,255,.06);
+    padding:10px 15px;
+    border-radius:10px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.05);
+    color:white;
 }
 
-.admin-tabs button.active{
-    background:
-    linear-gradient(
-        135deg,
-        var(--primary),
-        var(--secondary)
-    );
+.tab-btn.active{
+    background:linear-gradient(90deg,var(--primary),var(--secondary));
 }
 
 .tab{
@@ -767,1304 +570,768 @@ footer{
     display:block;
 }
 
-.two{
+.admin-project{
     display:grid;
-
-    grid-template-columns:1fr 1fr;
-
+    grid-template-columns:100px 1fr auto;
     gap:15px;
-}
-
-.admin-actions{
-    display:flex;
-
-    gap:10px;
-
-    flex-wrap:wrap;
-
-    margin-top:20px;
-}
-
-.status{
-    margin-top:15px;
-
-    padding:12px;
-
-    border-radius:10px;
-
-    display:none;
-
-    font-size:13px;
-}
-
-.status.show{
-    display:block;
-}
-
-.status.success{
-    background:rgba(34,197,94,.12);
-
-    color:#86efac;
-}
-
-.status.error{
-    background:rgba(255,77,109,.12);
-
-    color:#ff8da3;
-}
-
-.list-item{
-    padding:16px;
-
-    border:1px solid var(--border);
-
-    border-radius:12px;
-
-    margin-bottom:12px;
-
-    background:rgba(255,255,255,.03);
-}
-
-.list-item-header{
-    display:flex;
-
-    justify-content:space-between;
-
-    gap:15px;
-
     align-items:center;
-}
-
-.delete-btn{
-    border:none;
-
-    background:rgba(255,77,109,.12);
-
-    color:#ff8da3;
-
-    padding:8px 12px;
-
-    border-radius:8px;
-}
-
-.empty{
-    color:var(--muted);
-
-    text-align:center;
-
-    padding:20px;
-}
-
-/* APK UPLOAD */
-
-.apk-upload-box{
-    padding:20px;
-
-    margin-top:20px;
-
-    border:1px dashed rgba(0,198,255,.4);
-
+    padding:15px;
+    background:rgba(255,255,255,.04);
+    border:1px solid var(--border);
     border-radius:15px;
+    margin-bottom:12px;
+}
 
+.admin-project img{
+    width:100px;
+    height:70px;
+    object-fit:cover;
+    border-radius:10px;
+    background:#111;
+}
+
+.admin-project h4{
+    margin-bottom:5px;
+}
+
+.admin-project small{
+    color:var(--muted);
+}
+
+.file-box{
+    border:1px dashed rgba(0,198,255,.4);
+    padding:20px;
+    border-radius:15px;
     background:rgba(0,198,255,.04);
 }
 
-.apk-upload-box h3{
-    margin-bottom:8px;
-}
-
-.apk-upload-box p{
-    color:var(--muted);
-
+.file-selected{
+    margin-top:10px;
+    color:#9be7ff;
     font-size:13px;
-
-    margin-bottom:15px;
+    word-break:break-word;
 }
 
-.file-input{
-    width:100%;
-
-    padding:15px;
-
-    border:1px solid var(--border);
-
-    border-radius:10px;
-
-    background:rgba(255,255,255,.04);
-
-    color:#fff;
-}
-
-.upload-progress{
-    margin-top:15px;
-
-    height:10px;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-    background:rgba(255,255,255,.08);
-
+.progress{
     display:none;
-}
-
-.upload-progress.active{
-    display:block;
+    margin-top:15px;
 }
 
 .progress-bar{
     width:0%;
-
-    height:100%;
-
-    background:
-    linear-gradient(
-        90deg,
-        var(--primary),
-        var(--secondary)
-    );
-
+    height:8px;
+    border-radius:20px;
+    background:linear-gradient(90deg,var(--primary),var(--secondary));
     transition:.2s;
 }
 
 .progress-text{
+    font-size:13px;
     color:var(--muted);
-
-    font-size:12px;
-
-    margin-top:8px;
+    margin-top:6px;
 }
 
-.apk-info{
-    margin-top:12px;
-
+.status{
     padding:12px;
-
     border-radius:10px;
-
-    background:rgba(255,255,255,.04);
-
+    margin-bottom:15px;
     display:none;
 }
 
-.apk-info.show{
+.status.success{
     display:block;
+    color:#00e676;
+    background:rgba(0,230,118,.08);
+    border:1px solid rgba(0,230,118,.2);
 }
 
-.apk-info strong{
-    color:var(--primary);
+.status.error{
+    display:block;
+    color:#ff6688;
+    background:rgba(255,65,108,.08);
+    border:1px solid rgba(255,65,108,.2);
 }
 
-/* LOADER */
-
-.loader{
-    position:fixed;
-
-    inset:0;
-
-    z-index:5000;
-
-    background:#050816;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    transition:.4s;
+.status.info{
+    display:block;
+    color:#9be7ff;
+    background:rgba(0,198,255,.08);
+    border:1px solid rgba(0,198,255,.2);
 }
 
-.loader.hide{
-    opacity:0;
-
-    pointer-events:none;
+.hidden{
+    display:none!important;
 }
 
-.spinner{
-    width:50px;
-    height:50px;
+/* MOBILE */
 
-    border:4px solid rgba(255,255,255,.1);
+@media(max-width:800px){
 
-    border-top-color:var(--primary);
-
-    border-radius:50%;
-
-    animation:spin 1s linear infinite;
-}
-
-@keyframes spin{
-
-    to{
-        transform:rotate(360deg);
+    .nav-links{
+        gap:10px;
     }
 
-}
+    .nav-links a:not(.admin-nav){
+        display:none;
+    }
 
-/* RESPONSIVE */
-
-@media(max-width:900px){
-
-    .hero-grid,
-    .about-grid{
+    .hero-grid{
         grid-template-columns:1fr;
-    }
-
-    .hero{
         text-align:center;
     }
 
     .hero p{
-        margin:auto;
+        margin-left:auto;
+        margin-right:auto;
     }
 
     .buttons{
         justify-content:center;
     }
 
-    .skills-grid{
-        grid-template-columns:
-        repeat(3,1fr);
-    }
-
-    .projects-grid{
-        grid-template-columns:1fr;
-    }
-
-    .contact-grid{
-        grid-template-columns:1fr;
-    }
-
-    .profile-wrap{
-        order:-1;
-    }
-}
-
-@media(max-width:600px){
-
-    .nav-links{
-        gap:11px;
-    }
-
-    .nav-links a{
-        font-size:11px;
-    }
-
-    .logo{
-        font-size:19px;
-    }
-
-    .profile{
+    .hero-img{
         width:240px;
         height:240px;
+        order:-1;
     }
 
-    section{
-        padding:65px 0;
-    }
-
-    .section-title h2{
-        font-size:30px;
-    }
-
-    .skills-grid{
-        grid-template-columns:
-        repeat(2,1fr);
-    }
-
-    .two{
+    .form-grid{
         grid-template-columns:1fr;
     }
 
-    .admin-content{
-        padding:18px;
+    .full{
+        grid-column:auto;
+    }
+
+    .contact-box{
+        grid-template-columns:1fr;
+    }
+
+    .admin-project{
+        grid-template-columns:70px 1fr;
+    }
+
+    .admin-project img{
+        width:70px;
+        height:60px;
+    }
+
+    .admin-project .delete-admin-project{
+        grid-column:1/-1;
     }
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- LOADER -->
-
-<div class="loader" id="loader">
-    <div class="spinner"></div>
-</div>
-
-
-<!-- NAVBAR -->
-
 <nav>
+    <div class="container nav-inner">
 
-<div class="container nav-inner">
+        <a class="logo" href="#home">
+            Saksham<span>.</span>
+        </a>
 
-<a href="#home" class="logo">
-Saksham<span>.</span>
-</a>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
 
-<ul class="nav-links">
+            <button class="admin-nav" id="adminBtn">
+                <i class="fa-solid fa-lock"></i>
+                Admin
+            </button>
+        </div>
 
-<li>
-<a href="#home">Home</a>
-</li>
-
-<li>
-<a href="#about">About</a>
-</li>
-
-<li>
-<a href="#skills">Skills</a>
-</li>
-
-<li>
-<a href="#projects">Projects</a>
-</li>
-
-<li>
-<a href="#contact">Contact</a>
-</li>
-
-</ul>
-
-</div>
-
+    </div>
 </nav>
 
 
 <!-- HERO -->
 
 <section class="hero" id="home">
-
 <div class="container hero-grid">
 
-<div>
+    <div>
 
-<span class="badge">
-<i class="fas fa-code"></i>
-BSc CSIT Student
-</span>
+        <div class="badge">
+            <i class="fa-solid fa-code"></i>
+            BSc CSIT Student
+        </div>
 
-<h1>
-Hi, I'm
-<span class="gradient" id="heroName">
-Saksham Shrestha
-</span>
-</h1>
+        <h1>
+            Hi, I'm <span id="heroName">Saksham Shrestha</span>
+        </h1>
 
-<h2>
-<span id="typing"></span>
-</h2>
+        <h2>
+            <span id="typing"></span>
+        </h2>
 
-<p id="heroBio"></p>
+        <p id="heroBio"></p>
 
-<div class="buttons">
+        <div class="buttons">
+            <a href="#projects" class="btn btn-primary">
+                <i class="fa-solid fa-folder-open"></i>
+                View Projects
+            </a>
 
-<a href="#projects"
-class="btn btn-primary">
+            <a href="#contact" class="btn btn-secondary">
+                <i class="fa-solid fa-envelope"></i>
+                Contact Me
+            </a>
+        </div>
 
-<i class="fas fa-code"></i>
+    </div>
 
-View Projects
-
-</a>
-
-<a href="#contact"
-class="btn btn-secondary">
-
-<i class="fas fa-envelope"></i>
-
-Contact Me
-
-</a>
+    <div>
+        <div class="hero-img">
+            <img id="profileImage" src="" alt="Saksham Shrestha">
+        </div>
+    </div>
 
 </div>
-
-</div>
-
-
-<div class="profile-wrap">
-
-<div class="profile">
-
-<img
-id="profileImage"
-alt="Saksham Shrestha"
->
-
-</div>
-
-</div>
-
-</div>
-
 </section>
 
 
 <!-- ABOUT -->
 
 <section id="about">
-
 <div class="container">
 
-<div class="section-title">
+    <div class="section-title">
+        <h2>About <span>Me</span></h2>
+        <p>Who I am</p>
+    </div>
 
-<h2>
-About
-<span class="gradient">Me</span>
-</h2>
+    <div class="about-box">
 
-<p>
-Learn more about me and my goals
-</p>
+        <p id="aboutText"></p>
 
-</div>
+        <h3>Career Objective</h3>
 
+        <p id="objectiveText"></p>
 
-<div class="about-grid">
-
-<div class="glass about-card">
-
-<h3>
-<i class="fas fa-user"></i>
-Who I Am
-</h3>
-
-<p id="aboutText"></p>
+    </div>
 
 </div>
-
-
-<div class="glass about-card">
-
-<h3>
-<i class="fas fa-bullseye"></i>
-Career Objective
-</h3>
-
-<p id="objectiveText"></p>
-
-</div>
-
-</div>
-
-</div>
-
 </section>
 
 
 <!-- SKILLS -->
 
 <section id="skills">
-
 <div class="container">
 
-<div class="section-title">
+    <div class="section-title">
+        <h2>My <span>Skills</span></h2>
+        <p>Technologies I work with</p>
+    </div>
 
-<h2>
-My
-<span class="gradient">Skills</span>
-</h2>
-
-<p>
-Technologies I work with
-</p>
+    <div class="skills-grid" id="skillsGrid"></div>
 
 </div>
-
-<div
-class="skills-grid"
-id="skillsGrid">
-</div>
-
-</div>
-
 </section>
 
 
 <!-- PROJECTS -->
 
 <section id="projects">
-
 <div class="container">
 
-<div class="section-title">
+    <div class="section-title">
+        <h2>My <span>Projects</span></h2>
+        <p>Things I have built</p>
+    </div>
 
-<h2>
-My
-<span class="gradient">Projects</span>
-</h2>
-
-<p>
-Websites, applications and downloadable apps
-</p>
+    <div class="projects-grid" id="projectsGrid"></div>
 
 </div>
-
-<div
-class="projects-grid"
-id="projectsGrid">
-</div>
-
-</div>
-
 </section>
 
 
 <!-- CONTACT -->
 
 <section id="contact">
-
 <div class="container">
 
-<div class="section-title">
+    <div class="section-title">
+        <h2>Contact <span>Me</span></h2>
+        <p>Let's connect</p>
+    </div>
 
-<h2>
-Contact
-<span class="gradient">Me</span>
-</h2>
+    <div class="contact-box">
 
-<p>
-Let's connect and build something useful
-</p>
+        <div class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <h3>Email</h3>
+            <p id="emailText"></p>
+        </div>
 
-</div>
+        <div class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <h3>Phone</h3>
+            <p id="phoneText"></p>
+        </div>
 
+        <div class="contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <h3>Location</h3>
+            <p id="locationText"></p>
+        </div>
 
-<div class="contact-grid">
+    </div>
 
-<div class="glass contact-card">
-
-<i class="fas fa-envelope"></i>
-
-<h3>Email</h3>
-
-<p id="contactEmail"></p>
-
-</div>
-
-
-<div class="glass contact-card">
-
-<i class="fas fa-phone"></i>
-
-<h3>Phone</h3>
-
-<p id="contactPhone"></p>
+    <div class="social" id="socialLinks"></div>
 
 </div>
-
-
-<div class="glass contact-card">
-
-<i class="fas fa-location-dot"></i>
-
-<h3>Location</h3>
-
-<p id="contactLocation"></p>
-
-</div>
-
-</div>
-
-
-<div
-class="social"
-id="socialLinks">
-</div>
-
-</div>
-
 </section>
 
 
-<!-- FOOTER -->
-
 <footer>
-
-<div class="container">
-
-©
-<span id="year"></span>
-
-<span id="footerName">
-Saksham Shrestha
-</span>.
-
-All Rights Reserved.
-
-</div>
-
+    <div class="container">
+        © <span id="year"></span>
+        <span id="footerName">Saksham Shrestha</span>.
+        All Rights Reserved.
+    </div>
 </footer>
-
-
-<!-- ADMIN BUTTON -->
-
-<button
-class="admin-button"
-id="adminButton"
-title="Admin Login">
-
-<i class="fas fa-lock"></i>
-
-</button>
 
 
 <!-- LOGIN MODAL -->
 
-<div
-class="modal"
-id="loginModal">
+<div class="modal" id="loginModal">
 
-<div class="login-box glass">
+<div class="modal-box login-box">
 
-<div style="
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:20px;
-">
+    <div class="modal-header">
+        <h3>
+            <i class="fa-solid fa-lock"></i>
+            Admin Login
+        </h3>
 
-<h2>
-Admin Login
-</h2>
+        <button class="close" onclick="closeModal('loginModal')">
+            ×
+        </button>
+    </div>
 
-<button
-class="close"
-id="closeLogin">
+    <div class="modal-body">
 
-<i class="fas fa-times"></i>
+        <div id="loginStatus" class="status"></div>
 
-</button>
+        <form id="loginForm">
 
-</div>
+            <div class="form-group">
+                <label>Email</label>
+                <input
+                    type="email"
+                    id="loginEmail"
+                    value="hdbsksndksjs@gmail.com"
+                    required
+                >
+            </div>
 
+            <div class="form-group">
+                <label>Password</label>
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter password"
+                    required
+                >
+            </div>
 
-<p>
-Sign in with your Firebase admin account.
-</p>
+            <button class="btn btn-primary" style="width:100%">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                Login
+            </button>
 
+        </form>
 
-<form id="loginForm">
-
-<div class="form-group">
-
-<label>
-Email
-</label>
-
-<input
-type="email"
-id="loginEmail"
-placeholder="Admin email"
-autocomplete="username"
-required
->
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Password
-</label>
-
-<input
-type="password"
-id="loginPassword"
-placeholder="Password"
-autocomplete="current-password"
-required
->
+    </div>
 
 </div>
-
-
-<button
-class="btn btn-primary"
-type="submit"
-style="width:100%;">
-
-<i class="fas fa-right-to-bracket"></i>
-
-Login
-
-</button>
-
-
-<div
-class="status"
-id="loginStatus">
-</div>
-
-</form>
-
-</div>
-
 </div>
 
 
 <!-- ADMIN MODAL -->
 
-<div
-class="modal"
-id="adminModal">
+<div class="modal" id="adminModal">
 
 <div class="modal-box">
 
+    <div class="modal-header">
 
-<div class="modal-header">
+        <div>
+            <h3>
+                <i class="fa-solid fa-gauge-high"></i>
+                Portfolio Admin
+            </h3>
 
-<div>
+            <small id="adminEmailDisplay"></small>
+        </div>
 
-<strong>
+        <button class="close" onclick="closeModal('adminModal')">
+            ×
+        </button>
 
-<i class="fas fa-user-shield"></i>
+    </div>
 
-Portfolio Admin
 
-</strong>
+    <div class="modal-body">
 
-<div style="
-font-size:12px;
-color:var(--muted);
-margin-top:4px;
-">
+        <div id="adminStatus" class="status"></div>
 
-Firebase Online Dashboard
+        <div class="admin-tabs">
+
+            <button class="tab-btn active" data-tab="profileTab">
+                Profile
+            </button>
+
+            <button class="tab-btn" data-tab="skillsTab">
+                Skills
+            </button>
+
+            <button class="tab-btn" data-tab="projectsTab">
+                Projects / APK
+            </button>
+
+            <button class="tab-btn" data-tab="socialTab">
+                Social
+            </button>
+
+            <button class="tab-btn" data-tab="appearanceTab">
+                Appearance
+            </button>
+
+        </div>
+
+
+        <!-- PROFILE TAB -->
+
+        <div class="tab active" id="profileTab">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Name</label>
+                    <input id="fName">
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input id="fEmail" type="email">
+                </div>
+
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input id="fPhone">
+                </div>
+
+                <div class="form-group">
+                    <label>Location</label>
+                    <input id="fLocation">
+                </div>
+
+                <div class="form-group full">
+                    <label>Profile Image URL</label>
+                    <input id="fImage">
+                </div>
+
+                <div class="form-group full">
+                    <label>Short Bio</label>
+                    <textarea id="fBio"></textarea>
+                </div>
+
+                <div class="form-group full">
+                    <label>About</label>
+                    <textarea id="fAbout"></textarea>
+                </div>
+
+                <div class="form-group full">
+                    <label>Career Objective</label>
+                    <textarea id="fObjective"></textarea>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SKILLS TAB -->
+
+        <div class="tab" id="skillsTab">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Skill Name</label>
+                    <input id="skillName" placeholder="Example: React">
+                </div>
+
+                <div class="form-group">
+                    <label>Font Awesome Icon</label>
+                    <input id="skillIcon" placeholder="fab fa-react">
+                </div>
+
+            </div>
+
+            <button class="btn btn-primary" id="addSkillBtn">
+                <i class="fa-solid fa-plus"></i>
+                Add Skill
+            </button>
+
+            <div id="adminSkills" style="margin-top:20px"></div>
+
+        </div>
+
+
+        <!-- PROJECTS TAB -->
+
+        <div class="tab" id="projectsTab">
+
+            <div class="file-box">
+
+                <h3>
+                    <i class="fa-brands fa-android"></i>
+                    Add App / APK From Phone
+                </h3>
+
+                <p style="color:var(--muted);margin:8px 0 18px">
+                    Select an APK directly from your Android phone,
+                    computer, or local storage.
+                </p>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Project / App Name</label>
+                        <input
+                            id="projectName"
+                            placeholder="My Android App"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label>Website / Demo URL</label>
+                        <input
+                            id="projectLink"
+                            placeholder="https://example.com"
+                        >
+                    </div>
+
+                    <div class="form-group full">
+                        <label>Project Description</label>
+                        <textarea
+                            id="projectDescription"
+                            placeholder="Describe your application..."
+                        ></textarea>
+                    </div>
+
+                    <div class="form-group full">
+
+                        <label>
+                            Project Image
+                            <small>(optional)</small>
+                        </label>
+
+                        <input
+                            type="file"
+                            id="projectImageFile"
+                            accept="image/*"
+                        >
+
+                        <div
+                            class="file-selected"
+                            id="imageSelected"
+                        ></div>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            Select APK From Local Storage
+                        </label>
+
+                        <input
+                            type="file"
+                            id="apkFile"
+                            accept=".apk,application/vnd.android.package-archive"
+                        >
+
+                        <div
+                            class="file-selected"
+                            id="apkSelected"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="progress"
+                    id="uploadProgress"
+                >
+
+                    <div class="progress-bar"
+                         id="progressBar">
+                    </div>
+
+                    <div
+                        class="progress-text"
+                        id="progressText"
+                    >
+                        0%
+                    </div>
+
+                </div>
+
+
+                <div class="buttons">
+
+                    <button
+                        class="btn btn-primary"
+                        id="addProjectBtn"
+                        type="button"
+                    >
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        Upload & Add Project
+                    </button>
+
+                    <button
+                        class="btn btn-secondary"
+                        id="clearProjectBtn"
+                        type="button"
+                    >
+                        <i class="fa-solid fa-rotate-left"></i>
+                        Clear
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <h3 style="margin:30px 0 15px">
+                Your Projects
+            </h3>
+
+            <div id="adminProjects"></div>
+
+        </div>
+
+
+        <!-- SOCIAL TAB -->
+
+        <div class="tab" id="socialTab">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>GitHub</label>
+                    <input id="socialGithub">
+                </div>
+
+                <div class="form-group">
+                    <label>Facebook</label>
+                    <input id="socialFacebook">
+                </div>
+
+                <div class="form-group">
+                    <label>Instagram</label>
+                    <input id="socialInstagram">
+                </div>
+
+                <div class="form-group">
+                    <label>LinkedIn</label>
+                    <input id="socialLinkedin">
+                </div>
+
+                <div class="form-group">
+                    <label>Twitter / X</label>
+                    <input id="socialTwitter">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- APPEARANCE -->
+
+        <div class="tab" id="appearanceTab">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Primary Color</label>
+                    <input
+                        type="color"
+                        id="primaryColor"
+                        value="#00c6ff"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>Secondary Color</label>
+                    <input
+                        type="color"
+                        id="secondaryColor"
+                        value="#0072ff"
+                    >
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SAVE -->
+
+        <div
+            style="
+            border-top:1px solid var(--border);
+            margin-top:30px;
+            padding-top:20px;
+            display:flex;
+            gap:10px;
+            flex-wrap:wrap;
+            "
+        >
+
+            <button
+                class="btn btn-primary"
+                id="saveBtn"
+            >
+                <i class="fa-solid fa-cloud"></i>
+                Save Online
+            </button>
+
+            <button
+                class="btn btn-secondary"
+                id="reloadBtn"
+            >
+                <i class="fa-solid fa-rotate"></i>
+                Reload Online
+            </button>
+
+            <button
+                class="btn btn-danger"
+                id="logoutBtn"
+            >
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </button>
+
+        </div>
+
+    </div>
 
 </div>
-
-</div>
-
-
-<button
-class="close"
-id="closeAdmin">
-
-<i class="fas fa-times"></i>
-
-</button>
-
-</div>
-
-
-<div class="admin-content">
-
-
-<!-- TABS -->
-
-<div class="admin-tabs">
-
-<button
-class="tab-button active"
-data-tab="profileTab">
-
-<i class="fas fa-user"></i>
-
-Profile
-
-</button>
-
-
-<button
-class="tab-button"
-data-tab="appearanceTab">
-
-<i class="fas fa-palette"></i>
-
-Appearance
-
-</button>
-
-
-<button
-class="tab-button"
-data-tab="skillsTab">
-
-<i class="fas fa-code"></i>
-
-Skills
-
-</button>
-
-
-<button
-class="tab-button"
-data-tab="projectsTab">
-
-<i class="fas fa-folder"></i>
-
-Projects
-
-</button>
-
-
-<button
-class="tab-button"
-data-tab="socialTab">
-
-<i class="fas fa-share-nodes"></i>
-
-Social
-
-</button>
-
-</div>
-
-
-<!-- PROFILE TAB -->
-
-<div
-class="tab active"
-id="profileTab">
-
-<div class="two">
-
-
-<div class="form-group">
-
-<label>Name</label>
-
-<input id="adminName">
-
-</div>
-
-
-<div class="form-group">
-
-<label>Email</label>
-
-<input
-id="adminEmail"
-type="email">
-
-</div>
-
-
-<div class="form-group">
-
-<label>Phone</label>
-
-<input id="adminPhone">
-
-</div>
-
-
-<div class="form-group">
-
-<label>Location</label>
-
-<input id="adminLocation">
-
-</div>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Profile Image URL
-</label>
-
-<input id="adminImage">
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Short Bio
-</label>
-
-<textarea id="adminBio"></textarea>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-About
-</label>
-
-<textarea id="adminAbout"></textarea>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Career Objective
-</label>
-
-<textarea id="adminObjective"></textarea>
-
-</div>
-
-</div>
-
-
-<!-- APPEARANCE -->
-
-<div
-class="tab"
-id="appearanceTab">
-
-<div class="two">
-
-<div class="form-group">
-
-<label>
-Primary Color
-</label>
-
-<input
-id="adminPrimary"
-type="color">
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Secondary Color
-</label>
-
-<input
-id="adminSecondary"
-type="color">
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- SKILLS -->
-
-<div
-class="tab"
-id="skillsTab">
-
-<div class="two">
-
-<div class="form-group">
-
-<label>
-Skill Name
-</label>
-
-<input
-id="newSkillName"
-placeholder="Example: React">
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Font Awesome Icon
-</label>
-
-<input
-id="newSkillIcon"
-placeholder="fab fa-react">
-
-</div>
-
-</div>
-
-
-<button
-class="btn btn-secondary"
-id="addSkillBtn">
-
-<i class="fas fa-plus"></i>
-
-Add Skill
-
-</button>
-
-
-<div
-style="margin-top:20px"
-id="skillsAdminList">
-</div>
-
-</div>
-
-
-<!-- PROJECTS -->
-
-<div
-class="tab"
-id="projectsTab">
-
-
-<div class="form-group">
-
-<label>
-Project Name
-</label>
-
-<input
-id="newProjectName"
-placeholder="My Android App">
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Project Image
-</label>
-
-<input
-id="newProjectImage"
-placeholder="https://example.com/image.jpg">
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Project Description
-</label>
-
-<textarea
-id="newProjectDescription"
-placeholder="Describe your project">
-</textarea>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Project Website
-</label>
-
-<input
-id="newProjectLink"
-placeholder="https://example.com">
-</div>
-
-
-<!-- APK UPLOAD -->
-
-<div class="apk-upload-box">
-
-<h3>
-
-<i class="fab fa-android"></i>
-
-Android APK
-
-</h3>
-
-<p>
-
-Select an APK from your phone or computer.
-The APK will be uploaded to Firebase Storage.
-
-</p>
-
-
-<input
-type="file"
-id="apkFile"
-class="file-input"
-accept=".apk,application/vnd.android.package-archive">
-
-
-<div
-class="apk-info"
-id="apkInfo">
-
-<strong>
-Selected APK:
-</strong>
-
-<span id="apkName"></span>
-
-<br>
-
-<span id="apkSize"></span>
-
-</div>
-
-
-<div
-class="upload-progress"
-id="uploadProgress">
-
-<div
-class="progress-bar"
-id="progressBar">
-</div>
-
-</div>
-
-
-<div
-class="progress-text"
-id="progressText">
-</div>
-
-</div>
-
-
-<br>
-
-
-<button
-class="btn btn-primary"
-id="addProjectBtn">
-
-<i class="fas fa-plus"></i>
-
-Add Project
-
-</button>
-
-
-<div
-style="margin-top:20px"
-id="projectsAdminList">
-</div>
-
-</div>
-
-
-<!-- SOCIAL -->
-
-<div
-class="tab"
-id="socialTab">
-
-<div class="two">
-
-<div class="form-group">
-
-<label>
-GitHub
-</label>
-
-<input id="adminGithub">
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Facebook
-</label>
-
-<input id="adminFacebook">
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Instagram
-</label>
-
-<input id="adminInstagram">
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-LinkedIn
-</label>
-
-<input id="adminLinkedin">
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Twitter / X
-</label>
-
-<input id="adminTwitter">
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- ADMIN ACTIONS -->
-
-<div class="admin-actions">
-
-<button
-class="btn btn-primary"
-id="saveOnlineBtn">
-
-<i class="fas fa-cloud-arrow-up"></i>
-
-Save Online
-
-</button>
-
-
-<button
-class="btn btn-secondary"
-id="reloadBtn">
-
-<i class="fas fa-rotate"></i>
-
-Reload
-
-</button>
-
-
-<button
-class="btn btn-secondary"
-id="logoutBtn">
-
-<i class="fas fa-right-from-bracket"></i>
-
-Logout
-
-</button>
-
-</div>
-
-
-<div
-class="status"
-id="adminStatus">
-</div>
-
-
-</div>
-
-</div>
-
 </div>
 
 
@@ -2074,17 +1341,11 @@ id="adminStatus">
    FIREBASE IMPORTS
 ========================================================= */
 
-import {
-    initializeApp
-}
+import { initializeApp }
 from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 
-
-import {
-    getAnalytics
-}
+import { getAnalytics }
 from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
-
 
 import {
     getAuth,
@@ -2094,7 +1355,6 @@ import {
 }
 from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 
-
 import {
     getFirestore,
     doc,
@@ -2102,7 +1362,6 @@ import {
     setDoc
 }
 from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
-
 
 import {
     getStorage,
@@ -2144,764 +1403,730 @@ const firebaseConfig = {
 
 
 /* =========================================================
-   INITIALIZE
+   INITIALIZE FIREBASE
 ========================================================= */
 
-const app =
-    initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
+const analytics = getAnalytics(app);
 
-const analytics =
-    getAnalytics(app);
+const auth = getAuth(app);
 
+const db = getFirestore(app);
 
-const auth =
-    getAuth(app);
-
-
-const db =
-    getFirestore(app);
-
-
-const storage =
-    getStorage(app);
+const storage = getStorage(app);
 
 
 /* =========================================================
-   ADMIN
+   ADMIN EMAIL
 ========================================================= */
 
 const ADMIN_EMAIL =
-    "hdbsksndksjs@gmail.com";
+"hdbsksndksjs@gmail.com";
 
 
 /* =========================================================
-   FIRESTORE
-========================================================= */
-
-const portfolioRef =
-    doc(
-        db,
-        "portfolio",
-        "main"
-    );
-
-
-/* =========================================================
-   DEFAULT DATA
+   DEFAULT PORTFOLIO
 ========================================================= */
 
 const defaultData = {
 
-profile:{
+    profile: {
 
-name:
-"Saksham Shrestha",
+        name:"Saksham Shrestha",
 
-bio:
-"I'm Saksham Shrestha, a passionate BSc CSIT student and aspiring software developer. I enjoy creating responsive web applications and exploring new technologies to improve my skills. My career goal is to build impactful digital solutions and grow as a technology professional.",
+        image:
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHGPcQIDSQC_yT2tmBOI0uoyJMKperPYEp0CCa3HdKO_YkJ0TginGP11KS3gKgxkGeIuE1VKp5WLuwpBYXHirZG_XX3mqLM_rIpQ6t3WM8zhRBp1VoQEIgfuVW5Uvjqom0by9xAMfKVSRRQNHabnzf5xJdI1P43OYaPmMmRcOk5HepX10b3X1m6RYFRIDz/w256-h256-p-k-no-nu/1000043591.jpg",
 
-about:
-"Hello, I'm Saksham Shrestha, a dedicated and enthusiastic BSc CSIT student at Aadim National College, with an expected graduation year of 2028. I am passionate about technology and enjoy creating modern, responsive, and user-friendly websites. My interests include web development, user interface design, mobile applications, real-time applications, and exploring emerging technologies that solve real-world problems. I have experience working with front-end technologies such as HTML, CSS, and JavaScript, and I continuously improve my skills by building personal projects and experimenting with new design ideas. As a lifelong learner, I am always exploring new tools and technologies to expand my knowledge and strengthen my problem-solving abilities. My career goal is to become a skilled software developer who builds efficient, accessible, and meaningful applications that make a positive difference.",
+        bio:
+        "I'm Saksham Shrestha, a passionate BSc CSIT student and aspiring software developer. I enjoy creating responsive web applications and exploring new technologies to improve my skills.",
 
-objective:
-"To obtain a responsible position in the IT field where I can apply my technical knowledge, improve my skills, contribute to the growth of an organization, and gain practical industry experience.",
+        about:
+        "Hello, I'm Saksham Shrestha, a dedicated and enthusiastic BSc CSIT student at Aadim National College, with an expected graduation year of 2028. I am passionate about technology and enjoy creating modern, responsive, and user-friendly websites. My interests include web development, user interface design, mobile applications, real-time applications, and exploring emerging technologies that solve real-world problems.",
 
-image:
-"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHGPcQIDSQC_yT2tmBOI0uoyJMKperPYEp0CCa3HdKO_YkJ0TginGP11KS3gKgxkGeIuE1VKp5WLuwpBYXHirZG_XX3mqLM_rIpQ6t3WM8zhRBp1VoQEIgfuVW5Uvjqom0by9xAMfKVSRRQNHabnzf5xJdI1P43OYaPmMmRcOk5HepX10b3X1m6RYFRIDz/w256-h256-p-k-no-nu/1000043591.jpg",
+        objective:
+        "To obtain a responsible position in the IT field where I can apply my technical knowledge, improve my skills, contribute to the growth of an organization, and gain practical industry experience.",
 
-email:
-"shresthasakham712@gmail.com",
+        email:
+        "shresthasakham712@gmail.com",
 
-phone:
-"+977 9762304280",
+        phone:
+        "+977 9762304280",
 
-location:
-"Kathmandu, Nepal"
-
-},
+        location:
+        "Kathmandu, Nepal"
+    },
 
 
-appearance:{
+    appearance: {
 
-primary:"#00c6ff",
+        primary:"#00c6ff",
 
-secondary:"#0072ff"
-
-},
-
-
-skills:[
-
-{
-name:"HTML5",
-icon:"fab fa-html5"
-},
-
-{
-name:"CSS3",
-icon:"fab fa-css3-alt"
-},
-
-{
-name:"JavaScript",
-icon:"fab fa-js"
-},
-
-{
-name:"Python",
-icon:"fab fa-python"
-},
-
-{
-name:"C/C++",
-icon:"fas fa-code"
-},
-
-{
-name:"Java",
-icon:"fab fa-java"
-},
-
-{
-name:"Database",
-icon:"fas fa-database"
-},
-
-{
-name:"Android Apps",
-icon:"fab fa-android"
-},
-
-{
-name:"Web Development",
-icon:"fas fa-globe"
-},
-
-{
-name:"Real-time Apps",
-icon:"fas fa-bolt"
-}
-
-],
+        secondary:"#0072ff"
+    },
 
 
-projects:[
+    skills:[
 
-{
-name:"Personal CV",
+        {
+            name:"HTML5",
+            icon:"fab fa-html5"
+        },
 
-image:
-"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiyqPLkVpf36p5_ivWDXCRH9bEFCYPyEwmfjqnw408lTmwJjxFCw83DeE_uFuZOzyXsAuBwMxjYQIIO6OVIWlwM6g-1naUb3O7PnTwvfGi0qSvknqhBWqvqTUwqvQjuzEHt_Lxl2KGmR59kWFv0A__qgB2KXvF5z9O_0tmcVJg-qNoaa6JS2dQADahNifN/s320/1000072684.jpg",
+        {
+            name:"CSS3",
+            icon:"fab fa-css3-alt"
+        },
 
-description:
-"My personal CV and professional profile.",
+        {
+            name:"JavaScript",
+            icon:"fab fa-js"
+        },
 
-link:
-"https://sites.google.com/view/saksham-shrestha-80/home",
+        {
+            name:"Python",
+            icon:"fab fa-python"
+        },
 
-apkUrl:"",
-apkName:"",
-storagePath:""
+        {
+            name:"C/C++",
+            icon:"fas fa-code"
+        },
 
-},
+        {
+            name:"Java",
+            icon:"fab fa-java"
+        },
 
-{
-name:"E-commerce Website",
+        {
+            name:"Database",
+            icon:"fas fa-database"
+        },
 
-image:
-"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiofB9op1F7F6599jppv8GjOcN-lHmDX91Glk3VpVDB9KHWGP0mwRsHuRN2zbWrIdcZow1Gt29SA8w4Vh92BVIqXO1OpdLHsjE3iI4gZnIJuodiSP7EIdrESu4fNwOyyIOmfjwC-LBSjW5LfroIPkBON6Cc77EI7IQlA7SQvH8W3o3Fx3ngp9zDYRURs2-E/w1684-h1069-p-k-no-nu/1000072697.jpg",
+        {
+            name:"Android Apps",
+            icon:"fab fa-android"
+        },
 
-description:
-"A modern e-commerce website project.",
+        {
+            name:"Web Development",
+            icon:"fas fa-globe"
+        },
 
-link:
-"https://pragmatic-order-flow-track.base44.app",
-
-apkUrl:"",
-apkName:"",
-storagePath:""
-
-},
-
-{
-name:"Nearby Social",
-
-image:
-"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZfbli3Zd-Va7_60U9PyA7tRe8mPUEdDidAKWpYRL9ml5rPeC5qYycVHSHEVuPoxaPObAA46Rre1qr0TK7DQBo3zFP9KKloSjFmC1wW9NBgvJljAQvobs8TQCq6-z9DudTLVWxDf4ouBEB77FRR1Pp48TocUl-bBuzmGNIYVGhTOdflAs74LUR06RHtIP7/s320/1000070797.png",
-
-description:
-"A location-based social sharing application.",
-
-link:
-"https://heart-echo-copy-29935bc5.base44.app",
-
-apkUrl:"",
-apkName:"",
-storagePath:""
-
-},
-
-{
-name:"Biplov Electric Shop",
-
-image:
-"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiepYJSHzT-jYWFOXpj9r_9RyN1ARi__hLYmlBFfko1WPaantILnark9sc-Ukckvuh2v4Y-HGSfmRGHUPll43icptTaqqZlJCGx_GQl7X3ZkMqFlftkRTAwX6gWzxGAAKwzEVhl65q2jkq_L2cbeb7y6GHXnQzztojQSP8qk73KY720NJzi5MQafE07fMQQ/w1684-h1069-p-k-no-nu/1000072703.jpg",
-
-description:
-"An online electric shop product showcase.",
-
-link:
-"https://biplov-electric.base44.app",
-
-apkUrl:"",
-apkName:"",
-storagePath:""
-
-}
-
-],
+        {
+            name:"Real-time Apps",
+            icon:"fas fa-bolt"
+        }
+    ],
 
 
-social:{
+    projects:[
 
-github:
-"https://github.com/Sakshamstha8",
+        {
+            id:"cv",
 
-facebook:
-"https://www.facebook.com/sakycham.shrestha.7",
+            name:"Personal CV",
 
-instagram:
-"https://www.instagram.com/saksham_stha1122",
+            image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiyqPLkVpf36p5_ivWDXCRH9bEFCYPyEwmfjqnw408lTmwJjxFCw83DeE_uFuZOzyXsAuBwMxjYQIIO6OVIWlwM6g-1naUb3O7PnTwvfGi0qSvknqhBWqvqTUwqvQjuzEHt_Lxl2KGmR59kWFv0A__qgB2KXvF5z9O_0tmcVJg-qNoaa6JS2dQADahNifN/s320/1000072684.jpg",
 
-linkedin:"",
+            description:
+            "My professional CV and portfolio.",
 
-twitter:""
+            link:
+            "https://sites.google.com/view/saksham-shrestha-80/home",
 
-}
+            apkUrl:"",
+            apkName:"",
+            apkSize:"",
+            imageStoragePath:"",
+            storagePath:""
+        },
+
+        {
+            id:"ecommerce",
+
+            name:"E-commerce Website",
+
+            image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiofB9op1F7F6599jppv8GjOcN-lHmDX91Glk3VpVDB9KHWGP0mwRsHuRN2zbWrIdcZow1Gt29SA8w4Vh92BVIqXO1OpdLHsjE3iI4gZnIJuodiSP7EIdrESu4fNwOyyIOmfjwC-LBSjW5LfroIPkBON6Cc77EI7IQlA7SQvH8W3o3Fx3ngp9zDYRURs2-E/w1684-h1069-p-k-no-nu/1000072697.jpg",
+
+            description:
+            "Modern e-commerce project.",
+
+            link:
+            "https://pragmatic-order-flow-track.base44.app",
+
+            apkUrl:"",
+            apkName:"",
+            apkSize:"",
+            imageStoragePath:"",
+            storagePath:""
+        },
+
+        {
+            id:"nearby",
+
+            name:"Nearby Social",
+
+            image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZfbli3Zd-Va7_60U9PyA7tRe8mPUEdDidAKWpYRL9ml5rPeC5qYycVHSHEVuPoxaPObAA46Rre1qr0TK7DQBo3zFP9KKloSjFmC1wW9NBgvJljAQvobs8TQCq6-z9DudTLVWxDf4ouBEB77FRR1Pp48TocUl-bBuzmGNIYVGhTOdflAs74LUR06RHtIP7/s320/1000070797.png",
+
+            description:
+            "Nearby social posting application.",
+
+            link:
+            "https://heart-echo-copy-29935bc5.base44.app",
+
+            apkUrl:"",
+            apkName:"",
+            apkSize:"",
+            imageStoragePath:"",
+            storagePath:""
+        },
+
+        {
+            id:"biplov",
+
+            name:"Biplov Electric Shop",
+
+            image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiepYJSHzT-jYWFOXpj9r_9RyN1ARi__hLYmlBFfko1WPaantILnark9sc-Ukckvuh2v4Y-HGSfmRGHUPll43icptTaqqZlJCGx_GQl7X3ZkMqFlftkRTAwX6gWzxGAAKwzEVhl65q2jkq_L2cbeb7y6GHXnQzztojQSP8qk73KY720NJzi5MQafE07fMQQ/w1684-h1069-p-k-no-nu/1000072703.jpg",
+
+            description:
+            "Electric shop management and product app.",
+
+            link:
+            "https://biplov-electric.base44.app",
+
+            apkUrl:"",
+            apkName:"",
+            apkSize:"",
+            imageStoragePath:"",
+            storagePath:""
+        }
+
+    ],
+
+
+    social:{
+
+        github:
+        "https://github.com/Sakshamstha8",
+
+        facebook:
+        "https://www.facebook.com/sakycham.shrestha.7",
+
+        instagram:
+        "https://www.instagram.com/saksham_stha1122",
+
+        linkedin:"",
+
+        twitter:""
+    }
 
 };
 
 
 /* =========================================================
-   CURRENT DATA
+   PORTFOLIO DATA
 ========================================================= */
 
 let portfolioData =
-structuredClone(defaultData);
+JSON.parse(JSON.stringify(defaultData));
 
 
 /* =========================================================
-   SELECTOR
+   HELPERS
 ========================================================= */
 
-const $ =
-id => document.getElementById(id);
+function $(id){
+    return document.getElementById(id);
+}
 
-
-/* =========================================================
-   ESCAPE
-========================================================= */
 
 function escapeHTML(value){
 
-return String(value ?? "")
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
+    return String(value ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+}
 
+
+function safeUrl(url){
+
+    if(!url) return "";
+
+    try{
+
+        const u = new URL(url);
+
+        if(
+            u.protocol === "http:" ||
+            u.protocol === "https:"
+        ){
+            return u.href;
+        }
+
+    }catch(e){}
+
+    return "";
+}
+
+
+function formatBytes(bytes){
+
+    if(!bytes) return "";
+
+    const units=[
+        "B",
+        "KB",
+        "MB",
+        "GB"
+    ];
+
+    let i=0;
+    let size=bytes;
+
+    while(size>=1024 && i<units.length-1){
+
+        size/=1024;
+        i++;
+    }
+
+    return size.toFixed(2)+" "+units[i];
+}
+
+
+function createId(){
+
+    return Date.now().toString(36)+
+        Math.random().toString(36).slice(2);
+}
+
+
+function showStatus(id,message,type="info"){
+
+    const el=$(id);
+
+    if(!el) return;
+
+    el.textContent=message;
+
+    el.className=
+        "status "+type;
+}
+
+
+function clearStatus(id){
+
+    const el=$(id);
+
+    if(!el) return;
+
+    el.className="status";
+    el.textContent="";
 }
 
 
 /* =========================================================
-   URL
-========================================================= */
-
-function safeURL(url){
-
-if(!url)
-return "#";
-
-try{
-
-const parsed =
-new URL(url);
-
-if(
-parsed.protocol === "http:" ||
-parsed.protocol === "https:"
-){
-
-return parsed.href;
-
-}
-
-}catch(e){}
-
-return "#";
-
-}
-
-
-/* =========================================================
-   FORMAT FILE SIZE
-========================================================= */
-
-function formatFileSize(bytes){
-
-if(!bytes)
-return "0 Bytes";
-
-const units=[
-"Bytes",
-"KB",
-"MB",
-"GB"
-];
-
-const i =
-Math.floor(
-Math.log(bytes) /
-Math.log(1024)
-);
-
-return (
-bytes /
-Math.pow(1024,i)
-).toFixed(2)
-+
-" "
-+
-units[i];
-
-}
-
-
-/* =========================================================
-   APPLY COLORS
-========================================================= */
-
-function applyAppearance(){
-
-document.documentElement.style
-.setProperty(
-"--primary",
-portfolioData.appearance?.primary ||
-"#00c6ff"
-);
-
-document.documentElement.style
-.setProperty(
-"--secondary",
-portfolioData.appearance?.secondary ||
-"#0072ff"
-);
-
-}
-
-
-/* =========================================================
-   RENDER PORTFOLIO
+   RENDER PUBLIC PORTFOLIO
 ========================================================= */
 
 function render(){
 
-const p =
-portfolioData.profile ||
-defaultData.profile;
+    const p=portfolioData.profile;
 
+    $("heroName").textContent=p.name;
 
-$("heroName").textContent =
-p.name;
+    $("footerName").textContent=p.name;
 
+    $("heroBio").textContent=p.bio;
 
-$("footerName").textContent =
-p.name;
+    $("aboutText").textContent=p.about;
 
+    $("objectiveText").textContent=p.objective;
 
-$("heroBio").textContent =
-p.bio;
+    $("profileImage").src=
+        safeUrl(p.image) ||
+        "https://via.placeholder.com/500?text=Profile";
 
+    $("emailText").textContent=p.email;
 
-$("aboutText").textContent =
-p.about;
+    $("phoneText").textContent=p.phone;
 
+    $("locationText").textContent=p.location;
 
-$("objectiveText").textContent =
-p.objective;
 
+    /* APPEARANCE */
 
-$("profileImage").src =
-safeURL(p.image);
+    document.documentElement.style
+        .setProperty(
+            "--primary",
+            portfolioData.appearance.primary
+        );
 
+    document.documentElement.style
+        .setProperty(
+            "--secondary",
+            portfolioData.appearance.secondary
+        );
 
-$("contactEmail").textContent =
-p.email;
 
+    /* SKILLS */
 
-$("contactPhone").textContent =
-p.phone;
+    $("skillsGrid").innerHTML=
+        portfolioData.skills.map(skill=>`
 
+        <div class="skill">
 
-$("contactLocation").textContent =
-p.location;
+            <i class="${escapeHTML(skill.icon)}"></i>
 
+            <h3>
+                ${escapeHTML(skill.name)}
+            </h3>
 
-/* SKILLS */
+        </div>
 
-const skills =
-portfolioData.skills || [];
+        `).join("");
 
 
-$("skillsGrid").innerHTML =
-skills.length
+    /* PROJECTS */
 
-?
+    $("projectsGrid").innerHTML=
+        portfolioData.projects.map(project=>{
 
-skills.map(skill=>`
+            const image =
+                safeUrl(project.image) ||
+                "https://via.placeholder.com/700x400?text=Project";
 
-<div class="glass skill">
+            const website =
+                safeUrl(project.link);
 
-<i class="${escapeHTML(
-skill.icon || "fas fa-code"
-)}"></i>
+            let apkButton="";
 
-<h4>
-${escapeHTML(skill.name)}
-</h4>
+            if(project.apkUrl){
 
-</div>
+                apkButton=`
 
-`).join("")
+                    <a
+                        class="btn btn-primary"
+                        href="${escapeHTML(project.apkUrl)}"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <i class="fa-brands fa-android"></i>
+                        Download APK
+                    </a>
 
-:
+                `;
+            }
 
-`<div class="empty">
-No skills added.
-</div>`;
+            let websiteButton="";
 
+            if(website){
 
-/* PROJECTS */
+                websiteButton=`
 
-const projects =
-portfolioData.projects || [];
+                    <a
+                        class="btn btn-secondary"
+                        href="${escapeHTML(website)}"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <i class="fa-solid fa-globe"></i>
+                        Website
+                    </a>
 
+                `;
+            }
 
-$("projectsGrid").innerHTML =
-projects.length
 
-?
+            let apkInfo="";
 
-projects.map(project=>`
+            if(project.apkName){
 
-<article class="glass project">
+                apkInfo=`
 
-<img
-class="project-img"
-src="${safeURL(project.image)}"
-alt="${escapeHTML(project.name)}"
-loading="lazy"
->
+                    <div class="apk-info">
 
-<div class="project-body">
+                        <i class="fa-brands fa-android"></i>
 
-${project.apkUrl ? `
+                        ${escapeHTML(project.apkName)}
 
-<div class="apk-badge">
+                        ${
+                            project.apkSize
+                            ? " • "+escapeHTML(project.apkSize)
+                            : ""
+                        }
 
-<i class="fab fa-android"></i>
+                    </div>
 
-Android APK
+                `;
+            }
 
-</div>
 
-` : ""}
+            return `
 
+                <article class="project-card">
 
-<h3>
-${escapeHTML(project.name)}
-</h3>
+                    <img
+                        class="project-image"
+                        src="${escapeHTML(image)}"
+                        alt="${escapeHTML(project.name)}"
+                        loading="lazy"
+                    >
 
+                    <div class="project-content">
 
-<p>
-${escapeHTML(project.description)}
-</p>
+                        <h3>
+                            ${escapeHTML(project.name)}
+                        </h3>
 
+                        <p>
+                            ${escapeHTML(project.description)}
+                        </p>
 
-<div class="project-actions">
+                        <div class="project-buttons">
 
-${
-project.link
-?
+                            ${websiteButton}
 
-`<a
-class="btn btn-secondary"
-href="${safeURL(project.link)}"
-target="_blank"
-rel="noopener noreferrer">
+                            ${apkButton}
 
-<i class="fas fa-globe"></i>
+                        </div>
 
-Website
+                        ${apkInfo}
 
-</a>`
+                    </div>
 
-:
+                </article>
 
-""
-}
+            `;
 
+        }).join("");
 
-${
-project.apkUrl
 
-?
+    /* CONTACT SOCIAL */
 
-`<a
-class="btn btn-primary"
-href="${safeURL(project.apkUrl)}"
-download
-target="_blank"
-rel="noopener noreferrer">
+    const social=portfolioData.social;
 
-<i class="fab fa-android"></i>
+    const socialItems=[
 
-Download APK
+        {
+            url:social.github,
+            icon:"fa-brands fa-github"
+        },
 
-</a>`
+        {
+            url:social.facebook,
+            icon:"fa-brands fa-facebook"
+        },
 
-:
+        {
+            url:social.instagram,
+            icon:"fa-brands fa-instagram"
+        },
 
-""
-}
+        {
+            url:social.linkedin,
+            icon:"fa-brands fa-linkedin"
+        },
 
-</div>
+        {
+            url:social.twitter,
+            icon:"fa-brands fa-x-twitter"
+        }
 
-</div>
+    ];
 
-</article>
+    $("socialLinks").innerHTML=
+        socialItems
+        .filter(x=>safeUrl(x.url))
+        .map(x=>`
 
-`).join("")
+            <a
+                href="${escapeHTML(safeUrl(x.url))}"
+                target="_blank"
+                rel="noopener"
+            >
+                <i class="${x.icon}"></i>
+            </a>
 
-:
+        `).join("");
 
-`<div class="empty">
-No projects added.
-</div>`;
 
+    $("year").textContent=
+        new Date().getFullYear();
 
-/* SOCIAL */
 
-const social =
-portfolioData.social || {};
+    renderAdminLists();
 
-
-const socialItems=[
-
-{
-url:social.github,
-icon:"fab fa-github"
-},
-
-{
-url:social.facebook,
-icon:"fab fa-facebook"
-},
-
-{
-url:social.instagram,
-icon:"fab fa-instagram"
-},
-
-{
-url:social.linkedin,
-icon:"fab fa-linkedin"
-},
-
-{
-url:social.twitter,
-icon:"fab fa-x-twitter"
-}
-
-];
-
-
-$("socialLinks").innerHTML =
-
-socialItems
-.filter(x=>x.url)
-.map(x=>`
-
-<a
-href="${safeURL(x.url)}"
-target="_blank"
-rel="noopener noreferrer">
-
-<i class="${x.icon}"></i>
-
-</a>
-
-`)
-.join("");
-
-
-applyAppearance();
-
+    loadForm();
 }
 
 
 /* =========================================================
-   LOAD FIRESTORE
+   ADMIN PROJECT LIST
 ========================================================= */
 
-async function loadOnline(){
+function renderAdminLists(){
 
-try{
+    $("adminProjects").innerHTML=
+        portfolioData.projects.map(project=>`
 
-const snap =
-await getDoc(
-portfolioRef
-);
+        <div class="admin-project">
 
+            <img
+                src="${
+                    escapeHTML(
+                        project.image ||
+                        "https://via.placeholder.com/200"
+                    )
+                }"
+                alt=""
+            >
 
-if(snap.exists()){
+            <div>
 
-const online =
-snap.data();
+                <h4>
+                    ${escapeHTML(project.name)}
+                </h4>
 
+                <small>
 
-portfolioData={
+                    ${
+                        project.apkName
+                        ? "📱 "+escapeHTML(project.apkName)
+                        : "No APK"
+                    }
 
-...structuredClone(defaultData),
+                    ${
+                        project.apkSize
+                        ? " • "+escapeHTML(project.apkSize)
+                        : ""
+                    }
 
-...online,
+                </small>
 
-profile:{
-...defaultData.profile,
-...(online.profile || {})
-},
+            </div>
 
-appearance:{
-...defaultData.appearance,
-...(online.appearance || {})
-},
+            <button
+                class="btn btn-danger delete-admin-project"
+                data-id="${escapeHTML(project.id)}"
+            >
+                <i class="fa-solid fa-trash"></i>
+                Delete
+            </button>
 
-social:{
-...defaultData.social,
-...(online.social || {})
-},
+        </div>
 
-skills:
-Array.isArray(online.skills)
-?
-online.skills
-:
-defaultData.skills,
-
-projects:
-Array.isArray(online.projects)
-?
-online.projects
-:
-defaultData.projects
-
-};
-
-}
+        `).join("");
 
 
-render();
+    document
+        .querySelectorAll(".delete-admin-project")
+        .forEach(btn=>{
 
-}catch(error){
+            btn.addEventListener("click",()=>{
 
-console.error(
-"Firestore load error:",
-error
-);
+                deleteProject(
+                    btn.dataset.id
+                );
 
-render();
+            });
 
-}
+        });
 
+
+    $("adminSkills").innerHTML=
+        portfolioData.skills.map((skill,index)=>`
+
+        <div class="admin-project">
+
+            <div style="
+                width:60px;
+                height:60px;
+                display:grid;
+                place-items:center;
+                font-size:25px;
+                color:var(--primary);
+            ">
+
+                <i class="${escapeHTML(skill.icon)}"></i>
+
+            </div>
+
+            <div>
+
+                <h4>
+                    ${escapeHTML(skill.name)}
+                </h4>
+
+                <small>
+                    ${escapeHTML(skill.icon)}
+                </small>
+
+            </div>
+
+            <button
+                class="btn btn-danger"
+                onclick="deleteSkill(${index})"
+            >
+                <i class="fa-solid fa-trash"></i>
+            </button>
+
+        </div>
+
+        `).join("");
 }
 
 
 /* =========================================================
-   LOAD ADMIN FORM
+   LOAD FORM
 ========================================================= */
 
 function loadForm(){
 
-const p =
-portfolioData.profile;
+    const p=portfolioData.profile;
+
+    $("fName").value=p.name || "";
+
+    $("fEmail").value=p.email || "";
+
+    $("fPhone").value=p.phone || "";
+
+    $("fLocation").value=p.location || "";
+
+    $("fImage").value=p.image || "";
+
+    $("fBio").value=p.bio || "";
+
+    $("fAbout").value=p.about || "";
+
+    $("fObjective").value=p.objective || "";
 
 
-$("adminName").value =
-p.name || "";
+    const s=portfolioData.social;
+
+    $("socialGithub").value=s.github || "";
+
+    $("socialFacebook").value=s.facebook || "";
+
+    $("socialInstagram").value=s.instagram || "";
+
+    $("socialLinkedin").value=s.linkedin || "";
+
+    $("socialTwitter").value=s.twitter || "";
 
 
-$("adminEmail").value =
-p.email || "";
+    $("primaryColor").value=
+        portfolioData.appearance.primary;
 
-
-$("adminPhone").value =
-p.phone || "";
-
-
-$("adminLocation").value =
-p.location || "";
-
-
-$("adminImage").value =
-p.image || "";
-
-
-$("adminBio").value =
-p.bio || "";
-
-
-$("adminAbout").value =
-p.about || "";
-
-
-$("adminObjective").value =
-p.objective || "";
-
-
-$("adminPrimary").value =
-portfolioData.appearance.primary;
-
-
-$("adminSecondary").value =
-portfolioData.appearance.secondary;
-
-
-$("adminGithub").value =
-portfolioData.social.github || "";
-
-
-$("adminFacebook").value =
-portfolioData.social.facebook || "";
-
-
-$("adminInstagram").value =
-portfolioData.social.instagram || "";
-
-
-$("adminLinkedin").value =
-portfolioData.social.linkedin || "";
-
-
-$("adminTwitter").value =
-portfolioData.social.twitter || "";
-
-
-renderSkillsAdmin();
-
-renderProjectsAdmin();
-
+    $("secondaryColor").value=
+        portfolioData.appearance.secondary;
 }
 
 
@@ -2911,1173 +2136,1036 @@ renderProjectsAdmin();
 
 function readForm(){
 
-portfolioData.profile={
+    portfolioData.profile.name=
+        $("fName").value.trim();
 
-name:
-$("adminName").value.trim(),
+    portfolioData.profile.email=
+        $("fEmail").value.trim();
 
-email:
-$("adminEmail").value.trim(),
+    portfolioData.profile.phone=
+        $("fPhone").value.trim();
 
-phone:
-$("adminPhone").value.trim(),
+    portfolioData.profile.location=
+        $("fLocation").value.trim();
 
-location:
-$("adminLocation").value.trim(),
+    portfolioData.profile.image=
+        $("fImage").value.trim();
 
-image:
-$("adminImage").value.trim(),
+    portfolioData.profile.bio=
+        $("fBio").value.trim();
 
-bio:
-$("adminBio").value.trim(),
+    portfolioData.profile.about=
+        $("fAbout").value.trim();
 
-about:
-$("adminAbout").value.trim(),
-
-objective:
-$("adminObjective").value.trim()
-
-};
+    portfolioData.profile.objective=
+        $("fObjective").value.trim();
 
 
-portfolioData.appearance={
+    portfolioData.social.github=
+        $("socialGithub").value.trim();
 
-primary:
-$("adminPrimary").value,
+    portfolioData.social.facebook=
+        $("socialFacebook").value.trim();
 
-secondary:
-$("adminSecondary").value
+    portfolioData.social.instagram=
+        $("socialInstagram").value.trim();
 
-};
+    portfolioData.social.linkedin=
+        $("socialLinkedin").value.trim();
+
+    portfolioData.social.twitter=
+        $("socialTwitter").value.trim();
 
 
-portfolioData.social={
+    portfolioData.appearance.primary=
+        $("primaryColor").value;
 
-github:
-$("adminGithub").value.trim(),
+    portfolioData.appearance.secondary=
+        $("secondaryColor").value;
 
-facebook:
-$("adminFacebook").value.trim(),
 
-instagram:
-$("adminInstagram").value.trim(),
-
-linkedin:
-$("adminLinkedin").value.trim(),
-
-twitter:
-$("adminTwitter").value.trim()
-
-};
-
+    render();
 }
 
 
 /* =========================================================
-   SKILLS ADMIN
+   LOAD FIRESTORE
 ========================================================= */
 
-function renderSkillsAdmin(){
+async function loadOnline(){
 
-const skills =
-portfolioData.skills || [];
+    try{
+
+        const snap=
+            await getDoc(
+                doc(db,"portfolio","main")
+            );
+
+        if(snap.exists()){
+
+            const online=snap.data();
+
+            portfolioData={
+                ...defaultData,
+                ...online,
+
+                profile:{
+                    ...defaultData.profile,
+                    ...(online.profile || {})
+                },
+
+                appearance:{
+                    ...defaultData.appearance,
+                    ...(online.appearance || {})
+                },
+
+                social:{
+                    ...defaultData.social,
+                    ...(online.social || {})
+                },
+
+                skills:
+                    Array.isArray(online.skills)
+                    ? online.skills
+                    : defaultData.skills,
+
+                projects:
+                    Array.isArray(online.projects)
+                    ? online.projects
+                    : defaultData.projects
+            };
+
+        }
+
+        render();
+
+    }catch(error){
+
+        console.error(error);
+
+        render();
+
+        showStatus(
+            "adminStatus",
+            "Could not load online data: "+error.message,
+            "error"
+        );
+    }
+}
 
 
-$("skillsAdminList").innerHTML =
+/* =========================================================
+   SAVE FIRESTORE
+========================================================= */
 
-skills.length
+async function saveOnline(){
 
-?
+    const user=auth.currentUser;
 
-skills.map((skill,index)=>`
+    if(!user){
 
-<div class="list-item">
+        showStatus(
+            "adminStatus",
+            "Please login first.",
+            "error"
+        );
 
-<div class="list-item-header">
+        return;
+    }
 
-<div>
+    if(user.email.toLowerCase() !==
+       ADMIN_EMAIL.toLowerCase()){
 
-<i class="${escapeHTML(
-skill.icon || "fas fa-code"
-)}"></i>
+        showStatus(
+            "adminStatus",
+            "You are not authorized.",
+            "error"
+        );
 
-<strong>
-${escapeHTML(skill.name)}
-</strong>
-
-</div>
-
-
-<button
-class="delete-btn"
-data-skill-index="${index}">
-
-<i class="fas fa-trash"></i>
-
-Delete
-
-</button>
-
-</div>
-
-</div>
-
-`).join("")
-
-:
-
-`<div class="empty">
-No skills.
-</div>`;
+        return;
+    }
 
 
-document
-.querySelectorAll("[data-skill-index]")
-.forEach(button=>{
+    readForm();
 
-button.onclick=()=>{
 
-const index=
-Number(
-button.dataset.skillIndex
-);
+    try{
 
-portfolioData.skills.splice(
-index,
-1
-);
+        $("saveBtn").disabled=true;
 
-renderSkillsAdmin();
+        $("saveBtn").innerHTML=
+            '<i class="fa-solid fa-spinner fa-spin"></i> Saving...';
 
-render();
+
+        await setDoc(
+            doc(db,"portfolio","main"),
+            portfolioData
+        );
+
+
+        showStatus(
+            "adminStatus",
+            "Portfolio saved successfully online.",
+            "success"
+        );
+
+    }catch(error){
+
+        console.error(error);
+
+        showStatus(
+            "adminStatus",
+            "Save failed: "+error.message,
+            "error"
+        );
+
+    }finally{
+
+        $("saveBtn").disabled=false;
+
+        $("saveBtn").innerHTML=
+            '<i class="fa-solid fa-cloud"></i> Save Online';
+    }
+}
+
+
+/* =========================================================
+   APK UPLOAD
+========================================================= */
+
+function uploadFile(file,path,contentType){
+
+    return new Promise((resolve,reject)=>{
+
+        const storageRef=
+            ref(storage,path);
+
+        const uploadTask=
+            uploadBytesResumable(
+                storageRef,
+                file,
+                {
+                    contentType:
+                        contentType ||
+                        file.type ||
+                        "application/octet-stream"
+                }
+            );
+
+
+        uploadTask.on(
+
+            "state_changed",
+
+            snapshot=>{
+
+                const percent=
+                    Math.round(
+                        (
+                            snapshot.bytesTransferred /
+                            snapshot.totalBytes
+                        ) * 100
+                    );
+
+                $("uploadProgress").style.display="block";
+
+                $("progressBar").style.width=
+                    percent+"%";
+
+                $("progressText").textContent=
+                    "Uploading: "+percent+"%";
+            },
+
+            error=>{
+
+                reject(error);
+
+            },
+
+            async()=>{
+
+                try{
+
+                    const url=
+                        await getDownloadURL(
+                            uploadTask.snapshot.ref
+                        );
+
+                    resolve(url);
+
+                }catch(error){
+
+                    reject(error);
+
+                }
+
+            }
+        );
+    });
+}
+
+
+/* =========================================================
+   ADD PROJECT FROM PHONE / PC
+========================================================= */
+
+async function addProject(){
+
+    const user=auth.currentUser;
+
+    if(!user){
+
+        showStatus(
+            "adminStatus",
+            "Please login first.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    if(
+        user.email.toLowerCase() !==
+        ADMIN_EMAIL.toLowerCase()
+    ){
+
+        showStatus(
+            "adminStatus",
+            "You are not authorized.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    const name=
+        $("projectName").value.trim();
+
+    const description=
+        $("projectDescription").value.trim();
+
+    const link=
+        $("projectLink").value.trim();
+
+    const apkFile=
+        $("apkFile").files[0];
+
+    const imageFile=
+        $("projectImageFile").files[0];
+
+
+    if(!name){
+
+        showStatus(
+            "adminStatus",
+            "Enter a project/app name.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    if(!apkFile && !imageFile){
+
+        showStatus(
+            "adminStatus",
+            "Select an APK or project image from your phone/PC.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    /* APK VALIDATION */
+
+    if(apkFile){
+
+        const isAPK =
+            apkFile.name.toLowerCase().endsWith(".apk") ||
+            apkFile.type ===
+            "application/vnd.android.package-archive";
+
+        if(!isAPK){
+
+            showStatus(
+                "adminStatus",
+                "Please select a valid .apk file.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        /* 100 MB LIMIT */
+
+        if(apkFile.size > 100 * 1024 * 1024){
+
+            showStatus(
+                "adminStatus",
+                "APK is larger than 100 MB.",
+                "error"
+            );
+
+            return;
+        }
+    }
+
+
+    try{
+
+        $("addProjectBtn").disabled=true;
+
+        $("addProjectBtn").innerHTML=
+            '<i class="fa-solid fa-spinner fa-spin"></i> Uploading...';
+
+
+        const projectId=createId();
+
+        let apkUrl="";
+
+        let apkName="";
+
+        let apkSize="";
+
+        let storagePath="";
+
+
+        /* ================================================
+           UPLOAD APK
+        ================================================= */
+
+        if(apkFile){
+
+            apkName=apkFile.name;
+
+            apkSize=formatBytes(apkFile.size);
+
+            storagePath=
+                "portfolio/apks/"+
+                projectId+"-"+
+                sanitizeFileName(apkFile.name);
+
+
+            showStatus(
+                "adminStatus",
+                "Uploading APK to Firebase Storage...",
+                "info"
+            );
+
+
+            apkUrl=
+                await uploadFile(
+                    apkFile,
+                    storagePath,
+                    "application/vnd.android.package-archive"
+                );
+        }
+
+
+        /* ================================================
+           UPLOAD IMAGE
+        ================================================= */
+
+        let imageUrl="";
+
+        let imageStoragePath="";
+
+
+        if(imageFile){
+
+            const imageName=
+                sanitizeFileName(
+                    imageFile.name
+                );
+
+            imageStoragePath=
+                "portfolio/project-images/"+
+                projectId+"-"+imageName;
+
+
+            showStatus(
+                "adminStatus",
+                "Uploading project image...",
+                "info"
+            );
+
+
+            imageUrl=
+                await uploadFile(
+                    imageFile,
+                    imageStoragePath,
+                    imageFile.type || "image/jpeg"
+                );
+
+        }
+
+
+        const project={
+
+            id:projectId,
+
+            name:name,
+
+            image:imageUrl,
+
+            description:
+                description ||
+                "Android application project.",
+
+            link:safeUrl(link),
+
+            apkUrl:apkUrl,
+
+            apkName:apkName,
+
+            apkSize:apkSize,
+
+            storagePath:storagePath,
+
+            imageStoragePath:
+                imageStoragePath
+        };
+
+
+        portfolioData.projects.unshift(
+            project
+        );
+
+
+        render();
+
+
+        clearProjectForm();
+
+
+        showStatus(
+            "adminStatus",
+            "Project uploaded. Click Save Online to publish the project metadata.",
+            "success"
+        );
+
+
+        /* Auto-save Firestore */
+
+        await setDoc(
+            doc(db,"portfolio","main"),
+            portfolioData
+        );
+
+
+        showStatus(
+            "adminStatus",
+            "Project uploaded and saved online successfully!",
+            "success"
+        );
+
+
+    }catch(error){
+
+        console.error(error);
+
+        showStatus(
+            "adminStatus",
+            "Upload failed: "+error.message,
+            "error"
+        );
+
+    }finally{
+
+        $("addProjectBtn").disabled=false;
+
+        $("addProjectBtn").innerHTML=
+            '<i class="fa-solid fa-cloud-arrow-up"></i> Upload & Add Project';
+
+        setTimeout(()=>{
+
+            $("uploadProgress").style.display="none";
+
+        },1000);
+    }
+}
+
+
+/* =========================================================
+   SANITIZE FILE NAME
+========================================================= */
+
+function sanitizeFileName(name){
+
+    return name
+        .replace(/[^a-zA-Z0-9._-]/g,"_")
+        .replace(/_+/g,"_")
+        .slice(0,150);
+}
+
+
+/* =========================================================
+   DELETE PROJECT
+========================================================= */
+
+async function deleteProject(id){
+
+    const user=auth.currentUser;
+
+    if(!user){
+
+        alert("Please login first.");
+
+        return;
+    }
+
+
+    const project=
+        portfolioData.projects
+        .find(p=>p.id===id);
+
+
+    if(!project) return;
+
+
+    const confirmDelete=
+        confirm(
+            `Delete "${project.name}"?`
+        );
+
+
+    if(!confirmDelete) return;
+
+
+    try{
+
+        /* Delete APK */
+
+        if(project.storagePath){
+
+            try{
+
+                await deleteObject(
+                    ref(
+                        storage,
+                        project.storagePath
+                    )
+                );
+
+            }catch(error){
+
+                console.warn(
+                    "APK delete:",
+                    error
+                );
+            }
+        }
+
+
+        /* Delete image */
+
+        if(project.imageStoragePath){
+
+            try{
+
+                await deleteObject(
+                    ref(
+                        storage,
+                        project.imageStoragePath
+                    )
+                );
+
+            }catch(error){
+
+                console.warn(
+                    "Image delete:",
+                    error
+                );
+            }
+        }
+
+
+        portfolioData.projects=
+            portfolioData.projects.filter(
+                p=>p.id!==id
+            );
+
+
+        await setDoc(
+            doc(db,"portfolio","main"),
+            portfolioData
+        );
+
+
+        render();
+
+
+        showStatus(
+            "adminStatus",
+            "Project deleted successfully.",
+            "success"
+        );
+
+    }catch(error){
+
+        console.error(error);
+
+        showStatus(
+            "adminStatus",
+            "Delete failed: "+error.message,
+            "error"
+        );
+    }
+}
+
+
+/* =========================================================
+   DELETE SKILL
+========================================================= */
+
+window.deleteSkill=function(index){
+
+    portfolioData.skills.splice(index,1);
+
+    renderAdminLists();
+
+    render();
 
 };
-
-});
-
-}
 
 
 /* =========================================================
    ADD SKILL
 ========================================================= */
 
-$("addSkillBtn").onclick=()=>{
+$("addSkillBtn").addEventListener(
+    "click",
+    ()=>{
 
-const name =
-$("newSkillName")
-.value
-.trim();
+        const name=
+            $("skillName").value.trim();
 
-
-const icon =
-$("newSkillIcon")
-.value
-.trim();
+        const icon=
+            $("skillIcon").value.trim() ||
+            "fas fa-code";
 
 
-if(!name){
+        if(!name){
 
-alert(
-"Enter skill name."
+            showStatus(
+                "adminStatus",
+                "Enter a skill name.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        portfolioData.skills.push({
+
+            name:name,
+
+            icon:icon
+
+        });
+
+
+        $("skillName").value="";
+
+        $("skillIcon").value="";
+
+
+        render();
+
+
+        showStatus(
+            "adminStatus",
+            "Skill added. Click Save Online.",
+            "success"
+        );
+    }
 );
-
-return;
-
-}
-
-
-portfolioData.skills.push({
-
-name:name,
-
-icon:
-icon || "fas fa-code"
-
-});
-
-
-$("newSkillName").value="";
-$("newSkillIcon").value="";
-
-
-renderSkillsAdmin();
-
-render();
-
-};
 
 
 /* =========================================================
-   PROJECT ADMIN
+   CLEAR PROJECT FORM
 ========================================================= */
 
-function renderProjectsAdmin(){
+function clearProjectForm(){
 
-const projects =
-portfolioData.projects || [];
+    $("projectName").value="";
 
+    $("projectDescription").value="";
 
-$("projectsAdminList").innerHTML =
+    $("projectLink").value="";
 
-projects.length
+    $("apkFile").value="";
 
-?
+    $("projectImageFile").value="";
 
-projects.map((project,index)=>`
+    $("apkSelected").textContent="";
 
-<div class="list-item">
+    $("imageSelected").textContent="";
 
-<div class="list-item-header">
+    $("progressBar").style.width="0%";
 
-<div style="flex:1">
-
-<strong>
-${escapeHTML(project.name)}
-</strong>
-
-<div style="
-color:var(--muted);
-font-size:12px;
-margin-top:5px;
-">
-
-${escapeHTML(
-project.description
-)}
-
-</div>
-
-
-${
-project.apkUrl
-
-?
-
-`<div
-style="
-color:#86efac;
-font-size:12px;
-margin-top:8px;
-">
-
-<i class="fab fa-android"></i>
-
-${escapeHTML(
-project.apkName ||
-"Android APK"
-)}
-
-</div>`
-
-:
-
-""
-}
-
-</div>
-
-
-<button
-class="delete-btn"
-data-project-index="${index}">
-
-<i class="fas fa-trash"></i>
-
-Delete
-
-</button>
-
-</div>
-
-</div>
-
-`).join("")
-
-:
-
-`<div class="empty">
-No projects.
-</div>`;
-
-
-document
-.querySelectorAll("[data-project-index]")
-.forEach(button=>{
-
-button.onclick=async()=>{
-
-const index =
-Number(
-button.dataset.projectIndex
-);
-
-
-const project =
-portfolioData.projects[index];
-
-
-if(
-project.storagePath &&
-auth.currentUser
-){
-
-try{
-
-await deleteObject(
-ref(
-storage,
-project.storagePath
-)
-);
-
-}catch(error){
-
-console.warn(
-"Storage delete warning:",
-error
-);
-
-}
-
+    $("progressText").textContent="0%";
 }
 
 
-portfolioData.projects.splice(
-index,
-1
+$("clearProjectBtn")
+.addEventListener(
+    "click",
+    clearProjectForm
 );
-
-
-renderProjectsAdmin();
-
-render();
-
-};
-
-});
-
-}
 
 
 /* =========================================================
-   APK FILE
-========================================================= */
-
-let selectedAPK = null;
-
-
-/* =========================================================
-   SELECT APK
+   FILE SELECT DISPLAY
 ========================================================= */
 
 $("apkFile").addEventListener(
-"change",
-event=>{
+    "change",
+    ()=>{
 
-const file =
-event.target.files[0];
+        const file=
+            $("apkFile").files[0];
 
+        if(!file){
 
-if(!file){
+            $("apkSelected").textContent="";
 
-selectedAPK=null;
-
-$("apkInfo")
-.classList.remove("show");
-
-return;
-
-}
+            return;
+        }
 
 
-if(
-!file.name
-.toLowerCase()
-.endsWith(".apk")
-){
+        $("apkSelected").innerHTML=
+            "📱 <b>"+
+            escapeHTML(file.name)+
+            "</b> • "+
+            escapeHTML(formatBytes(file.size));
 
-alert(
-"Please select an APK file."
-);
-
-event.target.value="";
-
-selectedAPK=null;
-
-return;
-
-}
-
-
-selectedAPK=file;
-
-
-$("apkName").textContent =
-file.name;
-
-
-$("apkSize").textContent =
-formatFileSize(
-file.size
+    }
 );
 
 
-$("apkInfo")
-.classList.add("show");
+$("projectImageFile").addEventListener(
+    "change",
+    ()=>{
 
-});
+        const file=
+            $("projectImageFile").files[0];
+
+        if(!file){
+
+            $("imageSelected").textContent="";
+
+            return;
+        }
+
+
+        $("imageSelected").innerHTML=
+            "🖼️ <b>"+
+            escapeHTML(file.name)+
+            "</b> • "+
+            escapeHTML(formatBytes(file.size));
+
+    }
+);
 
 
 /* =========================================================
-   UPLOAD APK
+   ADD PROJECT BUTTON
 ========================================================= */
 
-async function uploadAPK(file){
-
-return new Promise(
-(resolve,reject)=>{
-
-const user =
-auth.currentUser;
-
-
-if(!user){
-
-reject(
-new Error(
-"You must login first."
-)
+$("addProjectBtn")
+.addEventListener(
+    "click",
+    addProject
 );
-
-return;
-
-}
-
-
-const safeName =
-file.name
-.replace(
-/[^a-zA-Z0-9._-]/g,
-"_"
-);
-
-
-const uniqueName =
-Date.now()
-+
-"_"
-+
-safeName;
-
-
-const storagePath =
-"portfolio/apks/"
-+
-uniqueName;
-
-
-const storageRef =
-ref(
-storage,
-storagePath
-);
-
-
-const uploadTask =
-uploadBytesResumable(
-storageRef,
-file,
-{
-contentType:
-"application/vnd.android.package-archive"
-}
-);
-
-
-$("uploadProgress")
-.classList.add("active");
-
-
-$("progressBar").style.width =
-"0%";
-
-
-$("progressText").textContent =
-"Uploading APK...";
-
-
-uploadTask.on(
-
-"state_changed",
-
-snapshot=>{
-
-const progress =
-(
-snapshot.bytesTransferred /
-snapshot.totalBytes
-)
-*100;
-
-
-$("progressBar")
-.style.width =
-progress + "%";
-
-
-$("progressText")
-.textContent =
-"Uploading APK: "
-+
-progress.toFixed(0)
-+
-"%";
-
-},
-
-error=>{
-
-console.error(
-"APK upload error:",
-error
-);
-
-$("progressText")
-.textContent =
-"Upload failed.";
-
-reject(error);
-
-},
-
-async()=>{
-
-try{
-
-const downloadURL =
-await getDownloadURL(
-uploadTask.snapshot.ref
-);
-
-
-$("progressBar")
-.style.width =
-"100%";
-
-
-$("progressText")
-.textContent =
-"APK uploaded successfully.";
-
-
-resolve({
-
-downloadURL,
-
-storagePath,
-
-fileName:
-file.name
-
-});
-
-
-}catch(error){
-
-reject(error);
-
-}
-
-}
-
-);
-
-});
-
-}
 
 
 /* =========================================================
-   ADD PROJECT
+   SAVE / RELOAD
 ========================================================= */
 
-$("addProjectBtn").onclick =
-async()=>{
-
-const name =
-$("newProjectName")
-.value
-.trim();
-
-
-const image =
-$("newProjectImage")
-.value
-.trim();
-
-
-const description =
-$("newProjectDescription")
-.value
-.trim();
-
-
-const link =
-$("newProjectLink")
-.value
-.trim();
-
-
-if(!name){
-
-alert(
-"Please enter project name."
-);
-
-return;
-
-}
-
-
-if(!selectedAPK){
-
-alert(
-"Please select an APK file."
-);
-
-return;
-
-}
-
-
-if(!auth.currentUser){
-
-alert(
-"Please login first."
-);
-
-return;
-
-}
-
-
-try{
-
-$("addProjectBtn").disabled=true;
-
-
-$("addProjectBtn").innerHTML=
-`
-<i class="fas fa-spinner fa-spin"></i>
-Uploading...
-`;
-
-
-const apk =
-await uploadAPK(
-selectedAPK
+$("saveBtn")
+.addEventListener(
+    "click",
+    saveOnline
 );
 
 
-portfolioData.projects.push({
+$("reloadBtn")
+.addEventListener(
+    "click",
+    async()=>{
 
-name:name,
+        await loadOnline();
 
-image:image,
-
-description:description,
-
-link:link,
-
-apkUrl:
-apk.downloadURL,
-
-apkName:
-apk.fileName,
-
-storagePath:
-apk.storagePath
-
-});
-
-
-renderProjectsAdmin();
-
-render();
-
-
-$("newProjectName").value="";
-
-$("newProjectImage").value="";
-
-$("newProjectDescription").value="";
-
-$("newProjectLink").value="";
-
-$("apkFile").value="";
-
-selectedAPK=null;
-
-$("apkInfo")
-.classList.remove("show");
-
-
-$("uploadProgress")
-.classList.remove("active");
-
-
-$("progressBar")
-.style.width="0%";
-
-
-$("progressText").textContent="";
-
-
-showAdminStatus(
-"Project and APK added. Click Save Online to publish it.",
-"success"
+        showStatus(
+            "adminStatus",
+            "Online data reloaded.",
+            "success"
+        );
+    }
 );
-
-
-}catch(error){
-
-console.error(error);
-
-
-showAdminStatus(
-"APK upload failed: "
-+
-error.message,
-"error"
-);
-
-}finally{
-
-$("addProjectBtn").disabled=false;
-
-$("addProjectBtn").innerHTML=
-`
-<i class="fas fa-plus"></i>
-Add Project
-`;
-
-}
-
-};
-
-
-/* =========================================================
-   LOGIN STATUS
-========================================================= */
-
-function showLoginStatus(
-message,
-type="error"
-){
-
-const el =
-$("loginStatus");
-
-
-el.textContent =
-message;
-
-
-el.className =
-"status show "
-+
-type;
-
-}
-
-
-/* =========================================================
-   ADMIN STATUS
-========================================================= */
-
-function showAdminStatus(
-message,
-type="success"
-){
-
-const el =
-$("adminStatus");
-
-
-el.textContent =
-message;
-
-
-el.className =
-"status show "
-+
-type;
-
-}
-
-
-/* =========================================================
-   ADMIN BUTTON
-========================================================= */
-
-$("adminButton").onclick=()=>{
-
-if(
-auth.currentUser &&
-auth.currentUser.email ===
-ADMIN_EMAIL
-){
-
-$("adminModal")
-.classList.add("active");
-
-loadForm();
-
-}else{
-
-$("loginModal")
-.classList.add("active");
-
-}
-
-};
-
-
-/* =========================================================
-   CLOSE LOGIN
-========================================================= */
-
-$("closeLogin").onclick=()=>{
-
-$("loginModal")
-.classList.remove("active");
-
-};
-
-
-/* =========================================================
-   CLOSE ADMIN
-========================================================= */
-
-$("closeAdmin").onclick=()=>{
-
-$("adminModal")
-.classList.remove("active");
-
-};
 
 
 /* =========================================================
    LOGIN
 ========================================================= */
 
-$("loginForm").onsubmit =
-async event=>{
+$("adminBtn")
+.addEventListener(
+    "click",
+    ()=>{
 
-event.preventDefault();
+        if(auth.currentUser){
 
+            $("adminEmailDisplay").textContent=
+                auth.currentUser.email;
 
-const email =
-$("loginEmail")
-.value
-.trim();
+            openModal("adminModal");
 
+        }else{
 
-const password =
-$("loginPassword")
-.value;
+            openModal("loginModal");
 
+        }
 
-if(
-email !== ADMIN_EMAIL
-){
-
-showLoginStatus(
-"This email is not authorized.",
-"error"
-);
-
-return;
-
-}
-
-
-try{
-
-showLoginStatus(
-"Signing in...",
-"success"
+    }
 );
 
 
-await signInWithEmailAndPassword(
-auth,
-email,
-password
+$("loginForm")
+.addEventListener(
+    "submit",
+    async e=>{
+
+        e.preventDefault();
+
+        const email=
+            $("loginEmail").value.trim();
+
+        const password=
+            $("loginPassword").value;
+
+
+        if(
+            email.toLowerCase() !==
+            ADMIN_EMAIL.toLowerCase()
+        ){
+
+            showStatus(
+                "loginStatus",
+                "This email is not the portfolio admin.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        try{
+
+            showStatus(
+                "loginStatus",
+                "Logging in...",
+                "info"
+            );
+
+
+            await signInWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+
+
+            closeModal("loginModal");
+
+
+            $("loginForm").reset();
+
+        }catch(error){
+
+            console.error(error);
+
+            showStatus(
+                "loginStatus",
+                firebaseError(error),
+                "error"
+            );
+        }
+    }
 );
-
-
-showLoginStatus(
-"Login successful.",
-"success"
-);
-
-
-setTimeout(()=>{
-
-$("loginModal")
-.classList.remove("active");
-
-
-$("adminModal")
-.classList.add("active");
-
-
-loadForm();
-
-},500);
-
-
-}catch(error){
-
-console.error(
-"Firebase login error:",
-error
-);
-
-
-let message;
-
-
-switch(error.code){
-
-case "auth/invalid-credential":
-
-message =
-"Invalid email or password.";
-
-break;
-
-
-case "auth/user-not-found":
-
-message =
-"Admin user does not exist.";
-
-break;
-
-
-case "auth/wrong-password":
-
-message =
-"Incorrect password.";
-
-break;
-
-
-case "auth/operation-not-allowed":
-
-message =
-"Email/Password authentication is disabled.";
-
-break;
-
-
-case "auth/invalid-api-key":
-
-message =
-"Firebase API key is invalid.";
-
-break;
-
-
-case "auth/too-many-requests":
-
-message =
-"Too many attempts. Try again later.";
-
-break;
-
-
-default:
-
-message =
-error.code +
-": " +
-error.message;
-
-}
-
-
-showLoginStatus(
-message,
-"error"
-);
-
-}
-
-};
 
 
 /* =========================================================
-   AUTH STATE
+   FIREBASE AUTH STATE
 ========================================================= */
 
 onAuthStateChanged(
-auth,
-user=>{
+    auth,
+    async user=>{
 
-if(user){
+        if(user){
 
-console.log(
-"Firebase user:",
-user.email
+            if(
+                user.email.toLowerCase() !==
+                ADMIN_EMAIL.toLowerCase()
+            ){
+
+                await signOut(auth);
+
+                return;
+            }
+
+
+            $("adminEmailDisplay").textContent=
+                user.email;
+
+
+            $("adminBtn").innerHTML=
+                '<i class="fa-solid fa-gauge"></i> Admin Panel';
+
+
+            await loadOnline();
+
+
+            openModal("adminModal");
+
+        }else{
+
+            $("adminBtn").innerHTML=
+                '<i class="fa-solid fa-lock"></i> Admin';
+        }
+    }
 );
-
-}else{
-
-console.log(
-"No authenticated user."
-);
-
-}
-
-});
-
-
-/* =========================================================
-   SAVE ONLINE
-========================================================= */
-
-$("saveOnlineBtn").onclick =
-async()=>{
-
-const user =
-auth.currentUser;
-
-
-if(!user){
-
-showAdminStatus(
-"Please login first.",
-"error"
-);
-
-return;
-
-}
-
-
-if(
-user.email !== ADMIN_EMAIL
-){
-
-showAdminStatus(
-"Unauthorized account.",
-"error"
-);
-
-return;
-
-}
-
-
-try{
-
-readForm();
-
-
-showAdminStatus(
-"Saving portfolio to Firebase...",
-"success"
-);
-
-
-await setDoc(
-portfolioRef,
-portfolioData
-);
-
-
-render();
-
-
-showAdminStatus(
-"Portfolio saved online successfully!",
-"success"
-);
-
-
-}catch(error){
-
-console.error(error);
-
-
-showAdminStatus(
-error.code +
-": " +
-error.message,
-"error"
-);
-
-}
-
-};
-
-
-/* =========================================================
-   RELOAD
-========================================================= */
-
-$("reloadBtn").onclick =
-async()=>{
-
-await loadOnline();
-
-loadForm();
-
-
-showAdminStatus(
-"Portfolio reloaded from Firebase.",
-"success"
-);
-
-};
 
 
 /* =========================================================
    LOGOUT
 ========================================================= */
 
-$("logoutBtn").onclick =
-async()=>{
+$("logoutBtn")
+.addEventListener(
+    "click",
+    async()=>{
 
-try{
+        await signOut(auth);
 
-await signOut(auth);
+        closeModal("adminModal");
 
-
-$("adminModal")
-.classList.remove("active");
-
-
-alert(
-"Logged out successfully."
+        showStatus(
+            "loginStatus",
+            "Logged out successfully.",
+            "success"
+        );
+    }
 );
-
-
-}catch(error){
-
-alert(
-"Logout failed: "
-+
-error.message
-);
-
-}
-
-};
 
 
 /* =========================================================
@@ -4085,89 +3173,170 @@ error.message
 ========================================================= */
 
 document
-.querySelectorAll(".tab-button")
+.querySelectorAll(".tab-btn")
 .forEach(button=>{
 
-button.onclick=()=>{
+    button.addEventListener(
+        "click",
+        ()=>{
 
-document
-.querySelectorAll(".tab-button")
-.forEach(x=>
-x.classList.remove("active")
-);
+            document
+            .querySelectorAll(".tab-btn")
+            .forEach(x=>
+                x.classList.remove("active")
+            );
 
-
-document
-.querySelectorAll(".tab")
-.forEach(x=>
-x.classList.remove("active")
-);
-
-
-button.classList.add("active");
+            document
+            .querySelectorAll(".tab")
+            .forEach(x=>
+                x.classList.remove("active")
+            );
 
 
-$(button.dataset.tab)
-.classList.add("active");
+            button.classList.add("active");
 
-};
-
+            $(button.dataset.tab)
+                .classList.add("active");
+        }
+    );
 });
 
 
 /* =========================================================
-   BACKDROP CLOSE
+   COLOR LIVE UPDATE
 ========================================================= */
 
-$("loginModal").onclick =
-event=>{
+$("primaryColor")
+.addEventListener(
+    "input",
+    e=>{
 
-if(
-event.target ===
-$("loginModal")
-){
-
-$("loginModal")
-.classList.remove("active");
-
-}
-
-};
+        document.documentElement.style
+            .setProperty(
+                "--primary",
+                e.target.value
+            );
+    }
+);
 
 
-$("adminModal").onclick =
-event=>{
+$("secondaryColor")
+.addEventListener(
+    "input",
+    e=>{
 
-if(
-event.target ===
-$("adminModal")
-){
-
-$("adminModal")
-.classList.remove("active");
-
-}
-
-};
+        document.documentElement.style
+            .setProperty(
+                "--secondary",
+                e.target.value
+            );
+    }
+);
 
 
 /* =========================================================
-   TYPING
+   MODALS
+========================================================= */
+
+window.openModal=function(id){
+
+    $(id).classList.add("active");
+
+};
+
+
+window.closeModal=function(id){
+
+    $(id).classList.remove("active");
+
+};
+
+
+document
+.querySelectorAll(".modal")
+.forEach(modal=>{
+
+    modal.addEventListener(
+        "click",
+        e=>{
+
+            if(e.target===modal){
+
+                modal.classList.remove(
+                    "active"
+                );
+            }
+        }
+    );
+});
+
+
+/* =========================================================
+   FIREBASE ERROR MESSAGES
+========================================================= */
+
+function firebaseError(error){
+
+    const code=error?.code || "";
+
+    const messages={
+
+        "auth/invalid-credential":
+        "Invalid email or password.",
+
+        "auth/invalid-login-credentials":
+        "Invalid email or password.",
+
+        "auth/user-not-found":
+        "Admin account was not found.",
+
+        "auth/wrong-password":
+        "Incorrect password.",
+
+        "auth/too-many-requests":
+        "Too many login attempts. Try again later.",
+
+        "auth/network-request-failed":
+        "Network connection failed.",
+
+        "storage/unauthorized":
+        "Firebase Storage permission denied. Check Storage Rules.",
+
+        "storage/unknown":
+        "Firebase Storage returned an unknown error.",
+
+        "storage/quota-exceeded":
+        "Firebase Storage quota exceeded.",
+
+        "storage/object-not-found":
+        "Storage file was not found.",
+
+        "permission-denied":
+        "Firestore permission denied. Check Firestore Rules."
+    };
+
+
+    return messages[code] ||
+        error?.message ||
+        "Something went wrong.";
+}
+
+
+/* =========================================================
+   TYPING ANIMATION
 ========================================================= */
 
 const typingWords=[
 
-"Software Developer",
+    "Software Developer",
 
-"BSc CSIT Student",
+    "Web Developer",
 
-"Web Developer",
+    "Android Developer",
 
-"UI Designer",
+    "UI Designer",
 
-"Android Developer",
-
-"Technology Enthusiast"
+    "BSc CSIT Student"
 
 ];
 
@@ -4179,101 +3348,71 @@ let charIndex=0;
 let deleting=false;
 
 
-function typingAnimation(){
+function typeEffect(){
 
-const word =
-typingWords[wordIndex];
+    const word=
+        typingWords[wordIndex];
+
+    if(!deleting){
+
+        $("typing").textContent=
+            word.substring(
+                0,
+                charIndex+1
+            );
+
+        charIndex++;
+
+        if(charIndex===word.length){
+
+            deleting=true;
+
+            setTimeout(
+                typeEffect,
+                1200
+            );
+
+            return;
+        }
+
+    }else{
+
+        $("typing").textContent=
+            word.substring(
+                0,
+                charIndex-1
+            );
+
+        charIndex--;
+
+        if(charIndex===0){
+
+            deleting=false;
+
+            wordIndex=
+                (wordIndex+1) %
+                typingWords.length;
+        }
+    }
 
 
-if(!deleting){
-
-$("typing").textContent =
-word.substring(
-0,
-charIndex+1
-);
-
-charIndex++;
-
-
-if(
-charIndex ===
-word.length
-){
-
-deleting=true;
-
-
-setTimeout(
-typingAnimation,
-1300
-);
-
-return;
-
+    setTimeout(
+        typeEffect,
+        deleting ? 50 : 90
+    );
 }
-
-}else{
-
-$("typing").textContent =
-word.substring(
-0,
-charIndex-1
-);
-
-charIndex--;
-
-
-if(charIndex===0){
-
-deleting=false;
-
-wordIndex=
-(
-wordIndex+1
-)
-%
-typingWords.length;
-
-}
-
-}
-
-
-setTimeout(
-typingAnimation,
-deleting ? 50 : 90
-);
-
-}
-
-
-/* =========================================================
-   YEAR
-========================================================= */
-
-$("year").textContent =
-new Date()
-.getFullYear();
 
 
 /* =========================================================
    START
 ========================================================= */
 
-await loadOnline();
+render();
 
-typingAnimation();
-
-
-setTimeout(()=>{
-
-$("loader")
-.classList.add("hide");
-
-},500);
+typeEffect();
 
 </script>
 
 </body>
 </html>
+```
